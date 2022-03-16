@@ -2,7 +2,7 @@
 # http://git-scm.com/docs/gitignore
 
 # Ignore all files in this dir...
-*./app
+*
 
 # ... except for this one.
 !.gitignore
