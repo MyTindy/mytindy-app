@@ -1,17 +1,23 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/my-project
+    working_directory: ~/mytindy
     docker:
-      - image: circleci/node:16-browsers
+      - image: circleci/node:16
     steps:
       - checkout
+      - run: 
+          name: update-npm
+          command: "sudo npm install -g npm@8"
       - restore_cache:
           key: AngularCircleCI-{{ .Branch }}-{{ checksum "package.json" }}
-      - run: npm install
+      - run:
+          name: install-packages
+          command: npm install 
       - save_cache:
           key: AngularCircleCI-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
-            - "node_modules"
-      - run: xvfb-run -a npm run test -- --single-run --no-progress --browser=ChromeNoSandbox
-      - run: xvfb-run -a npm run e2e -- --no-progress --config=protractor-ci.conf.js
+            - "./node_modules"
+      - run:
+         name: test
+         command: npm run test
