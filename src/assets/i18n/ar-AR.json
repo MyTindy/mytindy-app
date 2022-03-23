@@ -1,0 +1,63 @@
+{
+    "LOGIN-AND-SIGNUP":{
+        "Signup":"إنشاء حساب",
+        "login":"تسجيل الدخول",
+        "english-language":"EN",
+        "arabic-language":"العربية",
+        "french-language":"fr"
+    },
+    "LOGIN":{
+        "code":"الكود",
+        "phone":"الهاتف",
+       "prefix":"يرجى تحديد الرقم الوطني",
+       "phone-number":"يرجى ادخال رقم الهاتف",
+       "password":"كلمة السر",
+       "login":"تسجيل الدخول",
+       "forgot-password":"هل نسيت كلمة السر الخاصة بك ؟",
+       "or":"أو",
+       "registered-yet":"ليس لدي حساب ؟"
+    },
+    "FORGOT-PASSWORD":{
+        "forgot-password":"نسيت كلمة المرور",
+        "code":"الكود",
+        "phone":"الهاتف",
+       "prefix-phrase":"يرجى تحديد البادئة",
+       "phone-number-phrase":"يرجى إدخال رقم الهاتف",
+       "pin":"إرسال الرقم السري"
+    },
+    "RESET-YOUR-PASSWORD":{
+        "reset-your-password":"إعادة تعين كلمةالمرور",
+        "new-password":"كلمة السر الجديدة",
+        "confirm-new-password":"إعادة كتابة كلمة السر الجديدة",
+        "confirm":"تأكيد"
+    },
+    "SIGNUP":{
+        "sign-up":"إنشاءحساب",
+        "name":"الاسم",
+        "error-msg":"هناك خطأ",
+        "code":"الكود",
+        "phone":"الهاتف",
+       "prefix":"يرجى تحديد الرقم الوطني",
+       "phone-number":"يرجى إدخال رقم الهاتف",
+       "password":"كلمة السر",
+       "confirm-password":"تأكيد كلمة السر",
+       "register":"تسجيل",
+       "or":"أو",
+       "have-an-account":"لدي حساب ؟"
+    },
+    "CODE-CONFIRMATION":{
+        "confirm-phrase":"تاكيد رقم الهاتف من خلال الرمز المبعوت",
+        "confirm":"تسجيل",
+        "resend":"لم يصلني الرمز ؟اعادة ارسال الرمز؟"
+    },
+    "PICTURE":{
+        "profile-picture":"اختيار صورة شخصية",
+        "take-a-pic":"أخذ صورة",
+        "skip":"تخطي الآن"
+    },
+    "CHOOSEN-PICTURE":{
+        "choose-phrase":"اختيار الصورة",
+        "upload":"رفع الصورة",
+        "retake-pic":"إعادة اخذ الصورة"
+    }
+}
