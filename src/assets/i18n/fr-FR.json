@@ -1,0 +1,63 @@
+{
+    "LOGIN-AND-SIGNUP":{
+        "Signup":"S'inscrire",
+        "login":"Connexion",
+        "english-language":"EN",
+        "arabic-language":"العربية",
+        "french-language":"FR"
+    },
+    "LOGIN":{
+        "code":"code",
+        "phone":"téléphone",
+       "prefix":"veuillez sélectionner votre préfixe",
+       "phone-number":"veuillez écrire votre numéro de téléphone",
+       "password":"Mot de passe",
+       "login":"Connexion",
+       "forgot-password":"Mot de passe oublié ?",
+       "or":"ou",
+       "registered-yet":"Pas encore enregistré ?"
+    },
+    "FORGOT-PASSWORD":{
+        "forgot-password":"Mot de passe oublié",
+        "code":"code",
+        "phone":"téléphone",
+       "prefix-phrase":"Veuillez sélectionner votre préfixe",
+       "phone-number-phrase":"Veuillez écrire votre numéro de téléphone",
+       "pin":"Envoie-moi la broche"
+    },
+    "RESET-YOUR-PASSWORD":{
+        "reset-your-password":"Réinitialiser votre mot de passe",
+        "new-password":"nouveau mot de passe",
+        "confirm-new-password":"confirmer le mot de passe",
+        "confirm":"Confirmer"
+    },
+    "SIGNUP":{
+        "sign-up":"Inscrivez-vous",
+        "name":"nom",
+        "error-msg":"message d'erreur bla bla bla",
+        "code":"code",
+        "phone":"téléphone",
+       "prefix":"veuillez sélectionner votre préfixe",
+       "phone-number":"veuillez écrire votre numéro de téléphone",
+       "password":"Mot de passe",
+       "confirm-password":"Confirmer le mot de passe",
+       "register":"S'inscrire",
+       "or":"ou",
+       "have-an-account":"Vous avez déjà un compte?"
+    },
+    "CODE-CONFIRMATION":{
+        "confirm-phrase":"Confirmez votre numéro avec le code que nous avons envoyé à votre numéro de téléphone",
+        "confirm":"Confirmer",
+        "resend":"Vous ne l'avez pas reçu ? Renvoyez-le à nouveau."
+    },
+    "PICTURE":{
+        "profile-picture":"Choisissez une photo de profi",
+        "take-a-pic":"Prendre une photo",
+        "skip":"Ignorer pour l'instant"
+    },
+    "CHOOSEN-PICTURE":{
+        "choose-phrase":"Choisissez cette image",
+        "upload":"Télécharger",
+        "retake-pic":"Reprendre la photo"
+    }
+}

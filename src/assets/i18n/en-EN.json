@@ -1,0 +1,63 @@
+{
+    "LOGIN-AND-SIGNUP":{
+        "Signup":"Sign up",
+        "login":"Log in",
+        "english-language":"EN",
+        "arabic-language":"العربية",
+        "french-language":"fr"
+    },
+    "LOGIN":{
+        "code":"code",
+        "phone":"phone",
+       "prefix":"please select your prefix",
+       "phone-number":"please write your phone number",
+       "password":"Password",
+       "login":"Log in",
+       "forgot-password":"Forgot your password ?",
+       "or":"OR",
+       "registered-yet":"Not registered yet?"
+    },
+    "FORGOT-PASSWORD":{
+        "forgot-password":"Forgot password",
+        "code":"code",
+        "phone":"phone",
+       "prefix-phrase":"Please select your prefix",
+       "phone-number-phrase":"Please write your phone number",
+       "pin":"Send me the pin"
+    },
+    "RESET-YOUR-PASSWORD":{
+        "reset-your-password":"Reset your password",
+        "new-password":"new password",
+        "confirm-new-password":"confirm password",
+        "confirm":"Confirm"
+    },
+    "SIGNUP":{
+        "sign-up":"Sign up",
+        "name":"name",
+        "error-msg":"error msg bla bla bla",
+        "code":"code",
+        "phone":"phone",
+       "prefix":"please select your prefix",
+       "phone-number":"please write your phone number",
+       "password":"Password",
+       "confirm-password":"Confirm Password",
+       "register":"Register",
+       "or":"OR",
+       "have-an-account":"Have an account already?"
+    },
+    "CODE-CONFIRMATION":{
+        "confirm-phrase":"Confirm your number with the code we sent to your phone number",
+        "confirm":"Confirm",
+        "resend":"Havent received it? Resend it again."
+    },
+    "PICTURE":{
+        "profile-picture":"Choose a profile picture",
+        "take-a-pic":"Take a picture",
+        "skip":"Skip For Now"
+    },
+    "CHOOSEN-PICTURE":{
+        "choose-phrase":"Choose this picture",
+        "upload":"Upload",
+        "retake-pic":"Retake the picture"
+    }
+}
