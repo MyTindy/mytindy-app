@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import firebase from 'firebase/compat/app';
 
 import { AuthService } from 'src/app/services/auth.service';
@@ -15,7 +16,7 @@ export class LoginPage {
   recaptchaVerifier: firebase.auth.RecaptchaVerifier;
   confirmationResult: any;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   async ionViewDidEnter() {
     this.recaptchaVerifier = new firebase.auth.RecaptchaVerifier(
@@ -50,6 +51,8 @@ export class LoginPage {
           .signInWithPhoneNumber(this.recaptchaVerifier, this.phoneNumber)
           .then((success) => {
             console.log('country', this.recaptchaVerifier);
+
+            this.router.navigate(['/confirm']);
           });
       }
     } catch (error) {
