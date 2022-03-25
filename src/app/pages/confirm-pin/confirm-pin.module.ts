@@ -9,7 +9,12 @@ import { ConfirmPinPageRoutingModule } from './confirm-pin-routing.module';
 import { ConfirmPinPage } from './confirm-pin.page';
 
 @NgModule({
-  imports: [CommonModule, IonicModule, ConfirmPinPageRoutingModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    ConfirmPinPageRoutingModule,
+  ],
   declarations: [ConfirmPinPage],
 })
 export class ConfirmPinPageModule {}
