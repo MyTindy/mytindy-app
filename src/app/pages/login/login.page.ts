@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import firebase from 'firebase/compat/app';
 
+import { AuthService } from 'src/app/services/auth.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -13,7 +15,7 @@ export class LoginPage {
   recaptchaVerifier: firebase.auth.RecaptchaVerifier;
   confirmationResult: any;
 
-  constructor() {}
+  constructor(private authService: AuthService) {}
 
   async ionViewDidEnter() {
     this.recaptchaVerifier = new firebase.auth.RecaptchaVerifier(
@@ -44,7 +46,11 @@ export class LoginPage {
   signinWithPhoneNumber($event) {
     try {
       if (this.phoneNumber) {
-        console.log(this.phoneNumber);
+        this.authService
+          .signInWithPhoneNumber(this.recaptchaVerifier, this.phoneNumber)
+          .then((success) => {
+            console.log('country', this.recaptchaVerifier);
+          });
       }
     } catch (error) {
       console.error('error', error);
