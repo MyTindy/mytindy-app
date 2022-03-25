@@ -1,0 +1,32 @@
+<ion-content class="ion-no-padding">
+  <div id="sign-in-button"></div>
+
+  <div>
+    <ion-card no-margin>
+      <ion-card-content>
+        <ion-row class="row">
+          <div class="fire-logo">
+            <img src="../../../assets/tindy-logo.jpeg" class="img-logo" />
+            <ion-text class="ion-padding">
+              <h1 class="ion-no-margin ion-margin-vertical ion-text-center">
+                Login
+              </h1>
+            </ion-text>
+          </div>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-button
+              expand="block"
+              (click)="signinWithPhoneNumber($event)"
+              [disabled]="!phoneNumber"
+            >
+              Sign in
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
