@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 
 import { AuthService } from 'src/app/services/auth.service';
@@ -16,7 +17,8 @@ export class ConfirmPinPage {
 
   constructor(
     private alertController: AlertController,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   verifyCode() {
@@ -25,6 +27,7 @@ export class ConfirmPinPage {
     this.authService.enterVerifcationCode(this.code).then((userData) => {
       this.showSuccess();
       console.log(userData);
+      this.router.navigate(['/profile']);
     });
   }
 
@@ -61,6 +64,7 @@ export class ConfirmPinPage {
             this.authService.enterVerifcationCode(res.otp).then((userData) => {
               this.showSuccess();
               console.log(userData);
+              this.router.navigate(['/profile']);
             });
           },
         },
