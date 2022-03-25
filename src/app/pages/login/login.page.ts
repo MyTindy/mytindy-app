@@ -8,6 +8,7 @@ import firebase from 'firebase/compat/app';
 })
 export class LoginPage {
   OPT: string = '';
+  phoneNumber: string;
 
   recaptchaVerifier: firebase.auth.RecaptchaVerifier;
   confirmationResult: any;
@@ -34,5 +35,19 @@ export class LoginPage {
         'expired-callback': () => {},
       }
     );
+  }
+
+  onPhoneEmitted($event) {
+    this.phoneNumber = $event;
+  }
+
+  signinWithPhoneNumber($event) {
+    try {
+      if (this.phoneNumber) {
+        console.log(this.phoneNumber);
+      }
+    } catch (error) {
+      console.error('error', error);
+    }
   }
 }

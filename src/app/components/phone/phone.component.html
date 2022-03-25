@@ -25,6 +25,7 @@
         clearInput
         clear-input="true"
         [(ngModel)]="PhoneNo"
+        (ionChange)="countryCodeWithPhoneNoChange()"
       ></ion-input>
     </ion-col>
   </ion-row>

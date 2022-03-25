@@ -12,8 +12,13 @@ export class PhoneComponent {
   PhoneNo: number;
 
   constructor() {}
+  @Output() phoneNumber = new EventEmitter<string>();
 
   countryCodeChange($event) {
     this.CountryCode = $event.detail.value;
+  }
+
+  countryCodeWithPhoneNoChange() {
+    this.phoneNumber.emit(this.CountryCode + '' + this.PhoneNo);
   }
 }
