@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 
 import { AuthService } from 'src/app/services/auth.service';
+import { LocationService } from 'src/app/services/location.service';
+import { UsersService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-confirm-pin',
@@ -14,19 +16,29 @@ export class ConfirmPinPage {
     'An OTP is sent to your number. You should receive it in 15 s';
   showOTPInput: boolean = false;
   code: number;
+  location;
 
   constructor(
     private alertController: AlertController,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private locationService: LocationService,
+    private usersService: UsersService
   ) {}
+
+  ionViewDidEnter() {
+    this.locationService
+      .getUserCoordinates()
+      .then((res) => (this.location = res));
+  }
 
   verifyCode() {
     console.log(this.code);
 
     this.authService.enterVerifcationCode(this.code).then((userData) => {
       this.showSuccess();
-      console.log(userData);
+      this.usersService.createUser(userData, this.location);
+
       this.router.navigate(['/profile']);
     });
   }
