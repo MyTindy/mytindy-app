@@ -24,6 +24,10 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/profile/profile.module').then((m) => m.ProfilePageModule),
   },
+  {
+    path: 'take-photo',
+    loadChildren: () => import('./pages/take-photo/take-photo.module').then( m => m.TakePhotoPageModule)
+  },
 ];
 
 @NgModule({
