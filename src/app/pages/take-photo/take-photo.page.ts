@@ -7,5 +7,9 @@ import { PhotoService } from 'src/app/services/photo.service';
   styleUrls: ['./take-photo.page.scss'],
 })
 export class TakePhotoPage {
-  constructor() {}
+  constructor(public photoService: PhotoService) {}
+
+  addPhotoToGallery() {
+    this.photoService.addNewToGallery();
+  }
 }
