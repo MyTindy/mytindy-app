@@ -17,15 +17,14 @@ import { UserPhoto } from '../models/photo.model';
 })
 export class PhotoService {
   public photos: UserPhoto[] = [];
-  private platform: Platform;
 
-  constructor() {}
+  constructor(private platform: Platform) {}
 
   private PHOTO_STORAGE = 'photos';
 
   public async loadSavedPhotos() {
-    const photList = await Storage.get({ key: this.PHOTO_STORAGE });
-    this.photos = JSON.parse(photList.value) || [];
+    const photoList = await Storage.get({ key: this.PHOTO_STORAGE });
+    this.photos = JSON.parse(photoList.value) || [];
 
     if (!this.platform.is('hybrid')) {
       for (const photo of this.photos) {
@@ -52,6 +51,21 @@ export class PhotoService {
     Storage.set({
       key: this.PHOTO_STORAGE,
       value: JSON.stringify(this.photos),
+    });
+  }
+
+  public async deletePhoto(photo: UserPhoto, position: number) {
+    this.photos.splice(position, 1);
+
+    Storage.set({
+      key: this.PHOTO_STORAGE,
+      value: JSON.stringify(this.photos),
+    });
+
+    const filename = photo.filepath.substr(photo.filepath.lastIndexOf('/') + 1);
+    await Filesystem.deleteFile({
+      path: filename,
+      directory: Directory.Data,
     });
   }
 

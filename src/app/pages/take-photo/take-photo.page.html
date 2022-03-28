@@ -11,7 +11,11 @@
         size="6"
         *ngFor="let photo of photoService.photos; index as position"
       >
-        <ion-img [src]="photo.webviewPath"> </ion-img>
+        <ion-img
+          [src]="photo.webviewPath"
+          (click)="showActionSheet(photo, position)"
+        >
+        </ion-img>
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -19,5 +23,6 @@
     <ion-fab-button (click)="photoService.addNewToGallery()">
       <ion-icon name="camera"></ion-icon>
     </ion-fab-button>
+    <ion-button routerLink="/profile">Submit</ion-button>
   </ion-fab>
 </ion-content>
