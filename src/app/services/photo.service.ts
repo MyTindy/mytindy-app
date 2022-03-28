@@ -6,6 +6,7 @@ import {
   Photo,
 } from '@capacitor/camera';
 import { Filesystem, Directory } from '@capacitor/filesystem';
+import { Storage } from '@capacitor/storage';
 
 import { UserPhoto } from '../models/photo.model';
 
@@ -16,6 +17,22 @@ export class PhotoService {
   public photos: UserPhoto[] = [];
   constructor() {}
 
+  private PHOTO_STORAGE = 'photos';
+
+  public async loadSavedPhotos() {
+    const photList = await Storage.get({ key: this.PHOTO_STORAGE });
+    this.photos = JSON.parse(photList.value) || [];
+
+    for (const photo of this.photos) {
+      const readFile = await Filesystem.readFile({
+        path: photo.filepath,
+        directory: Directory.Data,
+      });
+
+      photo.webviewPath = `data:image/jpeg;base64,${readFile.data}`;
+    }
+  }
+
   public async addNewToGallery() {
     const capturedPhoto = await Camera.getPhoto({
       resultType: CameraResultType.Uri,
@@ -25,6 +42,11 @@ export class PhotoService {
 
     const savedPhotoFile = await this.savePhotos(capturedPhoto);
     this.photos.unshift(savedPhotoFile);
+
+    Storage.set({
+      key: this.PHOTO_STORAGE,
+      value: JSON.stringify(this.photos),
+    });
   }
 
   private async savePhotos(photo: Photo) {

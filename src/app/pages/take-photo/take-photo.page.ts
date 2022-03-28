@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PhotoService } from 'src/app/services/photo.service';
 
 @Component({
@@ -6,8 +6,12 @@ import { PhotoService } from 'src/app/services/photo.service';
   templateUrl: './take-photo.page.html',
   styleUrls: ['./take-photo.page.scss'],
 })
-export class TakePhotoPage {
+export class TakePhotoPage implements OnInit {
   constructor(public photoService: PhotoService) {}
+
+  async ngOnInit() {
+    await this.photoService.loadSavedPhotos();
+  }
 
   addPhotoToGallery() {
     this.photoService.addNewToGallery();
