@@ -1,5 +1,4 @@
 .input {
-  background-color: rgb(240, 240, 240);
   border: 1px solid rgb(210, 210, 210);
   border-radius: 3px;
   font-size: 0.9em !important;
@@ -9,8 +8,13 @@
   border-radius: 3px;
   margin-left: 1px;
 }
-.phoneAuthGrid {
-  border: 1px solid #ccc;
-  margin: 0 5px;
-  border-radius: 3px;
+ion-label{
+  color:black;
+}
+ion-input{
+  color:black;
+}
+ion-row{
+  margin-bottom: 30px;
+  border-bottom: 1px solid black;
 }
