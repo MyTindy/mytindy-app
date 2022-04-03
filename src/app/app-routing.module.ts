@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'landing',
     pathMatch: 'full',
   },
   {
@@ -26,7 +26,15 @@ const routes: Routes = [
   },
   {
     path: 'take-photo',
-    loadChildren: () => import('./pages/take-photo/take-photo.module').then( m => m.TakePhotoPageModule)
+    loadChildren: () =>
+      import('./pages/take-photo/take-photo.module').then(
+        (m) => m.TakePhotoPageModule
+      ),
+  },
+  {
+    path: 'landing',
+    loadChildren: () =>
+      import('./pages/landing/landing.module').then((m) => m.LandingPageModule),
   },
 ];
 
