@@ -1,13 +1,13 @@
-<ion-content class="forme">
-  <div class="simbol1"><img src="../../../assets/images/simbol1.png" /></div>
-  <div class="forme">
+<ion-content class="form">
+  <div class="mandela-top-right"><img src="../../../assets/images/simbol1.png" /></div>
+  <div class="form">
     <div id="submit-button"></div>
     <div class="tindy-logo">
       <img src="../../../assets/images/tindy-logo.png" />
     </div>
     <div *ngIf="isSignup" class="statues">
       <h1>Register</h1>
-      <ion-button (click)="changeFormType('log in')"
+      <ion-button (click)="changeFormType('login')"
         >already have an account?</ion-button
       >
     </div>
@@ -43,5 +43,5 @@
     </form>
     <app-social-login></app-social-login>
   </div>
-  <div class="simbol2"><img src="../../../assets/images/simbol2.png" /></div>
+  <div class="mandela-bottom-left"><img src="../../../assets/images/simbol2.png" /></div>
 </ion-content>

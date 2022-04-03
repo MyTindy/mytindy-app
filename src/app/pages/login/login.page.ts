@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import firebase from 'firebase/compat/app';
-import { FormBuilder, FormGroup, Validators,
-} from '@angular/forms';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -12,13 +9,12 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
-export class LoginPage  {
-  // form: FormGroup;
+export class LoginPage {
   opt = '';
-  loading=false;
-  serverMessage='';
+  loading = false;
+  serverMessage = '';
   phoneNumber: string;
-  formType: 'log in' | 'Register' | 'reset' = 'Register';
+  formType: 'login' | 'Register' | 'reset' = 'Register';
 
   recaptchaVerifier: firebase.auth.RecaptchaVerifier;
   confirmationResult: any;
@@ -26,28 +22,13 @@ export class LoginPage  {
   constructor(private authService: AuthService, private router: Router) {}
 
   get isLogin(): boolean {
-    return this.formType === 'log in';
+    return this.formType === 'login';
   }
 
   get isSignup(): boolean {
     return this.formType === 'Register';
   }
-  // get name(){
-  //   return this.form.get('name');
-  // }
-  // get phone(){
-  //   return this.form.get('phone');
-  // }
-
-  // ngOnInit(){
-  //   this.form =this.fb.group({
-  //     name:['',[Validators.required, Validators.name]],
-  //     phone:['',[Validators.required]]
-  //   });
-  // }
-
-
-  changeFormType(value: 'log in' | 'Register' | 'reset' = 'Register') {
+  changeFormType(value: 'login' | 'Register' | 'reset' = 'Register') {
     this.formType = value;
   }
 
@@ -82,7 +63,6 @@ export class LoginPage  {
     console.log($event);
     try {
       if (this.phoneNumber) {
-        console.log(this.phoneNumber);
         this.authService
           .signInWithPhoneNumber(this.recaptchaVerifier, this.phoneNumber)
           .then((success) => {
@@ -94,21 +74,4 @@ export class LoginPage  {
       console.error('error', error);
     }
   }
-// async onSubmit(){
-// this.loading = true;
-// const name = this.name.value;
-// const phone = this.phoneNumber;
-// try{
-// if (this.isLogin){
-
-// await this.authService.signInWithPhoneNumber(this.recaptchaVerifier,phone);
-// }if (this.isSignup){
-//   await this.authService.signInWithPhoneNumber(this.recaptchaVerifier,phone);
-// }
-// }catch(err){
-//   this.serverMessage = err;
-// }
-// this.loading = false;
-// }
-
 }
