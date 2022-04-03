@@ -3,7 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: 'AIzaSyCKvd_IA4zltGZABabzQVyWwE0-_mpUB9M',
+    authDomain: 'mytindy-c5b58.firebaseapp.com',
+    databaseURL: 'https://mytindy-c5b58-default-rtdb.firebaseio.com',
+    projectId: 'mytindy-c5b58',
+    storageBucket: 'mytindy-c5b58.appspot.com',
+    messagingSenderId: '876520530953',
+    appId: '1:876520530953:web:fa3d6b31d05ab41ce444d8',
+    measurementId: 'G-5JZKGFE1ZL'
+  }
 };
 
 /*
