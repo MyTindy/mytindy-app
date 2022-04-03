@@ -50,8 +50,6 @@ export class LoginPage {
         this.authService
           .signInWithPhoneNumber(this.recaptchaVerifier, this.phoneNumber)
           .then((success) => {
-            console.log('country', this.recaptchaVerifier);
-
             this.router.navigate(['/confirm']);
           });
       }

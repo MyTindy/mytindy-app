@@ -25,7 +25,7 @@ export class TakePhotoPage implements OnInit {
 
   public async showActionSheet(photo: UserPhoto, position: number) {
     const actionSheet = await this.actionSheetController.create({
-      header: 'Photos',
+      header: 'Photo',
       buttons: [
         {
           text: 'Delete',

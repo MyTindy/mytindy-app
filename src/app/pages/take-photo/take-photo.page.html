@@ -7,14 +7,8 @@
 <ion-content>
   <ion-grid>
     <ion-row>
-      <ion-col
-        size="6"
-        *ngFor="let photo of photoService.photos; index as position"
-      >
-        <ion-img
-          [src]="photo.webviewPath"
-          (click)="showActionSheet(photo, position)"
-        >
+      <ion-col size="6" *ngIf=" photoService.photos[0] as photo">
+        <ion-img [src]="photo.webviewPath" (click)="showActionSheet(photo, 0)">
         </ion-img>
       </ion-col>
     </ion-row>
@@ -23,6 +17,12 @@
     <ion-fab-button (click)="photoService.addNewToGallery()">
       <ion-icon name="camera"></ion-icon>
     </ion-fab-button>
-    <ion-button routerLink="/profile">Submit</ion-button>
+    <ion-button routerLink="/profile" [disabled]="!photoService.photos[0]"
+      >Submit</ion-button
+    >
   </ion-fab>
+
+  <ion-item>
+    <ion-label routerLink="/profile">Skip for now</ion-label>
+  </ion-item>
 </ion-content>
