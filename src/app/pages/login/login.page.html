@@ -1,35 +1,47 @@
-<ion-content class="ion-no-padding">
-  <div id="sign-in-button"></div>
+<ion-content class="form">
+  <div class="mandela-top-right"><img src="../../../assets/images/simbol1.png" /></div>
+  <div class="form">
+    <div id="submit-button"></div>
+    <div class="tindy-logo">
+      <img src="../../../assets/images/tindy-logo.png" />
+    </div>
+    <div *ngIf="isSignup" class="statues">
+      <h1>Register</h1>
+      <ion-button (click)="changeFormType('login')"
+        >already have an account?</ion-button
+      >
+    </div>
 
-  <div>
-    <ion-card no-margin>
-      <ion-card-content>
-        <ion-row class="row">
-          <div class="fire-logo">
-            <img src="../../../assets/tindy-logo.jpeg" class="img-logo" />
-            <ion-text class="ion-padding">
-              <h1 class="ion-no-margin ion-margin-vertical ion-text-center">
-                Login
-              </h1>
-            </ion-text>
-          </div>
-        </ion-row>
+    <div *ngIf="isLogin" class="statues">
+      <h1>Log in</h1>
+      <ion-button
+        (click)="changeFormType('Register')"
+        [routerLink]="['/register']"
+        >not registered yet?</ion-button
+      >
+    </div>
 
-        <app-phone (phoneNumber)="onPhoneEmitted($event)"></app-phone>
-        <ion-row>
-          <ion-col>
-            <ion-button
-              expand="block"
-              (click)="signinWithPhoneNumber($event)"
-              [disabled]="!phoneNumber"
-            >
-              Sign in
-            </ion-button>
-          </ion-col>
-        </ion-row>
+    <form>
+      <ion-item *ngIf="isSignup">
+        <ion-label position="floating">Name</ion-label>
+        <ion-input type="text" #email required></ion-input>
+      </ion-item>
 
-        <app-social-login></app-social-login>
-      </ion-card-content>
-    </ion-card>
+      <app-phone (phoneNumber)="onPhoneEmitted($event)"></app-phone>
+
+      <ion-row>
+        <ion-col>
+          <ion-button
+            expand="block"
+            (click)="signinWithPhoneNumber($event)"
+            [disabled]=" !phoneNumber "
+          >
+            {{formType}}
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+    <app-social-login></app-social-login>
   </div>
+  <div class="mandela-bottom-left"><img src="../../../assets/images/simbol2.png" /></div>
 </ion-content>
