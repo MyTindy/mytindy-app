@@ -15,7 +15,7 @@ import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { environment } from 'src/environments/environment';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,7 +26,6 @@ import { environment } from 'src/environments/environment';
     AppRoutingModule,
 
     AngularFireModule.initializeApp(environment.firebase),
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     AngularFireDatabaseModule,
   ],
