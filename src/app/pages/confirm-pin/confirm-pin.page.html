@@ -36,17 +36,25 @@
       </h5>
     </ion-text>
     <form (ngSubmit)="verifyCode()">
-    <ion-item >
-      <ion-input
-        placeholder="Enter your code"
-        type="tel"
-        required
-        [(ngModel)]="code"
-        name="code"
-      ></ion-input>
-    </ion-item>
+      <div class="confirm-code">
+    
+        <ion-item><ion-input #otp1 required maxLength="1" (keyup)="otpController($event,otp2,'')">
+         </ion-input></ion-item>
+        <ion-item><ion-input #otp2 required maxLength="1" (keyup)="otpController($event,otp3,otp1)">
+</ion-input></ion-item>
+        <ion-item><ion-input #otp3 required maxLength="1" (keyup)="otpController($event,otp4,otp2)">
+</ion-input> </ion-item>
+        <ion-item><ion-input #otp4  required maxLength="1" (keyup)="otpController($event,'',otp3)">
+ </ion-input></ion-item>
+        <ion-item><ion-input #otp5  required maxLength="1" (keyup)="otpController($event,'',otp3)">
+ </ion-input></ion-item>
+        <ion-item><ion-input #otp6  required maxLength="1" (keyup)="otpController($event,'',otp3)">
+ </ion-input></ion-item>
+       
+      </div>
     <ion-button type="submit">confirm</ion-button>
   </form>
+
   <ion-text class="ion-padding">
     <h5 class="ion-no-margin ion-margin-vertical">
       Havent received it? <br/>
