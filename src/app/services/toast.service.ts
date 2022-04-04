@@ -9,7 +9,7 @@ export class ToastService {
   constructor(private toastCtrl: ToastController, private router: Router) {}
 
   async authError() {
-    const toast = this.toastCtrl
+    this.toastCtrl
       .create({
         message: 'you must be logged in to view this page',
         duration: 3000,
@@ -17,9 +17,8 @@ export class ToastService {
         cssClass: 'toast-custom-class',
       })
       .then((toastData) => {
-        console.log(toastData);
-        toastData.present();
         this.router.navigate(['/login']);
+        toastData.present();
       });
   }
 }
