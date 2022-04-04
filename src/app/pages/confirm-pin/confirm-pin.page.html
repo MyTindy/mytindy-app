@@ -1,7 +1,8 @@
-<ion-content class="row ion-text-center">
-  <ion-row>
-    <div class="fire-logo">
-      <img src="../../../assets/images/tindy-logo.png" class="img-logo" />
+<!-- <ion-content class=" form row ion-text-center">
+  <div class="mandela-top-right"><img src="../../../assets/images/simbol1.png" /></div>
+  <ion-row class="form">
+    <div class="tindy-logo">
+      <img src="/assets/images/tindy-logo.png" />
       <ion-text class="ion-padding">
         <h5 class="ion-no-margin ion-margin-vertical">
           Confirm your number with the code we sent to your phone number
@@ -22,4 +23,39 @@
     </ion-item>
     <ion-button type="submit">confirm</ion-button>
   </form>
+  <div class="mandela-bottom-left"><img src="../../../assets/images/simbol2.png" /></div>
+</ion-content> -->
+<ion-content class=" form row ion-text-center">
+  <div class="mandela-top-right"><img src="../../../assets/images/simbol1.png" /></div>
+  <ion-row class="form">
+  <div class="tindy-logo">
+    <img src="/assets/images/tindy-logo.png" />
+    <ion-text class="ion-padding">
+      <h5 class="ion-no-margin ion-margin-vertical">
+        Confirm your number with the code we sent to your phone number
+      </h5>
+    </ion-text>
+    <form (ngSubmit)="verifyCode()">
+    <ion-item >
+      <ion-input
+        placeholder="Enter your code"
+        type="tel"
+        required
+        [(ngModel)]="code"
+        name="code"
+      ></ion-input>
+    </ion-item>
+    <ion-button type="submit">confirm</ion-button>
+  </form>
+  <ion-text class="ion-padding">
+    <h5 class="ion-no-margin ion-margin-vertical">
+      Havent received it? <br/>
+      Resend it again.
+    </h5>
+  </ion-text>
+  
+</div>
+</ion-row>
+  <div class="mandela-bottom-left"><img src="../../../assets/images/simbol2.png" /></div>
+
 </ion-content>
