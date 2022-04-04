@@ -27,6 +27,13 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
+    path: 'take-photo',
+    loadChildren: () =>
+      import('./pages/take-photo/take-photo.module').then(
+        (m) => m.TakePhotoPageModule
+      ),
+  },
+  {
     path: 'landing',
     loadChildren: () =>
       import('./pages/landing/landing.module').then((m) => m.LandingPageModule),

@@ -33,13 +33,11 @@ export class ConfirmPinPage {
   }
 
   verifyCode() {
-    console.log(this.code);
-
     this.authService.enterVerifcationCode(this.code).then((userData) => {
       this.showSuccess();
       this.usersService.createUser(userData, this.location);
 
-      this.router.navigate(['/profile']);
+      this.router.navigate(['/take-photo']);
     });
   }
 
@@ -75,7 +73,6 @@ export class ConfirmPinPage {
           handler: (res) => {
             this.authService.enterVerifcationCode(res.otp).then((userData) => {
               this.showSuccess();
-              console.log(userData);
               this.router.navigate(['/profile']);
             });
           },
