@@ -1,6 +1,25 @@
-.divider-left {
-  text-align: left;
+ion-grid{
+  display: flex;
+  width: 250px;
+  margin-top:25px;
+  justify-content: space-around;
+  align-items: center;
+  left:-10px
 }
-.divider-right {
-  text-align: right;
+ion-avatar{
+
+  background-color: red;
+}
+button{
+  background-color: white;
+}
+.col{
+  border-top: 0.2px solid rgb(75, 74, 74);
+  width: 100px;
+}
+.divider{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 35px;
 }
