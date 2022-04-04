@@ -12,9 +12,8 @@ import { UsersService } from 'src/app/services/user.service';
   styleUrls: ['./confirm-pin.page.scss'],
 })
 export class ConfirmPinPage {
-  OTPmessage: string =
-    'An OTP is sent to your number. You should receive it in 15 s';
-  showOTPInput: boolean = false;
+  otpMessage = 'An OTP is sent to your number. You should receive it in 15 s';
+  showOTPInput = false;
   code: number;
   location;
 
@@ -56,7 +55,7 @@ export class ConfirmPinPage {
     alert.present();
   }
 
-  async OtpVerification() {
+  async otpVerification() {
     const alert = await this.alertController.create({
       header: 'Enter OTP',
       backdropDismiss: false,

@@ -56,11 +56,9 @@ export class LoginPage {
 
   onPhoneEmitted($event) {
     this.phoneNumber = $event;
-    console.log(this.phoneNumber);
   }
 
   signinWithPhoneNumber($event) {
-    console.log($event);
     try {
       if (this.phoneNumber) {
         this.authService

@@ -11,14 +11,11 @@ export class AuthService {
   constructor(private fireAuth: AngularFireAuth) {}
 
   public signInWithPhoneNumber(recaptchaVerifier, phoneNumber) {
-    console.log('test', recaptchaVerifier);
-
     return new Promise<any>((resolve, reject) => {
       this.fireAuth
         .signInWithPhoneNumber(phoneNumber, recaptchaVerifier)
         .then((confirmationResult) => {
           this.confirmationResult = confirmationResult;
-          console.log(this.confirmationResult);
 
           resolve(confirmationResult);
         })
@@ -30,13 +27,10 @@ export class AuthService {
   }
 
   public async enterVerifcationCode(code) {
-    console.log(code);
-
     return new Promise<any>((resolve, reject) => {
       this.confirmationResult
         .confirm(code)
-        .then(async (result) => {
-          console.log(result);
+        .then(async (result) =>{
           const user = result.user;
           resolve(user);
         })
