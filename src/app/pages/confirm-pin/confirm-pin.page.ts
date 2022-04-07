@@ -16,6 +16,7 @@ export class ConfirmPinPage {
   showOTPInput = false;
   code: number;
   location;
+  fullName: string;
 
   constructor(
     private alertController: AlertController,
@@ -33,26 +34,10 @@ export class ConfirmPinPage {
 
   verifyCode() {
     this.authService.enterVerifcationCode(this.code).then((userData) => {
-      this.showSuccess();
       this.usersService.createUser(userData, this.location);
 
       this.router.navigate(['/take-photo']);
     });
-  }
-
-  async showSuccess() {
-    const alert = await this.alertController.create({
-      header: 'Success',
-      buttons: [
-        {
-          text: 'Ok',
-          handler: (res) => {
-            alert.dismiss();
-          },
-        },
-      ],
-    });
-    alert.present();
   }
 
   async otpVerification() {
@@ -71,7 +56,6 @@ export class ConfirmPinPage {
           text: 'Enter',
           handler: (res) => {
             this.authService.enterVerifcationCode(res.otp).then((userData) => {
-              this.showSuccess();
               this.router.navigate(['/profile']);
             });
           },
