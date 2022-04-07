@@ -43,7 +43,7 @@ export class LoginPage implements OnInit {
           Validators.required,
           Validators.minLength(5),
           Validators.maxLength(25),
-          Validators.pattern('^[a-zA-Z]+$'),
+          Validators.pattern('^[a-zA-Z\\s]+$'),
         ],
       ],
     });
@@ -124,7 +124,7 @@ export class LoginPage implements OnInit {
       },
       {
         type: 'pattern',
-        message: '- Your fullname must contain letters only.',
+        message: '- Your fullname must contain letters only and spaces.',
       },
     ],
   };
