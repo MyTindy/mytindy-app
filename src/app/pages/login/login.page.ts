@@ -99,6 +99,10 @@ export class LoginPage implements OnInit {
       console.log('Please provide all the required values!');
       return false;
     } else {
+      await this.authService.storeUsernameAndPhone(
+        this.loginForm.value.fullName
+      );
+
       await this.authService
         .signInWithPhoneNumber(this.recaptchaVerifier, this.phoneNumber)
         .then((success) => {

@@ -3,6 +3,8 @@ import { PhotoService } from 'src/app/services/photo.service';
 
 import { ActionSheetController } from '@ionic/angular';
 import { UserPhoto } from 'src/app/models/photo.model';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-take-photo',
@@ -10,9 +12,12 @@ import { UserPhoto } from 'src/app/models/photo.model';
   styleUrls: ['./take-photo.page.scss'],
 })
 export class TakePhotoPage implements OnInit {
+  fullName: string;
   constructor(
     public photoService: PhotoService,
-    public actionSheetController: ActionSheetController
+    public actionSheetController: ActionSheetController,
+    private afAuth: AngularFireAuth,
+    private authService: AuthService
   ) {}
 
   async ngOnInit() {
@@ -46,5 +51,14 @@ export class TakePhotoPage implements OnInit {
       ],
     });
     await actionSheet.present();
+  }
+
+  async skipForNow() {
+    this.fullName = this.authService.getFullName;
+    const profile = {
+      displayName: this.fullName,
+      photoURL: '',
+    };
+    return (await this.afAuth.currentUser).updateProfile(profile);
   }
 }
