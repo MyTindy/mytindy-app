@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import firebase from 'firebase/compat/app';
 
@@ -9,17 +10,19 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
-export class LoginPage {
-  opt = '';
-  loading = false;
-  serverMessage = '';
+export class LoginPage implements OnInit {
+  loginForm: FormGroup;
   phoneNumber: string;
   formType: 'login' | 'Register' | 'reset' = 'Register';
 
   recaptchaVerifier: firebase.auth.RecaptchaVerifier;
   confirmationResult: any;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    public formBuilder: FormBuilder
+  ) {}
 
   get isLogin(): boolean {
     return this.formType === 'login';
@@ -30,6 +33,24 @@ export class LoginPage {
   }
   changeFormType(value: 'login' | 'Register' | 'reset' = 'Register') {
     this.formType = value;
+  }
+
+  ngOnInit() {
+    this.loginForm = this.formBuilder.group({
+      fullName: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(5),
+          Validators.maxLength(25),
+          Validators.pattern('^[a-zA-Z]+$'),
+        ],
+      ],
+    });
+  }
+
+  get errorControl() {
+    return this.loginForm.controls;
   }
 
   async ionViewDidEnter() {
@@ -58,7 +79,7 @@ export class LoginPage {
     this.phoneNumber = $event;
   }
 
-  signinWithPhoneNumber($event) {
+  signinWithPhoneNumber() {
     try {
       if (this.phoneNumber) {
         this.authService
@@ -72,4 +93,35 @@ export class LoginPage {
       console.error('error', error);
     }
   }
+
+  async onSubmit() {
+    if (!this.loginForm.valid) {
+      console.log('Please provide all the required values!');
+      return false;
+    } else {
+      await this.authService
+        .signInWithPhoneNumber(this.recaptchaVerifier, this.phoneNumber)
+        .then((success) => {
+          this.router.navigate(['/confirm']);
+        });
+    }
+  }
+
+  validation_messages = {
+    fullName: [
+      { type: 'required', message: '- Full Name is required.' },
+      {
+        type: 'minlength',
+        message: '- Name must be at least 5 characters long.',
+      },
+      {
+        type: 'maxlength',
+        message: '- Name cannot be more than 25 characters long.',
+      },
+      {
+        type: 'pattern',
+        message: '- Your fullname must contain letters only.',
+      },
+    ],
+  };
 }
