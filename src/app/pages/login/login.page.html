@@ -33,7 +33,7 @@
         <ng-container *ngFor="let validation of validation_messages.fullName">
           <div
             class="error-message"
-            *ngIf="loginForm.get('fullName').hasError(validation.type) && (loginForm.get('fullName').dirty || loginForm.get('fullName').touched)"
+            *ngIf="isSubmitted &&loginForm.get('fullName').hasError(validation.type) && (loginForm.get('fullName').dirty || loginForm.get('fullName').touched)"
           >
             {{ validation.message }}
           </div>

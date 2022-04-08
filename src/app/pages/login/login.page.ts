@@ -14,6 +14,7 @@ export class LoginPage implements OnInit {
   loginForm: FormGroup;
   phoneNumber: string;
   formType: 'login' | 'Register' | 'reset' = 'Register';
+  isSubmitted = false;
 
   recaptchaVerifier: firebase.auth.RecaptchaVerifier;
   confirmationResult: any;
@@ -95,6 +96,7 @@ export class LoginPage implements OnInit {
   }
 
   async onSubmit() {
+    this.isSubmitted = true;
     if (!this.loginForm.valid) {
       console.log('Please provide all the required values!');
       return false;
@@ -124,7 +126,7 @@ export class LoginPage implements OnInit {
       },
       {
         type: 'pattern',
-        message: '- Your fullname must contain letters only and spaces.',
+        message: '- Your fullname must contain letters and spaces only.',
       },
     ],
   };
