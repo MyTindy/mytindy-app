@@ -17,10 +17,10 @@ import { UserPhoto } from '../models/photo.model';
 })
 export class PhotoService {
   public photos: UserPhoto[] = [];
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  private PHOTO_STORAGE = 'photos';
 
   constructor(private platform: Platform) {}
-
-  private PHOTO_STORAGE = 'photos';
 
   public async loadSavedPhotos() {
     const photoList = await Storage.get({ key: this.PHOTO_STORAGE });

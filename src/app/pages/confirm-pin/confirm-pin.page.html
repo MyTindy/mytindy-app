@@ -1,30 +1,3 @@
-<!-- <ion-content class=" form row ion-text-center">
-  <div class="mandela-top-right"><img src="../../../assets/images/simbol1.png" /></div>
-  <ion-row class="form">
-    <div class="tindy-logo">
-      <img src="/assets/images/tindy-logo.png" />
-      <ion-text class="ion-padding">
-        <h5 class="ion-no-margin ion-margin-vertical">
-          Confirm your number with the code we sent to your phone number
-        </h5>
-      </ion-text>
-    </div>
-  </ion-row>
-
-  <form (ngSubmit)="verifyCode()">
-    <ion-item fill="outline">
-      <ion-input
-        placeholder="Enter your code"
-        type="tel"
-        required
-        [(ngModel)]="code"
-        name="code"
-      ></ion-input>
-    </ion-item>
-    <ion-button type="submit">confirm</ion-button>
-  </form>
-  <div class="mandela-bottom-left"><img src="../../../assets/images/simbol2.png" /></div>
-</ion-content> -->
 <ion-content class=" form row ion-text-center">
   <div class="mandela-top-right"><img src="../../../assets/images/simbol1.png" /></div>
   <ion-row class="form">
@@ -36,22 +9,9 @@
       </h5>
     </ion-text>
     <form (ngSubmit)="verifyCode()">
-      <div class="confirm-code">
-    
-        <ion-item><ion-input #otp1 required maxLength="1" (keyup)="otpController($event,otp2,'')">
-         </ion-input></ion-item>
-        <ion-item><ion-input #otp2 required maxLength="1" (keyup)="otpController($event,otp3,otp1)">
-</ion-input></ion-item>
-        <ion-item><ion-input #otp3 required maxLength="1" (keyup)="otpController($event,otp4,otp2)">
-</ion-input> </ion-item>
-        <ion-item><ion-input #otp4  required maxLength="1" (keyup)="otpController($event,'',otp3)">
- </ion-input></ion-item>
-        <ion-item><ion-input #otp5  required maxLength="1" (keyup)="otpController($event,'',otp3)">
- </ion-input></ion-item>
-        <ion-item><ion-input #otp6  required maxLength="1" (keyup)="otpController($event,'',otp3)">
- </ion-input></ion-item>
-       
-      </div>
+
+      <ng-otp-input  (onInputChange)="onOtpChange($event)"  [config]="optConfig"></ng-otp-input>
+
     <ion-button type="submit">confirm</ion-button>
   </form>
 
@@ -61,7 +21,7 @@
       Resend it again.
     </h5>
   </ion-text>
-  
+
 </div>
 </ion-row>
   <div class="mandela-bottom-left"><img src="../../../assets/images/simbol2.png" /></div>
