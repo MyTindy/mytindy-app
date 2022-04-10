@@ -2,18 +2,18 @@ ion-content {
   --ion-background-color: white;
 }
 
-.simbol1 {
-  width: 200px;
-  position: absolute;
-  top: -70px;
-  right: -70px;
+.mandela-top-right {
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  right: 0px;
 }
 
-.simbol2 {
-  width: 400px;
-  position: absolute;
-  bottom: -190px;
-  left: -190px;
+.mandela-bottom-left {
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
 }
 
 @-webkit-keyframes scale-up-bottom {

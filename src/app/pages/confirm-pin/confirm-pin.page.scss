@@ -1,56 +1,59 @@
+.tindy-logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-  .tindy-logo {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .tindy-logo img {
-    width: 30%;
-  }
-  .form {
-    margin-top: 90px;
-  }
-  ion-button {
-    --background: linear-gradient(to right, #bd0212 14%, #e96004 96%);
-    --background-hover: linear-gradient(to right, #4b0208 96%, #d16923 14%);
-    --border-radius: 8px;
-  }
-  .mandela-top-right {
-    width: 200px;
-    position: fixed;
-    top:-70px;
-    right:-70px;
-  }
-  .mandela-bottom-left {
-    width: 250px;
-    position: fixed;
-    bottom:-120px;
-    left: -90px;
-  
-  }
-  ion-content{
-    --ion-background-color:white;
-  }
-  
-  ion-text{
-    color: #e96004;
-    margin-bottom: 30px;
-    width: 300px;
-  
-  }
+.tindy-logo img {
+  width: 30%;
+}
 
-  ion-item{
-    --background:white;
-    --color:black;
-    --border-style:solid;
-    display:inline-block;
-    width: 40px;
-    margin:10px;
-    --border-bottom: black;
+.form {
+  margin-top: 90px;
+}
 
-    --padding-start:7px;
-    }
-    .confirm-code{
-margin-bottom: 50px;
-    }
+ion-button {
+  --background: linear-gradient(to right, #bd0212 14%, #e96004 96%);
+  --background-hover: linear-gradient(to right, #4b0208 96%, #d16923 14%);
+  --border-radius: 8px;
+}
+
+.mandela-top-right {
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+}
+
+.mandela-bottom-left {
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+}
+
+ion-content {
+  --ion-background-color: white;
+}
+
+ion-text {
+  color: #e96004;
+  margin-bottom: 30px;
+  width: 300px;
+}
+
+ion-item {
+  --background: white;
+  --color: black;
+  --border-style: solid;
+  display: inline-block;
+  width: 40px;
+  margin: 10px;
+  --border-bottom: black;
+  --padding-start: 7px;
+}
+
+.confirm-code {
+  margin-bottom: 50px;
+}
