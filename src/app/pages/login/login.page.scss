@@ -7,14 +7,17 @@
   margin-top: 20px;
   color: black;
 }
+
 .tindy-logo {
   display: flex;
   justify-content: center;
   align-self: center;
 }
+
 .tindy-logo img {
   width: 30%;
 }
+
 .form {
   margin-top: 90px;
   display: flex;
@@ -22,31 +25,41 @@
   justify-content: center;
   align-items: center;
 }
+
 ion-button {
   --background: linear-gradient(to right, #bd0212 14%, #e96004 96%);
   --background-hover: linear-gradient(to right, #4b0208 96%, #d16923 14%);
   --border-radius: 8px;
 }
+
 .mandela-top-right {
   width: 100%;
   position: fixed;
-  top:0px;
-  right:0px;
+  top: 0px;
+  right: 0px;
 }
+
 .mandela-bottom-left {
   width: 100%;
   position: fixed;
-  bottom:0px;
+  bottom: 0px;
   left: 0px;
-
-}
-ion-content{
-  --ion-background-color:white;
 }
 
-ion-item{
-  --background:white;
-  --color:black;
-  margin-bottom: 30px;
+ion-content {
+  --ion-background-color: white;
+}
 
+ion-item {
+  --background: white;
+  --color: black;
+  margin-bottom: 1rem;
+}
+
+.error-message {
+  color: red;
+}
+
+.validation-errors {
+  margin: 0 0 2rem 0;
 }

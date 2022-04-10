@@ -1,10 +1,10 @@
 <ion-content>
   <div class="mandela-top-right">
-    <img src="../../../assets/images/simbol1.png" />
+    <img src="/assets/images/simbol1.png" />
   </div>
   <div class="wrapper ion-padding">
     <div class="logo">
-      <img src="../../../assets/images/tindy-logo.png" />
+      <img src="/assets/images/tindy-logo.png" />
     </div>
 
     <div>
@@ -29,7 +29,7 @@
       </ion-col>
 
       <ion-col size="6" *ngIf="!photoService.photos[0]">
-        <ion-img src="../../../assets/images/take-photo.png"> </ion-img>
+        <ion-img src="/assets/images/take-photo.png"> </ion-img>
       </ion-col>
     </ion-grid>
 
@@ -51,10 +51,12 @@
     </ng-template>
 
     <ion-item>
-      <ion-label routerLink="/profile">Skip for now</ion-label>
+      <ion-label routerLink="/profile" (click)="skipForNow()"
+        >Skip for now</ion-label
+      >
     </ion-item>
   </div>
   <div class="mandela-bottom-left">
-    <img src="../../../assets/images/simbol2.png" />
+    <img src="/assets/images/simbol2.png" />
   </div>
 </ion-content>

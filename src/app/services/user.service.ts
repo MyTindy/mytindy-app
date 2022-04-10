@@ -14,7 +14,8 @@ export class UsersService {
       displayName: name,
       photoURL,
       phoneNumber: phone,
-    } = userData;
+    } = userData.user;
+
     try {
       return this.firestore
         .collection('users')

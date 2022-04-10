@@ -1,5 +1,8 @@
+//TODO: Alt- https://github.com/google/libphonenumber
 export const CountryJson = [
-  { name: 'Palestine', dial_code: '+972', code: 'PA' },
+  { name: 'Canada', dial_code: '+1', code: 'CA' },
+  { name: 'Morocco', dial_code: '+212', code: 'MAR' },
+  { name: 'Palestine', dial_code: '+970', code: 'PA' },
   { name: 'Afghanistan', dial_code: '+93', code: 'AF' },
   { name: 'Albania', dial_code: '+35', code: 'AL' },
   { name: 'Algeria', dial_code: '+213', code: 'DZ' },
