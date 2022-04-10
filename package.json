@@ -34,9 +34,10 @@
     "@capacitor/keyboard": "1.2.2",
     "@capacitor/status-bar": "1.0.8",
     "@capacitor/storage": "^1.2.5",
-    "@ionic/pwa-elements": "^3.1.1",
     "@ionic/angular": "^6.0.14",
+    "@ionic/pwa-elements": "^3.1.1",
     "firebase": "^9.6.9",
+    "ng-otp-input": "^1.8.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"

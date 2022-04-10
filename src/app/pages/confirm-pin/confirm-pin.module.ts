@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { ConfirmPinPageRoutingModule } from './confirm-pin-routing.module';
+import { NgOtpInputModule } from  'ng-otp-input';
+
 
 import { ConfirmPinPage } from './confirm-pin.page';
 
@@ -13,7 +15,7 @@ import { ConfirmPinPage } from './confirm-pin.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    ConfirmPinPageRoutingModule,
+    ConfirmPinPageRoutingModule,NgOtpInputModule
   ],
   declarations: [ConfirmPinPage],
 })
