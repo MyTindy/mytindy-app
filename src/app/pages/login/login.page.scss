@@ -24,6 +24,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 ion-button {
@@ -34,16 +35,17 @@ ion-button {
 
 .mandela-top-right {
   width: 100%;
-  position: fixed;
+  position: absolute;
   top: 0px;
   right: 0px;
 }
 
 .mandela-bottom-left {
   width: 100%;
-  position: fixed;
+  position: absolute;
   bottom: 0px;
   left: 0px;
+  z-index: -1;
 }
 
 ion-content {
