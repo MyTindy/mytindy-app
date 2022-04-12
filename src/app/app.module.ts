@@ -8,10 +8,10 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { provideAuth, getAuth } from '@angular/fire/auth';
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 
 import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
+import { IonicStorageModule } from '@ionic/storage-angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -24,7 +24,7 @@ import { environment } from '../environments/environment';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-
+    IonicStorageModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     provideAuth(() => getAuth()),
     AngularFireDatabaseModule,
@@ -32,10 +32,6 @@ import { environment } from '../environments/environment';
   providers: [
     Geolocation,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    AngularFireAuthModule,
-    AngularFirestoreModule,
-    AngularFireStorageModule,
-    AngularFireDatabaseModule,
   ],
   bootstrap: [AppComponent],
 })
