@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
 import { ModalController, ToastController } from '@ionic/angular';
-import { TouchID } from '@awesome-cordova-plugins/touch-id/ngx';
 
 @Component({
   selector: 'app-lock-component',
   templateUrl: './passcode.component.html',
   styleUrls: ['./passcode.component.scss'],
-  providers: [TouchID],
 })
 export class PasscodeComponent {
   _showLockScreen: boolean = true;
@@ -16,40 +14,14 @@ export class PasscodeComponent {
   enteredPasscode: string = '';
   passcode: string;
   passcodeLabel: string = 'Enter Passcode';
-  touchLabel: string = 'Verify Passcode';
   onWrong: any = null;
   selected: any;
 
   constructor(
     public modalController: ModalController,
-    private toastCtrl: ToastController,
-    private touchId: TouchID
+    private toastCtrl: ToastController
   ) {}
 
-  ngOnInit() {
-    setTimeout(() => {
-      if (this.touchId) {
-        this.touchId.isAvailable().then(
-          (res) => {
-            this.touchId.verifyFingerprint(this.passcodeLabel).then(
-              (res) => {
-                this._showLockScreen = false;
-                console.log('successfuly logged'); //TODO: add toaster
-              },
-              (err) => {
-                console.log(
-                  'Unable to unlock the device with this fingerprint.'
-                );
-              }
-            );
-          },
-          (err) => {
-            console.log('Touch ID is not available.');
-          }
-        );
-      }
-    }, 50);
-  }
   allClear(): void {
     this.enteredPasscode = '';
   }
