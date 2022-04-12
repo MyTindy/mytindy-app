@@ -16,7 +16,7 @@ export interface UsersData {
   providedIn: 'root',
 })
 export class UsersService {
-  constructor(private firestore: Firestore) {}
+  constructor(private firestore: AngularFirestore) {}
 
   getUsers(): Observable<UsersData[]> {
     const userRef = collection(this.firestore , 'users');
