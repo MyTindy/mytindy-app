@@ -1,16 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { collectionData, docData, Firestore , doc} from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { collection,addDoc, deleteDoc, updateDoc } from 'firebase/firestore';
-
-export interface UsersData {
-  name?: string;
-  code?: number;
-  photoURL?: string;
-  phoneNumber?: string;
-  location?: any;
-}
 
 @Injectable({
   providedIn: 'root',
@@ -18,35 +8,43 @@ export interface UsersData {
 export class UsersService {
   constructor(private firestore: AngularFirestore) {}
 
-  getUsers(): Observable<UsersData[]> {
-    const userRef = collection(this.firestore , 'users');
-    return collectionData(userRef, {idField: 'id'}) as  Observable<UsersData[]>;
-  }
+  // getUsers(usersData){
+  //   // const userRef = collection(this.firestore , 'users');
+  //   // return collectionData(userRef, {idField: 'id'}) as  Observable<UsersData[]>;
+  //   return this.firestore.collection('users').add({ uid, name ,email, code , photoURL , phoneNumber, location });
+  // }
 
-  getUserById(id): Observable<UsersData[]>{
-    const userDocRef = doc(this.firestore, 'users/${id}');
-    return docData(userDocRef, {idField: 'id'}) as  Observable<UsersData[]>;
-  }
-  addUser(userdata: UsersData, location){
-    console.log(userdata);
+    getUserById(uid){
+      return this.firestore.collection('users').doc(uid).get({name ,email,phone});
+      // const userDocRef = doc(this.firestore, 'users/${id}');
+      // return docData(userDocRef, {idField: 'id'}) as  Observable<UsersData[]>;
+    }
+  addUser(userData, location) {
+    console.log(userData);
     console.log(location);
-    const userRef = collection(this.firestore, 'users');
-    console.log(userRef);
-    return addDoc(userRef, userdata);
-  }
-  deleteUser(userdata: UsersData){
-    const userDocRef = doc(this.firestore, 'users/${usersData.id}');
-    return deleteDoc(userDocRef);
-  }
- updateUser(userdata: UsersData){
-    const userDocRef = doc(this.firestore, 'users/${usersData.id}');
-    return updateDoc(userDocRef,{ name: userdata.name,
-      code: userdata.code,
-      photoURL: userdata.photoURL,
-      phoneNumber: userdata.phoneNumber, location:userdata.location});
+
+    const { uid, phoneNumber, displayName, email } = userData;
+    return this.firestore
+      .collection('users')
+      .add({ uid, phone: phoneNumber, name: displayName, email, location });
   }
 
-
+  deleteUser(userdata) {
+    // const userDocRef = doc(this.firestore, 'users/${usersData.id}');
+    // return deleteDoc(userDocRef);
+    return this.firestore.collection('users').doc(userdata.uid).delete();
+  }
+  updateUser(userdata) {
+    return this.firestore
+      .collection('users')
+      .doc(userdata.uid)
+      .update({ userdata });
+    // const userDocRef = doc(this.firestore, 'users/${usersData.id}');
+    // return updateDoc(userDocRef,{ name: userdata.name,
+    //   code: userdata.code,
+    //   photoURL: userdata.photoURL,
+    //   phoneNumber: userdata.phoneNumber, location:userdata.location});
+  }
 }
 // try {
 //   return this.firestore

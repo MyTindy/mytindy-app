@@ -46,8 +46,8 @@ export class ConfirmPinPage {
 
   verifyCode() {
     this.authService.enterVerifcationCode(this.code).then((userData) => {
+      console.log('this is the userdata:',userData);
       this.usersService.addUser(userData,this.location);
-
       this.router.navigate(['/take-photo']);
     });
   }
