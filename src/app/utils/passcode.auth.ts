@@ -20,4 +20,8 @@ export class PasscodeHelper {
 
     return hashedPasscode;
   }
+
+  async comparePasscodes(enteredCode) {
+    return await bcrypt.compareSync(enteredCode, this.userData?.passcode);
+  }
 }
