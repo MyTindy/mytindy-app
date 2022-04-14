@@ -45,4 +45,9 @@ export class UsersService {
       console.error('passcode has not been updated', error);
     }
   }
+
+  getUserPasscode() {
+    this.userID = this.userID ? this.userID : localStorage.getItem('userId');
+    return this.firestore.collection('users').doc(this.userID).get();
+  }
 }

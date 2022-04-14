@@ -8,7 +8,11 @@ import { UsersService } from '../services/user.service';
 export class PasscodeHelper {
   userData;
 
-  constructor() {}
+  constructor(private usersService: UsersService) {
+    this.usersService
+      .getUserPasscode()
+      .subscribe((res) => (this.userData = res.data()));
+  }
 
   static async hashPasscode(code) {
     const salt = await bcrypt.genSaltSync(10);
