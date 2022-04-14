@@ -7,6 +7,8 @@ import {
 } from '@ionic/angular';
 import { PasscodeComponent } from 'src/app/components/passcode/passcode.component';
 import { StorageService } from 'src/app/services/storage.service';
+import { UsersService } from 'src/app/services/user.service';
+import { PasscodeHelper } from 'src/app/utils/passcode.auth';
 
 @Component({
   selector: 'app-lock',
@@ -15,12 +17,15 @@ import { StorageService } from 'src/app/services/storage.service';
   providers: [StorageService],
 })
 export class LockPage {
+  passcode: string;
+
   constructor(
     private alertCtrl: AlertController,
     private toastCtrl: ToastController,
     public modalController: ModalController,
     private platform: Platform,
-    private storageService: StorageService
+    private storageService: StorageService,
+    private usersService: UsersService
   ) {
     this.platform.ready().then(() => {
       this.storageService.get('passcode').then((code) => {
@@ -82,6 +87,9 @@ export class LockPage {
               return false;
             } else {
               this.storageService.set('passcode', data.code);
+              this.passcode = await PasscodeHelper.hashPasscode(data.code);
+
+              await this.usersService.addUserPasscode(this.passcode);
               return true;
             }
           },
