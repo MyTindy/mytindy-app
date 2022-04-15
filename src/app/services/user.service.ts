@@ -13,7 +13,7 @@ export class UsersService {
     private afAuth: AngularFireAuth
   ) {}
 
-  createUser(userData, location) {
+  addUser(userData, location) {
     const { uid, phoneNumber, displayName, email } = userData;
     return this.firestore
       .collection('users')

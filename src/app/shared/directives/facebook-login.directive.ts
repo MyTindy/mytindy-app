@@ -25,11 +25,7 @@ export class FacebookLoginDirective {
         if (userRes.additionalUserInfo.isNewUser) {
           this.locationService
             .getUserCoordinates()
-            .then((locationRes) => {
-            console.log(userRes);
-            console.log(locationRes);
-            return this.usersService.addUser(userRes.user, locationRes);
-          }
+            .then((locationRes) => this.usersService.addUser(userRes.user, locationRes)
             );
           }
           this.router.navigate(['/profile']);
