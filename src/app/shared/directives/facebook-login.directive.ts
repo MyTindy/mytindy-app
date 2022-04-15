@@ -29,7 +29,7 @@ export class FacebookLoginDirective {
               this.usersService.createUser(userRes.user, locationRes)
             );
         }
-        this.router.navigate(['/profile']);
+        this.router.navigate(['/take-photo']);
       });
   }
 }
