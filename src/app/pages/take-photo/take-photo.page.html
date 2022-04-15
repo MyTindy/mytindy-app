@@ -59,4 +59,9 @@
   <div class="mandela-bottom-left">
     <img src="/assets/images/simbol2.png" />
   </div>
+
+  <div *ngIf="uploadService.trackSnapshot | async as snap">
+    File size: {{ snap.totalBytes | formatFileSize }} Data transfered: {{
+    snap.bytesTransferred | formatFileSize }}
+  </div>
 </ion-content>
