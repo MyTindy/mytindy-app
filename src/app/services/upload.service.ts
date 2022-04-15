@@ -51,7 +51,6 @@ export class UploadService {
       console.log('File type is not supported');
       return;
     }
-    console.log(event);
 
     this.isFileUploading = true;
     this.isFileUploaded = false;
@@ -92,9 +91,6 @@ export class UploadService {
 
   storePhotosFirebase(image: imgFile) {
     const fileID = this.firestore.createId();
-    console.log({ fileID });
-    console.log({ image });
-
     this.filesCollection
       .doc(fileID)
       .set(image)
