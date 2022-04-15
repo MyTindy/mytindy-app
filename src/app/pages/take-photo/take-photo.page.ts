@@ -5,6 +5,7 @@ import { ActionSheetController } from '@ionic/angular';
 import { UserPhoto } from 'src/app/models/photo.model';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AuthService } from 'src/app/services/auth.service';
+import { UploadService } from 'src/app/services/upload.service';
 
 @Component({
   selector: 'app-take-photo',
@@ -17,7 +18,8 @@ export class TakePhotoPage implements OnInit {
     public photoService: PhotoService,
     public actionSheetController: ActionSheetController,
     private afAuth: AngularFireAuth,
-    private authService: AuthService
+    private authService: AuthService,
+    public uploadService: UploadService
   ) {}
 
   async ngOnInit() {
