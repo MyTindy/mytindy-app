@@ -5,7 +5,11 @@
 </ion-header>
 
 <ion-content>
-  <div class="welcome-photo">
-    <ion-img src="/assets/images/welcome.png"> </ion-img>
-  </div>
+  <ion-slides [options]="slideOpts" class="ion-margin-top">
+    <ion-slide *ngFor="let cat of categories">
+      <ion-card>
+        <img [src]="cat.img" />
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
 </ion-content>
