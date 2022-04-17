@@ -6,6 +6,7 @@ import { PhoneComponent } from './phone/phone.component';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { PasscodeComponent } from './passcode/passcode.component';
+import { PasscodeHelper } from '../utils/passcode.auth';
 
 const components = [SocialLoginComponent, PhoneComponent, PasscodeComponent];
 const modules = [CommonModule, IonicModule, FormsModule, SharedModule];
@@ -14,5 +15,6 @@ const modules = [CommonModule, IonicModule, FormsModule, SharedModule];
   declarations: [...components],
   imports: [...modules],
   exports: [...components, ...modules],
+  providers: [PasscodeHelper],
 })
 export class ComponentsModule {}
