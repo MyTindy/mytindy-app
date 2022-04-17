@@ -26,7 +26,7 @@ export class FacebookLoginDirective {
           this.locationService
             .getUserCoordinates()
             .then((locationRes) =>
-              this.usersService.createUser(userRes.user, locationRes)
+              this.usersService.addUser(userRes.user, locationRes)
             );
         }
         this.router.navigate(['/take-photo']);

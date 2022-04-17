@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ModalController, ToastController } from '@ionic/angular';
+import { PasscodeHelper } from 'src/app/utils/passcode.auth';
 
 @Component({
   selector: 'app-lock-component',
@@ -19,7 +20,8 @@ export class PasscodeComponent {
 
   constructor(
     public modalController: ModalController,
-    private toastCtrl: ToastController
+    private toastCtrl: ToastController,
+    private passcodeHelper: PasscodeHelper
   ) {}
 
   allClear(): void {
@@ -39,7 +41,7 @@ export class PasscodeComponent {
     toast.present();
   }
 
-  digit(digit: any): void {
+  async digit(digit: any): Promise<void> {
     this.selected = +digit;
     if (this.passcodeWrong) {
       return;
@@ -47,15 +49,17 @@ export class PasscodeComponent {
     this.enteredPasscode += '' + digit;
 
     if (this.enteredPasscode.length >= 6) {
-      if (this.enteredPasscode === '' + this.passcode) {
+      const res = await this.passcodeHelper.comparePasscodes(
+        this.enteredPasscode
+      );
+
+      if (res) {
         this.enteredPasscode = '';
         this.passcodeAttempts = 0;
         this._showLockScreen = false;
         this.modalController.dismiss();
       } else {
         console.log('entered', this.enteredPasscode);
-        console.log(this.passcode);
-
         this.passcodeWrong = true;
         this.passcodeAttempts++;
         this.onWrong && this.onWrong(this.passcodeAttempts);
