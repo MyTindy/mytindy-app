@@ -26,4 +26,10 @@
       </label>
     </div>
   </div>
+
+  <h3>Uploads</h3>
+
+  <div *ngFor="let file of files">
+    <app-uploader [file]="file"></app-uploader>
+  </div>
 </ion-content>
