@@ -14,8 +14,6 @@ import { UploadService } from 'src/app/services/upload.service';
 })
 export class TakePhotoPage implements OnInit {
   fullName: string;
-  isHovering: boolean;
-  files: File[] = [];
 
   constructor(
     public photoService: PhotoService,
@@ -29,18 +27,15 @@ export class TakePhotoPage implements OnInit {
     await this.photoService.loadSavedPhotos();
   }
 
-  toggleHover(event: boolean) {
-    this.isHovering = event;
-  }
-
-  onDrop(files: FileList) {
-    for (let i = 0; i < files.length; i++) {
-      this.files.push(files.item(i));
-    }
-  }
-
   addPhotoToGallery() {
     this.photoService.addNewToGallery();
+  }
+
+  async uploadImage(image: any) {
+    const response = await fetch(image.webviewPath!);
+    const blob = await response.blob();
+
+    this.uploadService.uploadImage(blob);
   }
 
   public async showActionSheet(photo: UserPhoto, position: number) {

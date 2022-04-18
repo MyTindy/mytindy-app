@@ -78,6 +78,8 @@ export class UsersService {
   }
 
   updateUserPhoto(url) {
+    this.userID = this.userID ? this.userID : localStorage.getItem('userId');
+
     return this.firestore
       .collection('users')
       .doc(this.userID)
