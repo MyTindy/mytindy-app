@@ -34,6 +34,17 @@ export class UsersService {
     }
   }
 
+  addUserPasscode(code) {
+    try {
+      return this.firestore
+        .collection('users')
+        .doc(this.userID)
+        .update({ passcode: code });
+    } catch (error) {
+      console.error('passcode has not been updated', error);
+    }
+  }
+
   getUserById() {
     try {
       return this.afAuth.authState.pipe(
@@ -54,6 +65,11 @@ export class UsersService {
     }
   }
 
+  getUserPasscode() {
+    this.userID = this.userID ? this.userID : localStorage.getItem('userId');
+    return this.firestore.collection('users').doc(this.userID).get();
+  }
+
   updateUser(userdata) {
     return this.firestore
       .collection('users')
@@ -61,23 +77,14 @@ export class UsersService {
       .update({ userdata });
   }
 
+  updateUserPhoto(url) {
+    return this.firestore
+      .collection('users')
+      .doc(this.userID)
+      .update({ photoURL: url });
+  }
+
   deleteUser(id) {
     return this.firestore.collection('users').doc(id).delete();
-  }
-
-  async addUserPasscode(code) {
-    try {
-      return this.firestore
-        .collection('users')
-        .doc(this.userID)
-        .update({ passcode: code });
-    } catch (error) {
-      console.error('passcode has not been updated', error);
-    }
-  }
-
-  getUserPasscode() {
-    this.userID = this.userID ? this.userID : localStorage.getItem('userId');
-    return this.firestore.collection('users').doc(this.userID).get();
   }
 }

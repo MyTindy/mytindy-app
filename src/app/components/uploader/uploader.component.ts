@@ -22,7 +22,10 @@ export class UploaderComponent implements OnInit {
   percentage: Observable<number>;
   downloadURL: string;
 
-  constructor(private storage: AngularFireStorage) {}
+  constructor(
+    private storage: AngularFireStorage,
+    private usersService: UsersService
+  ) {}
 
   ngOnInit(): void {
     this.uploadImage();
@@ -38,6 +41,7 @@ export class UploaderComponent implements OnInit {
       tap(console.log),
       finalize(async () => {
         this.downloadURL = await ref.getDownloadURL().toPromise();
+        this.usersService.updateUserPhoto(this.downloadURL);
       })
     );
   }
