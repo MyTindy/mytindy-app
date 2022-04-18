@@ -1,6 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
 import {
   AngularFireStorage,
   AngularFireUploadTask,
