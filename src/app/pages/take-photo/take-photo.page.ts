@@ -14,6 +14,9 @@ import { UploadService } from 'src/app/services/upload.service';
 })
 export class TakePhotoPage implements OnInit {
   fullName: string;
+  isHovering: boolean;
+  files: File[] = [];
+
   constructor(
     public photoService: PhotoService,
     public actionSheetController: ActionSheetController,
@@ -24,6 +27,16 @@ export class TakePhotoPage implements OnInit {
 
   async ngOnInit() {
     await this.photoService.loadSavedPhotos();
+  }
+
+  toggleHover(event: boolean) {
+    this.isHovering = event;
+  }
+
+  onDrop(files: FileList) {
+    for (let i = 0; i < files.length; i++) {
+      this.files.push(files.item(i));
+    }
   }
 
   addPhotoToGallery() {

@@ -1,88 +1,29 @@
 <ion-content>
-  <div class="mandela-top-right">
-    <img src="/assets/images/simbol1.png" />
-  </div>
-  <div class="wrapper ion-padding">
-    <div class="logo">
-      <img src="/assets/images/tindy-logo.png" />
-    </div>
-
-    <div>
-      <ion-text color="tertiary">
-        <h3>Choose a profile picture</h3>
-      </ion-text>
-    </div>
-
-    <ion-grid class="photo">
-      <ion-col size="6" *ngIf="photoService.photos[0] as photo">
-        <div
-          class="checkbox-content"
-          [style.--img-src]="'url('+photo.webviewPath+')'"
-        >
-          <ion-icon
-            slot="start"
-            name="close"
-            class="checkbox-item"
-            (click)="showActionSheet(photo, 0)"
-          ></ion-icon>
-        </div>
-      </ion-col>
-
-      <ion-col size="6" *ngIf="!photoService.photos[0]">
-        <ion-img src="/assets/images/take-photo.png"> </ion-img>
-      </ion-col>
-    </ion-grid>
-
-    <ion-button
-      *ngIf="!photoService.photos[0]; else upload"
-      horizontal="center"
-      [disabled]="!photoService.photos"
-      (click)="photoService.addNewToGallery()"
-      ><ion-icon name="camera" slot="end"> </ion-icon> Take a picture
-    </ion-button>
-
-    <ng-template #upload>
-      <ion-button
-        horizontal="center"
-        [disabled]="!photoService.photos"
-        routerLink="/profile"
-        ><ion-icon name="camera" slot="end"> </ion-icon> Upload
-      </ion-button>
-    </ng-template>
-
-    <ion-item>
-      <ion-label routerLink="/profile" (click)="skipForNow()"
-        >Skip for now</ion-label
-      >
-    </ion-item>
-  </div>
-  <div class="mandela-bottom-left">
-    <img src="/assets/images/simbol2.png" />
-  </div>
-
-  <ion-card
-    class="ion-text-center"
-    *ngIf="!uploadService.isFileUploading && !uploadService.isFileUploaded"
+  <div
+    class="dropzone"
+    appDropzone
+    (hovered)="toggleHover($event)"
+    (dropped)="onDrop($event)"
+    [class.hovering]="isHovering"
   >
-    <ion-card-header>
-      <ion-card-title>Choose Images to Upload</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-button color="primary" size="medium">
+    <h3>AngularFire Drop Zone</h3>
+    <p>Drag and Drop a File</p>
+    <div class="file">
+      <label class="file-label">
         <input
+          class="file-input"
           type="file"
-          (change)="uploadService.uploadImage($event.target.files)"
+          accept="image/*"
+          (change)="onDrop($any($event).target.files)"
         />
-      </ion-button>
-    </ion-card-content>
-  </ion-card>
-  <!-- File upload progress bar -->
-  <div *ngIf="uploadService.percentageVal | async as percentage">
-    Progress: {{ percentage | number }}%
-    <ion-progress-bar value="{{ percentage / 100 }}"></ion-progress-bar>
-  </div>
-  <div *ngIf="uploadService.trackSnapshot | async as snap">
-    File size: {{ snap.totalBytes | formatFileSize }} Data transfered: {{
-    snap.bytesTransferred | formatFileSize }}
+
+        <span class="file-cta">
+          <span class="file-icon">
+            <i class="fa fa-upload"></i>
+          </span>
+          <span class="file-label"> or choose a file… </span>
+        </span>
+      </label>
+    </div>
   </div>
 </ion-content>
