@@ -25,10 +25,11 @@ export class FacebookLoginDirective {
         if (userRes.additionalUserInfo.isNewUser) {
           this.locationService
             .getUserCoordinates()
-            .then((locationRes) => this.usersService.addUser(userRes.user, locationRes)
+            .then((locationRes) =>
+              this.usersService.addUser(userRes.user, locationRes)
             );
-          }
-          this.router.navigate(['/profile']);
-        });
+        }
+        this.router.navigate(['/take-photo']);
+      });
   }
 }

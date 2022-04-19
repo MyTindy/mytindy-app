@@ -92,11 +92,12 @@ export class PhotoService {
     }
   }
 
-  private async readAsBase64(photo: Photo) {
+  async readAsBase64(photo: Photo) {
     if (this.platform.is('hybrid')) {
       const file = await Filesystem.readFile({
         path: photo.path,
       });
+      return file.data;
     } else {
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       const response = await fetch(photo.webPath!);

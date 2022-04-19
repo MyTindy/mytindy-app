@@ -5,6 +5,7 @@ import { ActionSheetController } from '@ionic/angular';
 import { UserPhoto } from 'src/app/models/photo.model';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AuthService } from 'src/app/services/auth.service';
+import { UploadService } from 'src/app/services/upload.service';
 
 @Component({
   selector: 'app-take-photo',
@@ -13,11 +14,13 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class TakePhotoPage implements OnInit {
   fullName: string;
+
   constructor(
     public photoService: PhotoService,
     public actionSheetController: ActionSheetController,
     private afAuth: AngularFireAuth,
-    private authService: AuthService
+    private authService: AuthService,
+    public uploadService: UploadService
   ) {}
 
   async ngOnInit() {
@@ -26,6 +29,13 @@ export class TakePhotoPage implements OnInit {
 
   addPhotoToGallery() {
     this.photoService.addNewToGallery();
+  }
+
+  async uploadImage(image: any) {
+    const response = await fetch(image.webviewPath!);
+    const blob = await response.blob();
+
+    this.uploadService.uploadImage(blob);
   }
 
   public async showActionSheet(photo: UserPhoto, position: number) {

@@ -7,8 +7,14 @@ import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { PasscodeComponent } from './passcode/passcode.component';
 import { PasscodeHelper } from '../utils/passcode.auth';
+import { UploaderComponent } from './uploader/uploader.component';
 
-const components = [SocialLoginComponent, PhoneComponent, PasscodeComponent];
+const components = [
+  SocialLoginComponent,
+  PhoneComponent,
+  PasscodeComponent,
+  UploaderComponent,
+];
 const modules = [CommonModule, IonicModule, FormsModule, SharedModule];
 
 @NgModule({

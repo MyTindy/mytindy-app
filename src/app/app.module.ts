@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
+
 import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFireStorageModule, BUCKET } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { provideAuth, getAuth } from '@angular/fire/auth';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-import { provideAuth, getAuth } from '@angular/fire/auth';
-import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 
 import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
 import { IonicStorageModule } from '@ionic/storage-angular';
@@ -27,7 +26,8 @@ import { environment } from '../environments/environment';
     IonicStorageModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     provideAuth(() => getAuth()),
-    AngularFireDatabaseModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
   ],
   providers: [
     Geolocation,
