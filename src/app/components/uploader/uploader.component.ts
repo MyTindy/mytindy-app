@@ -20,17 +20,14 @@ export class UploaderComponent implements OnInit {
   percentage: Observable<number>;
   downloadURL: string;
 
-  constructor(
-    private storage: AngularFireStorage,
-    private usersService: UsersService
-  ) {}
+  constructor(private storage: AngularFireStorage) {}
 
   ngOnInit(): void {
     this.uploadImage();
   }
 
   uploadImage() {
-    const path = `profileImages/${Date.now()}_${this.file?.name}`;
+    const path = `productImages/${Date.now()}_${this.file?.name}`;
     const ref = this.storage.ref(path);
     this.task = this.storage.upload(path, this.file);
     this.percentage = this.task.percentageChanges();
@@ -38,8 +35,14 @@ export class UploaderComponent implements OnInit {
     this.snapshot = this.task.snapshotChanges().pipe(
       tap(console.log),
       finalize(async () => {
-        this.downloadURL = await ref.getDownloadURL().toPromise();
-        this.usersService.updateUserPhoto(this.downloadURL);
+        this.downloadURL = await ref
+          ?.getDownloadURL()
+          ?.toPromise()
+          .catch((err) => {
+            if (err.message.includes('not exist')) {
+              console.log('"""File not found"""');
+            }
+          });
       })
     );
   }
