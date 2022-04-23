@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-add-product',
@@ -7,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddProductPage implements OnInit {
   isHovering: boolean;
+  mockData: any;
 
   files: File[] = [];
 
-  constructor() {}
+  constructor(private productService: ProductService) {}
 
   ngOnInit() {}
   toggleHover(event: boolean) {
@@ -21,5 +23,11 @@ export class AddProductPage implements OnInit {
     for (let i = 0; i < files.length; i++) {
       this.files.push(files.item(i));
     }
+  }
+
+  getProducts() {
+    this.productService.getProduct().subscribe((data) => {
+      console.log(data);
+    });
   }
 }
