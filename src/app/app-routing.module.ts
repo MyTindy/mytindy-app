@@ -59,8 +59,10 @@ const routes: Routes = [
     path: 'notifications',
     loadChildren: () => import('./pages/notifications/notifications.module').then( m => m.NotificationsPageModule)
   },
-
-
+  {
+    path: 'add-product',
+    loadChildren: () => import('./pages/add-product/add-product.module').then( m => m.AddProductPageModule)
+  },
 ];
 
 @NgModule({
