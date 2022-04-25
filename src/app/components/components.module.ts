@@ -1,3 +1,4 @@
+import { SearchComponent } from './search/search.component';
 import { CardComponent } from './card/card.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -15,6 +16,7 @@ const components = [
   PhoneComponent,
   PasscodeComponent,
   UploaderComponent,
+  SearchComponent,
   CardComponent,
 ];
 const modules = [CommonModule, IonicModule, FormsModule, SharedModule];
