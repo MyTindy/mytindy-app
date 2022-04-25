@@ -34,5 +34,8 @@
   <h3>Uploads</h3>
 
   <div *ngFor="let file of files">
-    <app-uploader [file]="file"></app-uploader></div
-></ion-content>
+    <app-uploader [file]="file"></app-uploader>
+  </div>
+
+  <ion-button (click)="getProducts()">Post me</ion-button>
+</ion-content>
