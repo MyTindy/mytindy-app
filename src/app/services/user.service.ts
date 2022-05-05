@@ -1,7 +1,10 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { switchMap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { switchMap, tap } from 'rxjs/operators';
+import { SellerInput, SellerOutput } from '../models/seller.model';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +14,8 @@ export class UsersService {
   userInfo: any;
   constructor(
     private firestore: AngularFirestore,
-    private afAuth: AngularFireAuth
+    private afAuth: AngularFireAuth,
+    private http: HttpClient
   ) {}
 
   async addUser(userData, location) {
@@ -26,8 +30,8 @@ export class UsersService {
       const { id: userId } = await this.firestore
         .collection('users')
         .add({ uid, name, phone, email, location, photoURL, passcode: null });
-      this.userID = userId;
-      localStorage.setItem('userId', this.userID);
+
+      localStorage.setItem('userId', (this.userID = userId));
       return userId;
     } catch (error) {
       console.error('User has not been created', error);
@@ -88,5 +92,33 @@ export class UsersService {
 
   deleteUser(id) {
     return this.firestore.collection('users').doc(id).delete();
+  }
+
+  createSellers(info: SellerInput) {
+    return this.http
+      .post<SellerInput>('/api/sellers', info)
+      .pipe(tap((res) => console.log({ res })));
+  }
+
+  getSellers() {
+    return this.http
+      .get<SellerOutput[]>('/api/sellers')
+      .pipe(tap((res) => console.log({ res })));
+  }
+
+  getSeller(id: number) {
+    return this.http
+      .get<SellerInput>(`/api/sellers/${id}`)
+      .pipe(tap((res) => console.log({ res })));
+  }
+
+  updateSeller(id, info: SellerInput): Observable<SellerInput> {
+    return this.http
+      .put<SellerInput>(`/api/sellers/${id}`, info)
+      .pipe(tap((res) => console.log({ res })));
+  }
+
+  deleteSeller(id: number) {
+    return this.http.delete(`/api/sellers/${id}`);
   }
 }

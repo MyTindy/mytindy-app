@@ -525,405 +525,54 @@
       "collections": [],
       "origin_country": null,
       "raise_query": 0
-    },
+    }
+  ],
+  "sellers": [
     {
-      "id": 8585334,
+      "id": 1043961,
       "main_id_shop": 17628,
-      "seller_id": 312401,
-      "shopify_product_id": 6808718803059,
-      "product_name": "Solo Star Tray",
-      "product_type": "Tray",
-      "product_description": "<p>This tray is cut in the shape of a star and covered with a Zellige print. The trays are made of wood and covered with plexiglass protection.</p>\n<p><strong>PRODUCT DETAILS</strong><br data-mce-fragment=\"1\"></p>\n<ul>\n<li>Diameter: 33 cm</li>\n<li>Material: Wood with Plexiglas protection</li>\n</ul>\n<p>Care tips: We recommend that you clean the tray with a slightly damp cloth and let it dry. Do not put it in your dishwasher.</p>",
-      "product_tag": "[\"_tab_shipping-information-maison-bagan\",\"Black\",\"Blue\",\"dining\",\"Green\",\"Home Decor\",\"Maison Bagan\",\"Red\",\"Tray\",\"Wood\",\"Yellow\"]",
-      "handle": "solo-star-tray",
-      "product_meta_info": null,
-      "price": "29.99",
-      "compare_at_price": "9.00",
-      "sales_price": "-1.00",
-      "handling_charges": "0.00",
-      "transaction_charges": "0.00",
-      "track_inventory": 1,
-      "quantity": 50,
-      "min_purchase_quantity": 1,
-      "inventory_policy": 0,
+      "customer_id": 0,
+      "sp_shop_name": "tindy-moroccan-collective.myshopify.com",
+      "sp_store_name": "Nujood",
+      "store_name_handle": "nujood",
+      "seller_name": "Ghita do not delete - Part of the development",
+      "last_name": "Team",
+      "full_name": "Ghita do not delete - Part of the development Team",
+      "email": "shawar.nujood@gmail.com",
+      "shop_logo": "",
+      "store_logo": "https://shopify-digital-delivery.s3.amazonaws.com/store_logo/1043961/QK3aj0lbkP.jpg",
+      "display_customer_info": 1,
+      "date_add": "2022-03-28T10:43:54+00:00",
       "active": 1,
-      "is_re_approval": 0,
-      "has_default_shipping": 0,
-      "has_multiple_options": 1,
-      "charge_taxes": 1,
-      "tax_type": null,
-      "hsn": null,
-      "cgst": "0.00",
-      "sgst": "0.00",
-      "gst": "0.00",
-      "product_policy": null,
-      "id_parent": 0,
-      "product_url": null,
-      "ref_product_id": "0",
+      "bucket_created": 0,
+      "on_s3": 1,
+      "description": null,
+      "store_address": "",
+      "contact": "shawar.nujood@gmail.com",
+      "store_banner": null,
+      "seller_banner_video": null,
+      "policy": null,
+      "city": null,
+      "short_desc": null,
+      "zipcode": "",
+      "social_tabs_status": 0,
+      "box_folder_id": null,
+      "navision_sync": 0,
+      "shopify_store_url": null,
       "custom_fields": null,
-      "expiry_date": null,
-      "platform": 0,
-      "design_id": 0,
-      "date_add": "2022-04-19T13:21:38+00:00",
-      "date_upd": "2022-04-19T13:21:38+00:00",
-      "type": {
-        "id": 1,
-        "type_name": "normal"
-      },
-      "variants": [
-        {
-          "id": 29001302,
-          "product_id": 8585334,
-          "shopify_product_id": 6808718803059,
-          "shopify_variant_id": 39966059987059,
-          "image_id": 0,
-          "sku": "",
-          "price": "29.99",
-          "sales_price": "-1.00",
-          "handling_charges": "0.00",
-          "transaction_charges": "0.00",
-          "compare_at_price": "9.00",
-          "weight": "500.0000",
-          "barcode": null,
-          "track_inventory": 1,
-          "quantity": 10,
-          "requires_shipping": 1,
-          "date_add": "2022-04-19T13:21:38+00:00",
-          "date_upd": "2022-04-19T13:21:38+00:00",
-          "charge_taxes": 0,
-          "dimension": null,
-          "inventory_policy": 0,
-          "id_parent": 0,
-          "combinations": [
-            {
-              "id": 53495836,
-              "variant_id": 29001302,
-              "option_value": "Red"
-            }
-          ],
-          "inventory_locations": [
-            {
-              "id": 25955300,
-              "product_id": 8585334,
-              "variant_id": 29001302,
-              "shopify_inventory_item_id": 42069473820787,
-              "variant_quantity": 10,
-              "location_id": 35862,
-              "location_name": "Casablanca",
-              "shopify_location_id": 13695385715
-            }
-          ]
-        },
-        {
-          "id": 29001304,
-          "product_id": 8585334,
-          "shopify_product_id": 6808718803059,
-          "shopify_variant_id": 39966060019827,
-          "image_id": 0,
-          "sku": "",
-          "price": "29.99",
-          "sales_price": "-1.00",
-          "handling_charges": "0.00",
-          "transaction_charges": "0.00",
-          "compare_at_price": "9.00",
-          "weight": "500.0000",
-          "barcode": null,
-          "track_inventory": 1,
-          "quantity": 10,
-          "requires_shipping": 1,
-          "date_add": "2022-04-19T13:21:38+00:00",
-          "date_upd": "2022-04-19T13:21:38+00:00",
-          "charge_taxes": 1,
-          "dimension": null,
-          "inventory_policy": 0,
-          "id_parent": 0,
-          "combinations": [
-            {
-              "id": 53495842,
-              "variant_id": 29001304,
-              "option_value": "Green"
-            }
-          ],
-          "inventory_locations": [
-            {
-              "id": 25955303,
-              "product_id": 8585334,
-              "variant_id": 29001304,
-              "shopify_inventory_item_id": 42069473853555,
-              "variant_quantity": 10,
-              "location_id": 35862,
-              "location_name": "Casablanca",
-              "shopify_location_id": 13695385715
-            }
-          ]
-        },
-        {
-          "id": 29001307,
-          "product_id": 8585334,
-          "shopify_product_id": 6808718803059,
-          "shopify_variant_id": 39966060052595,
-          "image_id": 0,
-          "sku": "",
-          "price": "29.99",
-          "sales_price": "-1.00",
-          "handling_charges": "0.00",
-          "transaction_charges": "0.00",
-          "compare_at_price": "9.00",
-          "weight": "500.0000",
-          "barcode": null,
-          "track_inventory": 1,
-          "quantity": 10,
-          "requires_shipping": 1,
-          "date_add": "2022-04-19T13:21:38+00:00",
-          "date_upd": "2022-04-19T13:21:38+00:00",
-          "charge_taxes": 0,
-          "dimension": null,
-          "inventory_policy": 0,
-          "id_parent": 0,
-          "combinations": [
-            {
-              "id": 53495846,
-              "variant_id": 29001307,
-              "option_value": "Yellow"
-            }
-          ],
-          "inventory_locations": [
-            {
-              "id": 25955305,
-              "product_id": 8585334,
-              "variant_id": 29001307,
-              "shopify_inventory_item_id": 42069473886323,
-              "variant_quantity": 10,
-              "location_id": 35862,
-              "location_name": "Casablanca",
-              "shopify_location_id": 13695385715
-            }
-          ]
-        },
-        {
-          "id": 29001310,
-          "product_id": 8585334,
-          "shopify_product_id": 6808718803059,
-          "shopify_variant_id": 39966060085363,
-          "image_id": 0,
-          "sku": "",
-          "price": "29.99",
-          "sales_price": "-1.00",
-          "handling_charges": "0.00",
-          "transaction_charges": "0.00",
-          "compare_at_price": "9.00",
-          "weight": "500.0000",
-          "barcode": null,
-          "track_inventory": 1,
-          "quantity": 10,
-          "requires_shipping": 1,
-          "date_add": "2022-04-19T13:21:38+00:00",
-          "date_upd": "2022-04-19T13:21:38+00:00",
-          "charge_taxes": 1,
-          "dimension": null,
-          "inventory_policy": 0,
-          "id_parent": 0,
-          "combinations": [
-            {
-              "id": 53495852,
-              "variant_id": 29001310,
-              "option_value": "Black"
-            }
-          ],
-          "inventory_locations": [
-            {
-              "id": 25955308,
-              "product_id": 8585334,
-              "variant_id": 29001310,
-              "shopify_inventory_item_id": 42069473919091,
-              "variant_quantity": 10,
-              "location_id": 35862,
-              "location_name": "Casablanca",
-              "shopify_location_id": 13695385715
-            }
-          ]
-        },
-        {
-          "id": 29001313,
-          "product_id": 8585334,
-          "shopify_product_id": 6808718803059,
-          "shopify_variant_id": 39966060118131,
-          "image_id": 0,
-          "sku": "",
-          "price": "29.99",
-          "sales_price": "-1.00",
-          "handling_charges": "0.00",
-          "transaction_charges": "0.00",
-          "compare_at_price": "9.00",
-          "weight": "500.0000",
-          "barcode": null,
-          "track_inventory": 1,
-          "quantity": 10,
-          "requires_shipping": 1,
-          "date_add": "2022-04-19T13:21:38+00:00",
-          "date_upd": "2022-04-19T13:21:38+00:00",
-          "charge_taxes": 1,
-          "dimension": null,
-          "inventory_policy": 0,
-          "id_parent": 0,
-          "combinations": [
-            {
-              "id": 53495858,
-              "variant_id": 29001313,
-              "option_value": "Blue"
-            }
-          ],
-          "inventory_locations": [
-            {
-              "id": 25955311,
-              "product_id": 8585334,
-              "variant_id": 29001313,
-              "shopify_inventory_item_id": 42069473951859,
-              "variant_quantity": 10,
-              "location_id": 35862,
-              "location_name": "Casablanca",
-              "shopify_location_id": 13695385715
-            }
-          ]
-        }
-      ],
-      "options": [
-        {
-          "id": 16036317,
-          "name": "Color",
-          "product_id": 8585334,
-          "values": [
-            {
-              "id": 27780129,
-              "option_id": 16036317,
-              "value": "Red"
-            },
-            {
-              "id": 27780130,
-              "option_id": 16036317,
-              "value": "Green"
-            },
-            {
-              "id": 27780131,
-              "option_id": 16036317,
-              "value": "Yellow"
-            },
-            {
-              "id": 27780132,
-              "option_id": 16036317,
-              "value": "Black"
-            },
-            {
-              "id": 27780133,
-              "option_id": 16036317,
-              "value": "Blue"
-            }
-          ]
-        }
-      ],
-      "images": [
-        {
-          "id": 29459787,
-          "product_id": 8585334,
-          "active": 1,
-          "position": 1,
-          "img_url": "https://shopify-digital-delivery.s3.amazonaws.com/product_img/main_img/8585334/ysq1aEsPc3.jpg",
-          "img_sm": "https://shopify-digital-delivery.s3.amazonaws.com/product_img/main_img/8585334/ysq1aEsPc3.jpg",
-          "img_md": "https://shopify-digital-delivery.s3.amazonaws.com/product_img/main_img/8585334/ysq1aEsPc3.jpg",
-          "img_lg": "https://shopify-digital-delivery.s3.amazonaws.com/product_img/main_img/8585334/ysq1aEsPc3.jpg",
-          "img_alt": null,
-          "process_status": "Processed"
-        },
-        {
-          "id": 29459808,
-          "product_id": 8585334,
-          "active": 1,
-          "position": 2,
-          "img_url": "https://shopify-digital-delivery.s3.amazonaws.com/product_img/main_img/8585334/ysvnooAgIn.jpg",
-          "img_sm": "https://shopify-digital-delivery.s3.amazonaws.com/product_img/main_img/8585334/ysvnooAgIn.jpg",
-          "img_md": "https://shopify-digital-delivery.s3.amazonaws.com/product_img/main_img/8585334/ysvnooAgIn.jpg",
-          "img_lg": "https://shopify-digital-delivery.s3.amazonaws.com/product_img/main_img/8585334/ysvnooAgIn.jpg",
-          "img_alt": null,
-          "process_status": "Processed"
-        },
-        {
-          "id": 29459819,
-          "product_id": 8585334,
-          "active": 1,
-          "position": 3,
-          "img_url": "https://shopify-digital-delivery.s3.amazonaws.com/product_img/main_img/8585334/xKCUs71Wy9.jpg",
-          "img_sm": "https://shopify-digital-delivery.s3.amazonaws.com/product_img/main_img/8585334/xKCUs71Wy9.jpg",
-          "img_md": "https://shopify-digital-delivery.s3.amazonaws.com/product_img/main_img/8585334/xKCUs71Wy9.jpg",
-          "img_lg": "https://shopify-digital-delivery.s3.amazonaws.com/product_img/main_img/8585334/xKCUs71Wy9.jpg",
-          "img_alt": null,
-          "process_status": "Processed"
-        },
-        {
-          "id": 29459825,
-          "product_id": 8585334,
-          "active": 1,
-          "position": 4,
-          "img_url": "https://shopify-digital-delivery.s3.amazonaws.com/product_img/main_img/8585334/lkIbKO5llg.jpg",
-          "img_sm": "https://shopify-digital-delivery.s3.amazonaws.com/product_img/main_img/8585334/lkIbKO5llg.jpg",
-          "img_md": "https://shopify-digital-delivery.s3.amazonaws.com/product_img/main_img/8585334/lkIbKO5llg.jpg",
-          "img_lg": "https://shopify-digital-delivery.s3.amazonaws.com/product_img/main_img/8585334/lkIbKO5llg.jpg",
-          "img_alt": null,
-          "process_status": "Processed"
-        },
-        {
-          "id": 29459839,
-          "product_id": 8585334,
-          "active": 1,
-          "position": 5,
-          "img_url": "https://shopify-digital-delivery.s3.amazonaws.com/product_img/main_img/8585334/nVKWQCwCju.jpg",
-          "img_sm": "https://shopify-digital-delivery.s3.amazonaws.com/product_img/main_img/8585334/nVKWQCwCju.jpg",
-          "img_md": "https://shopify-digital-delivery.s3.amazonaws.com/product_img/main_img/8585334/nVKWQCwCju.jpg",
-          "img_lg": "https://shopify-digital-delivery.s3.amazonaws.com/product_img/main_img/8585334/nVKWQCwCju.jpg",
-          "img_alt": null,
-          "process_status": "Processed"
-        },
-        {
-          "id": 29459849,
-          "product_id": 8585334,
-          "active": 1,
-          "position": 6,
-          "img_url": "https://shopify-digital-delivery.s3.amazonaws.com/product_img/main_img/8585334/dcf9PNLQHV.jpg",
-          "img_sm": "https://shopify-digital-delivery.s3.amazonaws.com/product_img/main_img/8585334/dcf9PNLQHV.jpg",
-          "img_md": "https://shopify-digital-delivery.s3.amazonaws.com/product_img/main_img/8585334/dcf9PNLQHV.jpg",
-          "img_lg": "https://shopify-digital-delivery.s3.amazonaws.com/product_img/main_img/8585334/dcf9PNLQHV.jpg",
-          "img_alt": null,
-          "process_status": "Processed"
-        }
-      ],
-      "collections": [
-        {
-          "id": 17813601,
-          "product_id": 8585334,
-          "shopify_category_id": 66634186867
-        },
-        {
-          "id": 17813602,
-          "product_id": 8585334,
-          "shopify_category_id": 66633924723
-        },
-        {
-          "id": 17813603,
-          "product_id": 8585334,
-          "shopify_category_id": 66714959987
-        },
-        {
-          "id": 17813604,
-          "product_id": 8585334,
-          "shopify_category_id": 70280839283
-        },
-        {
-          "id": 17813605,
-          "product_id": 8585334,
-          "shopify_category_id": 261780013171
-        }
-      ],
-      "origin_country": null,
-      "raise_query": 0
+      "on_vacation": 0,
+      "is_approved": 1,
+      "user_type": 0,
+      "user_type_value": "Seller",
+      "seller_default_location_id": 0,
+      "sp_location_id": null,
+      "is_published": 1,
+      "to_sell_global": 0,
+      "id_country": null,
+      "id_state": null,
+      "create_pickup_bring": 0,
+      "fulfill_reminder_day": 0,
+      "seller_currency": null
     }
   ]
 }
