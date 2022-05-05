@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
@@ -7,15 +7,21 @@ import { catchError, tap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class ProductService {
-  baseURL = '/api/products';
-
   constructor(private http: HttpClient) {}
 
   getProduct() {
-    return this.http.get<any[]>(this.baseURL).pipe(
-      tap((_) => this.log('data received')),
-      catchError(this.handleError('Get Seller', []))
-    );
+    const reqHeader = new HttpHeaders({
+      Authorization:
+        'Bearer Nzc3MDM3NWNjYWRhM2NlNmMzNjRkNjVhMzQ3N2RhOGE2N2I4MGIyNzIxM2UzNjIzMTVjZWVjZTIwMzY3YjM5Mw',
+    });
+    return this.http
+      .get('https://mvmapi.webkul.com/api/v2/products.json', {
+        headers: reqHeader,
+      })
+      .pipe(
+        tap((_) => this.log('data received')),
+        catchError(this.handleError('Get Seller', []))
+      );
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
