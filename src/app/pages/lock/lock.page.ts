@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import {
   AlertController,
   ModalController,
@@ -25,7 +26,8 @@ export class LockPage {
     public modalController: ModalController,
     private platform: Platform,
     private storageService: StorageService,
-    private usersService: UsersService
+    private usersService: UsersService,
+    private router: Router
   ) {
     this.platform.ready().then(() => {
       this.storageService.get('passcode').then((code) => {
@@ -72,6 +74,7 @@ export class LockPage {
       });
       return await modal.present();
     });
+    this.router.navigate(['/profile']);
   }
 
   async setupCode() {
