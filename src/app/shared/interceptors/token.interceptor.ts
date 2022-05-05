@@ -10,6 +10,7 @@ import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
@@ -21,8 +22,7 @@ export class TokenInterceptor implements HttpInterceptor {
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    const token =
-      'Bearerxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+    const { token } = environment;
 
     if (token) {
       request = request.clone({
@@ -31,7 +31,6 @@ export class TokenInterceptor implements HttpInterceptor {
         },
       });
     }
-
     if (!request.headers.has('Content-Type')) {
       request = request.clone({
         setHeaders: {
@@ -39,28 +38,20 @@ export class TokenInterceptor implements HttpInterceptor {
         },
       });
     }
-
     request = request.clone({
       headers: request.headers.set('Accept', 'application/json'),
     });
-
-    this.showLoader();
 
     return next.handle(request).pipe(
       map((event: HttpEvent<any>) => {
         if (event instanceof HttpResponse) {
           console.log({ event });
         }
-
-        this.hideLoader();
-
+        this.showLoader();
         return event;
       }),
       catchError((error: HttpErrorResponse) => {
         console.error(error);
-
-        this.hideLoader();
-
         return throwError(error);
       })
     );
@@ -73,7 +64,6 @@ export class TokenInterceptor implements HttpInterceptor {
       })
       .then((res) => {
         res.present();
-
         res.onDidDismiss().then((dis) => {
           console.log('Loading dismissed!');
         });
@@ -82,6 +72,8 @@ export class TokenInterceptor implements HttpInterceptor {
   }
 
   async hideLoader() {
-    await this.loadingController.dismiss(null);
+    setTimeout(async () => {
+      await this.loadingController.dismiss(null);
+    }, 1000);
   }
 }
