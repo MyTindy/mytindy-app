@@ -10,6 +10,8 @@ import { SharedModule } from '../shared/shared.module';
 import { PasscodeComponent } from './passcode/passcode.component';
 import { PasscodeHelper } from '../utils/passcode.auth';
 import { UploaderComponent } from './uploader/uploader.component';
+import { CollectionsComponent } from './collections/collections.component';
+import { CustomCheckboxComponent } from './custom-checkbox/custom-checkbox.component';
 
 const components = [
   SocialLoginComponent,
@@ -18,6 +20,8 @@ const components = [
   UploaderComponent,
   SearchComponent,
   CardComponent,
+  CollectionsComponent,
+  CustomCheckboxComponent,
 ];
 const modules = [CommonModule, IonicModule, FormsModule, SharedModule];
 
