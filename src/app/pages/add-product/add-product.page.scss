@@ -52,12 +52,13 @@ img {
 }
 
 .swiper-slide {
-  display: flex;
+  display: block;
   flex-direction: column;
   font-size: medium;
   align-items: center;
   justify-content: start;
   margin-top: 5%;
+  padding: 0 5%;
   h2 {
     align-self: start;
     margin: 2% 0 2% 5%;
