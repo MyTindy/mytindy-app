@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TAGS } from 'src/app/shared/constants/tags.constant';
 
 @Component({
   selector: 'app-tags',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./tags.component.scss'],
 })
 export class TagsComponent {
+  tags: string[] = TAGS;
   constructor() {}
 }
