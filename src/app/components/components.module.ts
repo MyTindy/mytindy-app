@@ -12,6 +12,8 @@ import { PasscodeHelper } from '../utils/passcode.auth';
 import { UploaderComponent } from './uploader/uploader.component';
 import { CollectionsComponent } from './collections/collections.component';
 import { CustomCheckboxComponent } from './custom-checkbox/custom-checkbox.component';
+import { TagsComponent } from './tags/tags.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 const components = [
   SocialLoginComponent,
@@ -22,6 +24,8 @@ const components = [
   CardComponent,
   CollectionsComponent,
   CustomCheckboxComponent,
+  TagsComponent,
+  ProductDetailsComponent,
 ];
 const modules = [CommonModule, IonicModule, FormsModule, SharedModule];
 
