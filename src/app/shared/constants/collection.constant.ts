@@ -1,4 +1,4 @@
-export const collections = [
+export const COLLECTIONS = [
   'Dress',
   'Tunic',
   'Accessories',
