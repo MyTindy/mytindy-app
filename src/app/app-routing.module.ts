@@ -37,10 +37,6 @@ const routes: Routes = [
       import('./pages/lock/lock.module').then((m) => m.LockPageModule),
   },
   {
-    path: 'add-product',
-    loadChildren: () => import('./pages/add-product/add-product.module').then( m => m.AddProductPageModule)
-  },
-  {
     path: 'tabs',
     loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule)
   },

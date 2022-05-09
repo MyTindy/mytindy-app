@@ -11,12 +11,12 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'home',
+        path: 'add-product',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../home/home.module').then((m) => m.HomePageModule),
+              import('../add-product/add-product.module').then((m) => m.AddProductPageModule),
           },
         ],
       },
@@ -27,7 +27,7 @@ const routes: Routes = [
             path: '',
             loadChildren: () =>
               import('../profile/profile.module').then((m) => m.ProfilePageModule),
-            // canActivate: [AuthGuard],
+            canActivate: [AuthGuard],
           },
         ],
       },
