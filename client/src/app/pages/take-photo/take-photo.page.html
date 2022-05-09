@@ -49,14 +49,14 @@
       <ion-button
         horizontal="center"
         [disabled]="!photoService.photos"
-        routerLink="/profile"
+        routerLink="/tabs/profile"
         (click)="uploadImage(photoService.photos[0])"
         ><ion-icon name="camera" slot="end"> </ion-icon> Upload
       </ion-button>
     </ng-template>
 
     <ion-item>
-      <ion-label routerLink="/profile" (click)="skipForNow()"
+      <ion-label routerLink="/tabs/profile" (click)="skipForNow()"
         >Skip for now</ion-label
       >
     </ion-item>

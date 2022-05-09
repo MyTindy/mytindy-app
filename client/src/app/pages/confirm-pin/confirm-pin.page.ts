@@ -7,7 +7,6 @@ import { AuthService } from 'src/app/services/auth.service';
 import { LocationService } from 'src/app/services/location.service';
 import { UsersService } from 'src/app/services/user.service';
 
-
 @Component({
   selector: 'app-confirm-pin',
   templateUrl: './confirm-pin.page.html',
@@ -19,15 +18,15 @@ export class ConfirmPinPage {
   code: number;
   location;
   fullName: string;
-  optConfig={
-    inputStyles:{
-      width:'40px',
-      height:'40px',
-      color:'black',
-      background:'white',
-      margin:'40px 8px',
+  optConfig = {
+    inputStyles: {
+      width: '40px',
+      height: '40px',
+      color: 'black',
+      background: 'white',
+      margin: '40px 8px',
     },
-    length:6
+    length: 6,
   };
 
   constructor(
@@ -46,7 +45,7 @@ export class ConfirmPinPage {
 
   verifyCode() {
     this.authService.enterVerifcationCode(this.code).then((userData) => {
-      this.usersService.addUser(userData,this.location);
+      this.usersService.addUser(userData, this.location);
       this.router.navigate(['/take-photo']);
     });
   }
@@ -67,7 +66,7 @@ export class ConfirmPinPage {
           text: 'Enter',
           handler: (res) => {
             this.authService.enterVerifcationCode(res.otp).then((userData) => {
-              this.router.navigate(['/profile']);
+              this.router.navigate(['/tabs/profile']);
             });
           },
         },
@@ -76,7 +75,7 @@ export class ConfirmPinPage {
     await alert.present();
   }
 
-  onOtpChange(event){
-this.code = event;
+  onOtpChange(event) {
+    this.code = event;
   }
 }
