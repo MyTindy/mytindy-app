@@ -7,6 +7,7 @@
     "ng": "ng",
     "client": "ng serve --proxy-config=src/proxy.conf.json -o",
     "server": "cd .. && cd server && npm start",
+    "project-setup": "npm install && cd .. && cd server && npm install",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "build": "ng build",
     "build-prod": "ng build --configuration production",
