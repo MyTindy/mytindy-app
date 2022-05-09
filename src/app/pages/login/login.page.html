@@ -1,0 +1,58 @@
+<ion-content class="form">
+  <div class="mandela-top-right">
+    <img src="/assets/images/simbol1.png" />
+  </div>
+  <div class="form">
+    <div id="submit-button"></div>
+    <div class="tindy-logo">
+      <img src="/assets/images/tindy-logo.png" />
+    </div>
+    <div *ngIf="isSignup" class="statues">
+      <h1>Register</h1>
+      <ion-button (click)="changeFormType('login')"
+        >already have an account?</ion-button
+      >
+    </div>
+
+    <div *ngIf="isLogin" class="statues">
+      <h1>Log in</h1>
+      <ion-button
+        (click)="changeFormType('Register')"
+        [routerLink]="['/register']"
+        >not registered yet?</ion-button
+      >
+    </div>
+
+    <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+      <ion-item *ngIf="isSignup">
+        <ion-label position="floating">Full Name</ion-label>
+        <ion-input type="text" formControlName="fullName" required></ion-input>
+      </ion-item>
+
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.fullName">
+          <div
+            class="error-message"
+            *ngIf="isSubmitted &&loginForm.get('fullName').hasError(validation.type) && (loginForm.get('fullName').dirty || loginForm.get('fullName').touched)"
+          >
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+
+      <app-phone (phoneNumber)="onPhoneEmitted($event)"></app-phone>
+
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" expand="block" [disabled]="!phoneNumber">
+            {{formType}}
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+    <app-social-login></app-social-login>
+  </div>
+  <div class="mandela-bottom-left">
+    <img src="assets/images/simbol2.png" />
+  </div>
+</ion-content>

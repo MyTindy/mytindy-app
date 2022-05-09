@@ -28,6 +28,15 @@ npm-debug.log*
 /coverage
 /dist
 /node_modules
+/server/node_modules
+/server/config.env
 /platforms
 /plugins
 /www
+**/src/environments/environment.prod.ts
+**/src/environments/environment.ts
+
+# Firebase
+.firebase
+*-debug.log
+.runtimeconfig.json

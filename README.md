@@ -2,11 +2,11 @@
 
 ---
 
-* [Project Scope](#project-scope) 🥅
-* [User Stories](#user-stories) 📑
-* [User Journey](#user-journey) 🚜
-* [Prototype](#prototype) 🎨
-* [How to Launch App Locally](#running-the-project-locally) 📣
+* [Project Scope](#project-scope--dart) 🥅
+* [User Stories](#user-stories-book) 📑
+* [User Journey](#user-journey-world_map) 🚜
+* [Prototype](#prototype-art) 🎨
+* [How to Launch App Locally](#run-the-project-locally-) 📣
 
 ## Project Scope  :dart: 
  
@@ -26,7 +26,7 @@ HOPE YOU HAD A NICE JOURNEY :hearts:
 [Figma link](https://www.figma.com/file/V4ABTIoh3mKQjwt0D9dJcj/Store-with-photos?node-id=207%3A524)
 
 
-## Running the project locally: 📣 
+## Run the project locally: 📣 
 
 - `$ git clone https://github.com/MyTindy/mytindy-app.git`
 - `$ cd mytindy-app`
