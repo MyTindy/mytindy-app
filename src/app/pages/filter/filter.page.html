@@ -1,0 +1,112 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-button slot="start">
+      <ion-back-button color="light" defaultHref="profile"></ion-back-button
+    ></ion-button>
+    <ion-title>Apply Filters</ion-title>
+    <ion-title slot="end"> Reset</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="upperBox">
+    <h3>Type</h3>
+    <ion-list>
+      <ion-radio-group>
+        <ion-item>
+          <ion-label>Cup</ion-label>
+          <ion-radio value="cup"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Jeans</ion-label>
+          <ion-radio value="Jeans"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Candel</ion-label>
+          <ion-radio value="Candel"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>T-shirt</ion-label>
+          <ion-radio value="T-shirt"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>umbrella</ion-label>
+          <ion-radio value="umbrella"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Carpet</ion-label>
+          <ion-radio value="Carpet"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>plate</ion-label>
+          <ion-radio value="plate"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Shoose</ion-label>
+          <ion-radio value="Shoose"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Spoon</ion-label>
+          <ion-radio value="Spoon"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Mosaico</ion-label>
+          <ion-radio value="Mosaico"></ion-radio>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label >Other</ion-label>
+          <ion-radio value="other"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+  </div>
+  <div class="upperBox">
+    <h3>Tages</h3>
+    <ion-radio-group>
+      <ion-row>
+        <ion-col size="6">
+<ion-item>
+  <ion-label>Clothes</ion-label>
+  <ion-radio mode="md" item-left value="clothes"></ion-radio>
+</ion-item>
+        </ion-col>
+        <ion-col size="6">
+<ion-item>
+  <ion-label>Men</ion-label>
+  <ion-radio mode="md" item-left value="men"></ion-radio>
+</ion-item>
+        </ion-col>
+        <ion-col size="6">
+<ion-item>
+  <ion-label>Food</ion-label>
+  <ion-radio mode="md" item-left value="food"></ion-radio>
+</ion-item>
+        </ion-col>
+        <ion-col size="6">
+<ion-item>
+  <ion-label>Women</ion-label>
+  <ion-radio mode="md" item-left value="women"></ion-radio>
+</ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-radio-group>
+  </div>
+  <div class="upperBox">
+    <h3>Sort by</h3>
+    <ion-list lines="none">
+      <ion-item>
+        <ion-label>Most Popular</ion-label>
+        <ion-toggle mode="ios"></ion-toggle>
+      </ion-item>
+      <hr style="border-bottom: 1px solid gray;">
+    </ion-list>
+    <ion-list lines="none">
+      <ion-radio-group>
+        <ion-label>Most Popular</ion-label>
+        <ion-toggle mode="ios"></ion-toggle>
+      </ion-radio-group>
+      <hr style="border-bottom: 1px solid gray;">
+    </ion-list>
+    </div>
+
+</ion-content>
