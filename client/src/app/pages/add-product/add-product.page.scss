@@ -59,8 +59,13 @@ img {
   justify-content: start;
   margin-top: 5%;
   padding: 0 5%;
+  overflow-y: scroll;
+  display: block;
   h2 {
     align-self: start;
     margin: 2% 0 2% 5%;
+  }
+  .swiper-pagination {
+    padding-top: 6rem;
   }
 }
