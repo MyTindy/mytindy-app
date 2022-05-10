@@ -63,6 +63,11 @@ const routes: Routes = [
     path: 'add-product',
     loadChildren: () => import('./pages/add-product/add-product.module').then( m => m.AddProductPageModule)
   },
+  {
+    path: 'filter',
+    loadChildren: () => import('./pages/filter/filter.module').then( m => m.FilterPageModule)
+  },
+
 ];
 
 @NgModule({
