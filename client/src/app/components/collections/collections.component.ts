@@ -34,18 +34,21 @@ export class CollectionsComponent {
       ),
     });
     this.collectionsForm.get('collections').valueChanges.subscribe((values) => {
-      console.log({ values });
       this.submitSuccess = ''; // reset the submitted values string
     });
   }
 
+  getCollections() {
+    return (this.collectionsForm.get('collections') as FormArray).controls;
+  }
+
   onSubmit() {
-    const selectedInterests = [];
+    const selectedCollection = [];
     this.collectionsForm.value.collections.map((value: any, index: number) => {
       if (value) {
-        selectedInterests.push(this.collectionsList[index].name);
+        selectedCollection.push(this.collectionsList[index].name);
       }
     });
-    this.submitSuccess = 'Submitted values: ' + selectedInterests;
+    this.submitSuccess = 'Submitted values: ' + selectedCollection;
   }
 }

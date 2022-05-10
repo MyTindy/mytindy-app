@@ -3,10 +3,7 @@
     <ion-col
       size="6"
       formArrayName="collections"
-      *ngFor="
-        let collect of collectionsForm.controls.collections.controls;
-        let i = index
-      "
+      *ngFor="let collect of getCollections(); let i = index"
     >
       <app-custom-checkbox class="custom-checkbox">
         <div
@@ -20,7 +17,7 @@
           }}</ion-label>
           <ion-checkbox
             class="checkbox-item"
-            [formControl]="collect"
+            [formControlName]="i"
           ></ion-checkbox>
         </div>
       </app-custom-checkbox>
