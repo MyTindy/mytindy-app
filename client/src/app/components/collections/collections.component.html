@@ -1,27 +1,53 @@
 <form [formGroup]="collectionsForm" (ngSubmit)="onSubmit()">
-  <div class="custom-checkboxes-example">
-    <ion-row>
-      <ion-col size="6" *ngFor="let collect of collectionsList">
-        <app-custom-checkbox class="custom-checkbox">
-          <div
-            class="checkbox-content"
-            [style.--img-src]="
-              'url(https://i5.walmartimages.com/asr/cfb84877-da21-4a3d-95a1-b89018589b28_1.392ba840a13d8ed1c9660abdf7dc49d8.jpeg)'
-            "
-          >
-            <ion-label class="checkbox-title">{{ collect }}</ion-label>
-            <ion-checkbox class="checkbox-item" value="collect"></ion-checkbox>
-          </div>
-        </app-custom-checkbox>
-      </ion-col>
-    </ion-row>
+  <ion-row class="interest-options">
+    <ion-col
+      size="6"
+      formArrayName="collections"
+      *ngFor="
+        let collect of collectionsForm.controls.collections.controls;
+        let i = index
+      "
+    >
+      <app-custom-checkbox class="custom-checkbox">
+        <div
+          class="checkbox-content"
+          [style.--img-src]="
+            'url(https://i5.walmartimages.com/asr/cfb84877-da21-4a3d-95a1-b89018589b28_1.392ba840a13d8ed1c9660abdf7dc49d8.jpeg)'
+          "
+        >
+          <ion-label class="checkbox-title">{{
+            collectionsList[i].name
+          }}</ion-label>
+          <ion-checkbox
+            class="checkbox-item"
+            [formControl]="collect"
+          ></ion-checkbox>
+        </div>
+      </app-custom-checkbox>
+    </ion-col>
+  </ion-row>
+
+  <div class="error-message-container" *ngIf="!collectionsForm.valid">
+    <div class="error-message">
+      <ion-icon name="information-circle-outline"></ion-icon>
+      <span>{{ submitError }}</span>
+    </div>
   </div>
   <ion-button
     class="submit-btn"
     expand="block"
     type="submit"
     fill="solid"
-    [disabled]="!collectionsForm.value"
+    [disabled]="!collectionsForm.valid"
     >SUBMIT</ion-button
   >
+  <div
+    class="success-message-container"
+    *ngIf="collectionsForm.valid && submitSuccess"
+  >
+    <div class="success-message">
+      <ion-icon name="checkmark-circle-outline"></ion-icon>
+      <span>{{ submitSuccess }}</span>
+    </div>
+  </div>
 </form>
