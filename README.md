@@ -13,11 +13,12 @@
 Create an app to empower sellers with lower levels of literacy to list their products autonomously so they can sell through our platform. This app will be connected to our marketplace and will sync their products on our platform.
 
 ## User stories: :book: 
-Relates to: #8
+Relates to: [#8](https://github.com/MyTindy/mytindy-app/issues/8)
 
 ## User Journey :world_map: 
 
-![](https://i.imgur.com/y0dWbVb.jpg)
+![Untitled presentation](https://user-images.githubusercontent.com/62670964/167632323-0ee0227f-72b2-46e3-9f79-550c3b711f2f.jpg)
+
 
 HOPE YOU HAD A NICE JOURNEY :hearts: 
 
