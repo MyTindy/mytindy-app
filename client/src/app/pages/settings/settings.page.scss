@@ -3,18 +3,18 @@ ion-toolbar {
   background-image: linear-gradient(to bottom right, #f65206, #F20B4E);
 }
 
-.backbtn {
+.back-btn {
   color: white;
   padding-left: 15px;
 
 }
 
-.restbtn {
+.rest-btn {
   color: white;
   padding-right: 30px;
 }
 
-ion-icon {
+.back-arrow {
   font-size: 25px;
   padding-right: 9px;
 }
@@ -56,17 +56,17 @@ ion-content {
   border-radius: 100%;
 }
 
-img {
+img{
 
   object-fit: cover;
 
 }
-
 .camera-icon {
   width: 40px;
   height: 40px;
   color: red;
 }
+
 
 ion-avatar {
   width: 150px;
