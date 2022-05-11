@@ -6,15 +6,39 @@ import { ProductService } from 'src/app/services/product.service';
   templateUrl: './add-product.page.html',
   styleUrls: ['./add-product.page.scss'],
 })
-export class AddProductPage implements OnInit {
+export class AddProductPage {
   isHovering: boolean;
-  mockData: any;
-
   files: File[] = [];
+  collections = [
+    { name: 'Dress', value: 'dress' },
+    { name: 'Pants', value: 'pants' },
+    { name: 'Shorts', value: 'shorts' },
+    { name: 'Hat', value: 'hat', selected: false },
+    { name: 'Shoes', value: 'shoes' },
+    { name: 'Candle', value: 'candle' },
+    { name: 'Jewelry', value: 'jewelry' },
+    { name: 'Home Decor', value: 'home decor' },
+    { name: 'Jewelry Box', value: 'jewelry box' },
+    { name: 'Bags', value: 'bags' },
+  ];
+
+  tags = [
+    { name: 'Tag', value: 'tag' },
+    { name: 'Pants', value: 'pants' },
+    { name: 'Shorts', value: 'shorts' },
+    { name: 'Hat', value: 'hat', selected: false },
+    { name: 'Shoes', value: 'shoes' },
+    { name: 'Candle', value: 'candle' },
+    { name: 'Jewelry', value: 'jewelry' },
+    { name: 'Home Decor', value: 'home decor' },
+    { name: 'Jewelry Box', value: 'jewelry box' },
+    { name: 'Bags', value: 'bags' },
+  ];
+  selectedCollections: string[];
+  selectedTags: string[];
 
   constructor(private productService: ProductService) {}
 
-  ngOnInit() {}
   toggleHover(event: boolean) {
     this.isHovering = event;
   }
@@ -29,5 +53,13 @@ export class AddProductPage implements OnInit {
     this.productService.getProduct().subscribe((data) => {
       console.log(data);
     });
+  }
+
+  updateCollections(collection) {
+    this.selectedCollections = collection;
+  }
+
+  updateTags(tags) {
+    this.selectedTags = tags;
   }
 }
