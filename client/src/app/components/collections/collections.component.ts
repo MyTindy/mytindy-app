@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { COLLECTIONS } from 'src/app/shared/constants/collection.constant';
 import { CheckboxCheckedValidator } from 'src/app/validators/checkboxChecked.validator';
@@ -10,6 +10,7 @@ import { CheckboxCheckedValidator } from 'src/app/validators/checkboxChecked.val
 })
 export class CollectionsComponent implements OnInit {
   @Input() list: any = [];
+  @Output() itemsChange: EventEmitter<string[]> = new EventEmitter<string[]>();
 
   collectionsForm: FormGroup;
   submitError = 'Please select at least 1 option.';
@@ -35,12 +36,13 @@ export class CollectionsComponent implements OnInit {
   }
 
   onSubmit() {
-    const selectedCollection = [];
+    const selectedItems = [];
     this.collectionsForm.value.collections?.map((value: any, index: number) => {
       if (value) {
-        selectedCollection.push(this.list[index].name);
+        selectedItems.push(this.list[index].name);
       }
     });
-    this.submitSuccess = 'Submitted values: ' + selectedCollection;
+    this.submitSuccess = 'Submitted values: ' + selectedItems;
+    this.itemsChange.emit(selectedItems);
   }
 }

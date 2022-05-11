@@ -13,7 +13,7 @@ export class AddProductPage {
     { name: 'Dress', value: 'dress' },
     { name: 'Pants', value: 'pants' },
     { name: 'Shorts', value: 'shorts' },
-    { name: 'Hat', value: 'hat', selected: true },
+    { name: 'Hat', value: 'hat', selected: false },
     { name: 'Shoes', value: 'shoes' },
     { name: 'Candle', value: 'candle' },
     { name: 'Jewelry', value: 'jewelry' },
@@ -26,7 +26,7 @@ export class AddProductPage {
     { name: 'Tag', value: 'tag' },
     { name: 'Pants', value: 'pants' },
     { name: 'Shorts', value: 'shorts' },
-    { name: 'Hat', value: 'hat', selected: true },
+    { name: 'Hat', value: 'hat', selected: false },
     { name: 'Shoes', value: 'shoes' },
     { name: 'Candle', value: 'candle' },
     { name: 'Jewelry', value: 'jewelry' },
@@ -34,6 +34,8 @@ export class AddProductPage {
     { name: 'Jewelry Box', value: 'jewelry box' },
     { name: 'Bags', value: 'bags' },
   ];
+  selectedCollections: string[];
+  selectedTags: string[];
 
   constructor(private productService: ProductService) {}
 
@@ -51,5 +53,13 @@ export class AddProductPage {
     this.productService.getProduct().subscribe((data) => {
       console.log(data);
     });
+  }
+
+  updateCollections(collection) {
+    this.selectedCollections = collection;
+  }
+
+  updateTags(tags) {
+    this.selectedTags = tags;
   }
 }
