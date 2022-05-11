@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { SocialLoginComponent } from './social-login/social-login.component';
 import { PhoneComponent } from './phone/phone.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { PasscodeComponent } from './passcode/passcode.component';
 import { PasscodeHelper } from '../utils/passcode.auth';
@@ -27,7 +27,13 @@ const components = [
   TagsComponent,
   ProductDetailsComponent,
 ];
-const modules = [CommonModule, IonicModule, FormsModule, SharedModule];
+const modules = [
+  CommonModule,
+  IonicModule,
+  FormsModule,
+  SharedModule,
+  ReactiveFormsModule,
+];
 
 @NgModule({
   declarations: [...components],

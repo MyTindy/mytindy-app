@@ -1,58 +1,50 @@
-<div class="custom-checkboxes-example">
-  <ion-row>
-    <ion-col size="6">
+<form [formGroup]="collectionsForm" (ngSubmit)="onSubmit()">
+  <ion-row class="interest-options">
+    <ion-col
+      size="6"
+      formArrayName="collections"
+      *ngFor="let collect of getCollections(); let i = index"
+    >
       <app-custom-checkbox class="custom-checkbox">
         <div
           class="checkbox-content"
           [style.--img-src]="
-            'url(https://images.pexels.com/photos/220911/pexels-photo-220911.jpeg?auto=compress&cs=tinysrgb)'
+            'url(https://i5.walmartimages.com/asr/cfb84877-da21-4a3d-95a1-b89018589b28_1.392ba840a13d8ed1c9660abdf7dc49d8.jpeg)'
           "
         >
-          <ion-label class="checkbox-title">{{ collections[8] }}</ion-label>
-          <ion-checkbox class="checkbox-item" value="hats"></ion-checkbox>
-        </div>
-      </app-custom-checkbox>
-    </ion-col>
-    <ion-col size="6">
-      <app-custom-checkbox class="custom-checkbox">
-        <div
-          class="checkbox-content"
-          [style.--img-src]="
-            'url(https://images.pexels.com/photos/6102505/pexels-photo-6102505.jpeg?auto=compress&cs=tinysrgb)'
-          "
-        >
-          <ion-label class="checkbox-title">{{ collections[9] }}</ion-label>
-          <ion-checkbox class="checkbox-item" value="shoes"></ion-checkbox>
+          <ion-label class="checkbox-title">{{
+            collectionsList[i].name
+          }}</ion-label>
+          <ion-checkbox
+            class="checkbox-item"
+            [formControlName]="i"
+          ></ion-checkbox>
         </div>
       </app-custom-checkbox>
     </ion-col>
   </ion-row>
-  <ion-row>
-    <ion-col size="6">
-      <app-custom-checkbox class="custom-checkbox">
-        <div
-          class="checkbox-content"
-          [style.--img-src]="
-            'url(https://images.pexels.com/photos/848573/pexels-photo-848573.jpeg?auto=compress&cs=tinysrgb)'
-          "
-        >
-          <ion-label class="checkbox-title">{{ collections[73] }}</ion-label>
-          <ion-checkbox class="checkbox-item" value="clay"></ion-checkbox>
-        </div>
-      </app-custom-checkbox>
-    </ion-col>
-    <ion-col size="6">
-      <app-custom-checkbox class="custom-checkbox">
-        <div
-          class="checkbox-content"
-          [style.--img-src]="
-            'url(https://images.pexels.com/photos/3568521/pexels-photo-3568521.jpeg?auto=compress&cs=tinysrgb)'
-          "
-        >
-          <ion-label class="checkbox-title">{{ collections[12] }}</ion-label>
-          <ion-checkbox class="checkbox-item" value="bags"></ion-checkbox>
-        </div>
-      </app-custom-checkbox>
-    </ion-col>
-  </ion-row>
-</div>
+
+  <div class="error-message-container" *ngIf="!collectionsForm.valid">
+    <div class="error-message">
+      <ion-icon name="information-circle-outline"></ion-icon>
+      <span>{{ submitError }}</span>
+    </div>
+  </div>
+  <ion-button
+    class="submit-btn"
+    expand="block"
+    type="submit"
+    fill="solid"
+    [disabled]="!collectionsForm.valid"
+    >SUBMIT</ion-button
+  >
+  <div
+    class="success-message-container"
+    *ngIf="collectionsForm.valid && submitSuccess"
+  >
+    <div class="success-message">
+      <ion-icon name="checkmark-circle-outline"></ion-icon>
+      <span>{{ submitSuccess }}</span>
+    </div>
+  </div>
+</form>
