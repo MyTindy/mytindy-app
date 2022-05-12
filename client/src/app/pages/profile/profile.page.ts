@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
+  photo = 'https://image.shutterstock.com/image-photo/pottery-artisan-making-fireclay-jugs-260nw-599795654.jpg';
   slideOpts = {
     freeMode: true,
     centeredSlides: true,

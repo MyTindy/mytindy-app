@@ -1,20 +1,27 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Profile</ion-title>
-    <ion-buttons slot="start">
-      <ion-menu-button menu="main-menu"></ion-menu-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
+  <div class="header">
+    <div class="container">
+      <div class="outer">
+        <ion-avatar class="profile-pic">
+          <img [src]="photo" />
+        </ion-avatar>
 
- <ion-content>
-  <ion-slides [options]="slideOpts" class="ion-margin-top">
+        <div class="inner">
+          <img src="/assets/images/tindy-logo.png" class="logo-icon" />
+        </div>
+      </div>
+    </div>
+    <h2 class="user">Mohammad</h2>
+    <p class="user">21 items</p>
+  </div>
+
+  <!-- <ion-slides [options]="slideOpts" class="ion-margin-top">
     <ion-slide *ngFor="let cat of categories">
       <ion-card>
         <img [src]="cat.img" />
       </ion-card>
     </ion-slide>
-  </ion-slides>
+  </ion-slides> -->
   <app-search></app-search>
   <app-card></app-card>
 </ion-content>
