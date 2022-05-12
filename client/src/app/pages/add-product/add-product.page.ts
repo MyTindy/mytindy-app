@@ -152,4 +152,44 @@ export class AddProductPage {
     this.selectedTags = tags;
   }
 
+  //Move to Next slide
+  slideNext(object, slideView) {
+    slideView.slideNext(500).then(() => {
+      this.checkIfNavDisabled(object, slideView);
+    });
+  }
+
+  //Move to previous slide
+  slidePrev(object, slideView) {
+    slideView.slidePrev(500).then(() => {
+      this.checkIfNavDisabled(object, slideView);
+    });
+  }
+
+  slideDidChange(object, slideView) {
+    this.checkIfNavDisabled(object, slideView);
+  }
+
+  checkIfNavDisabled(object, slideView) {
+    this.checkisBeginning(object, slideView);
+    this.checkisEnd(object, slideView);
+  }
+
+  checkisBeginning(object, slideView) {
+    slideView.isBeginning().then((istrue) => {
+      object.isBeginningSlide = istrue;
+    });
+  }
+  checkisEnd(object, slideView) {
+    slideView.isEnd().then((istrue) => {
+      object.isEndSlide = istrue;
+    });
+  }
+
+  next() {
+    this.addProductSlider.slideNext();
+  }
+  prev() {
+    this.addProductSlider.slidePrev();
+  }
 }

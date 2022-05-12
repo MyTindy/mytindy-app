@@ -1,11 +1,21 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Add a new product</ion-title>
+    <ion-buttons slot="start" fill="outline">
+      <ion-button (click)="prev()"
+        ><ion-icon slot="start" name="arrow-back"></ion-icon> Prev</ion-button
+      >
+    </ion-buttons>
+    <ion-buttons slot="end" fill="solid">
+      <ion-button (click)="next() "
+        >Next <ion-icon slot="end" name="arrow-forward"></ion-icon
+      ></ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-slides pager="true">
+  <ion-slides pager="true"  #addProductSlider>
     <ion-slide>
       <h2>Choose your product images</h2>
       <div
