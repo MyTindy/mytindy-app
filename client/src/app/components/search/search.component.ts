@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent implements OnInit {
+  constructor(private route: Router) {}
 
-  constructor() { }
+  filterPage() {
+    this.route.navigate(['/filter']);
+  }
 
   ngOnInit() {}
-
 }
