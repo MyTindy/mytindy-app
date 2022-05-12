@@ -6,12 +6,7 @@
       *ngFor="let collect of getCollections(); let i = index"
     >
       <app-custom-checkbox class="custom-checkbox">
-        <div
-          class="checkbox-content"
-          [style.--img-src]="
-            'url(https://i5.walmartimages.com/asr/cfb84877-da21-4a3d-95a1-b89018589b28_1.392ba840a13d8ed1c9660abdf7dc49d8.jpeg)'
-          "
-        >
+        <div class="checkbox-content" [style.--img-src]="list[i].image">
           <ion-label class="checkbox-title">{{ list[i].name }}</ion-label>
           <ion-checkbox
             class="checkbox-item"
