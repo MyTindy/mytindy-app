@@ -1,8 +1,8 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonSlides } from '@ionic/angular';
 import { FormGroup } from '@angular/forms';
 import { ProductService } from 'src/app/services/product.service';
-import { url } from 'inspector';
 
 @Component({
   selector: 'app-add-product',
@@ -123,8 +123,15 @@ export class AddProductPage {
     { name: 'Necklace', value: 'necklace', image:'url(https://www.manoindigena.com/wp-content/uploads/2020/11/IMG_2364.jpg)' },
     { name: 'Bracelet', value: 'bracelet', image:'url(https://sc01.alicdn.com/kf/UTB8emNIXf2JXKJkSanrq6y3lVXaE.jpg)' },
   ];
-  selectedCollections: string[];
-  selectedTags: string[];
+  productInfo = {
+    selectedCollections: [],
+    selectedTags: [],
+    choosenDetails: {
+      colors: [],
+      price: 0,
+      description: ''
+    }
+  };
 
   constructor(private productService: ProductService) {}
 
@@ -145,11 +152,16 @@ export class AddProductPage {
   }
 
   updateCollections(collection) {
-    this.selectedCollections = collection;
+    this.productInfo.selectedCollections = collection;
   }
 
   updateTags(tags) {
-    this.selectedTags = tags;
+    this.productInfo.selectedTags = tags;
+  }
+
+  updateDetails(details) {
+    console.log({details});
+    this.productInfo.choosenDetails = details;
   }
 
   //Move to Next slide
