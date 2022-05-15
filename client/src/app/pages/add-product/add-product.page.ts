@@ -164,6 +164,41 @@ export class AddProductPage {
     this.productInfo.choosenDetails = details;
   }
 
+  onSubmit() {
+    console.log(this.productInfo.selectedCollections);
+    console.log(this.productInfo.selectedTags);
+    console.log(this.productInfo.choosenDetails);
+    const data = {
+      seller_id: '1490609',
+      type: '1',
+      product_name: 'Test Product',
+      product_type: this.productInfo.selectedCollections[0],
+      product_tag: this.productInfo.selectedTags[0],
+      product_description: this.productInfo.choosenDetails.description,
+      variants: [
+        {
+          price: `${this.productInfo.choosenDetails.price}`,
+          track_inventory: '1',
+          quantity: '10',
+          inventory_locations: [
+            {
+              location_id: '35862',
+              variant_quantity: '10'
+            }
+          ]
+        }
+      ],
+      options: [
+        {
+          name: 'Title',
+          values: 'New'
+        }
+      ]
+    };
+
+    this.productService.postProduct(data).subscribe((res) => console.log({res}));
+  }
+
   //Move to Next slide
   slideNext(object, slideView) {
     slideView.slideNext(500).then(() => {

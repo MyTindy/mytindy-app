@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
@@ -14,7 +14,21 @@ export class ProductService {
   getProduct() {
     return this.http.get<any[]>(this.baseURL).pipe(
       tap((_) => this.log('data received')),
-      catchError(this.handleError('Get Seller', []))
+      catchError(this.handleError('Get Products', []))
+    );
+  }
+
+  postProduct(data) {
+    this.log('post request');
+    const httpOptions = {
+      headers: new HttpHeaders({
+        // eslint-disable-next-line @typescript-eslint/naming-convention
+        'Content-Type': 'application/json',
+      })
+    };
+   return this.http.post<any[]>(this.baseURL,data, httpOptions).pipe(
+      tap((_) => this.log('data sent')),
+      catchError(this.handleError('post product failed',[]))
     );
   }
 
