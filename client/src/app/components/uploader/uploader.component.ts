@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {
   AngularFireStorage,
   AngularFireUploadTask,
@@ -14,6 +14,7 @@ import { UsersService } from 'src/app/services/user.service';
 })
 export class UploaderComponent implements OnInit {
   @Input() file: File;
+  @Output() imageURL = new EventEmitter<string>();
 
   task: AngularFireUploadTask;
   snapshot: Observable<any>;
@@ -43,6 +44,7 @@ export class UploaderComponent implements OnInit {
               console.log('"""File not found"""');
             }
           });
+        this.imageURL.emit(this.downloadURL);
       })
     );
   }
