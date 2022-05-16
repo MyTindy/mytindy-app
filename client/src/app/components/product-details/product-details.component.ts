@@ -14,9 +14,11 @@ export class ProductDetailsComponent {
 
   constructor() {
     this.detailsForm = new FormGroup({
+      name: new FormControl('', Validators.required),
       description: new FormControl('',Validators.required),
       colors: new FormArray([]),
-      price: new FormControl(null,Validators.required, ),
+      price: new FormControl(null,Validators.required),
+      quantity: new FormControl(null, Validators.required)
     });
     this.colorOptions?.forEach(() => this.detailsFormArray?.push(new FormControl()));
   }
