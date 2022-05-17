@@ -1,3 +1,4 @@
-const getAllProducts = require('./getAllProducts')
+const getAllProducts=require('./product/getAllProducts')
+const postProduct=require('./product/postProduct')
 
-module.exports = { getAllProducts }
+module.exports={getAllProducts, postProduct}

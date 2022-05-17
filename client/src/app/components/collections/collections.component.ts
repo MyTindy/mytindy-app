@@ -43,6 +43,7 @@ export class CollectionsComponent implements OnInit {
       }
     });
     this.submitSuccess = 'Submitted values: ' + selectedItems;
+    console.log(selectedItems);
     this.itemsChange.emit(selectedItems);
   }
 }
