@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component,OnInit,ViewChild } from '@angular/core';
 import { IonSlides } from '@ionic/angular';
 import { FormGroup } from '@angular/forms';
 import { ProductService } from 'src/app/services/product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-product',
@@ -10,7 +11,7 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./add-product.page.scss'],
 })
 export class AddProductPage {
-  @ViewChild('addProductSlider', { static: false }) addProductSlider;
+  @ViewChild('addProductSlider',{ static: false }) addProductSlider;
   public slideOneForm: FormGroup;
   public slideTwoForm: FormGroup;
   public submitAttempt = false;
@@ -121,14 +122,14 @@ export class AddProductPage {
       image:
         'url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuDqmm8TKmVsJGBPVXvwxZj1hwgVCFYi5z7g&usqp=CAU)',
     },
-    { name: 'Necklace', value: 'necklace', image:'url(https://www.manoindigena.com/wp-content/uploads/2020/11/IMG_2364.jpg)' },
-    { name: 'Bracelet', value: 'bracelet', image:'url(https://sc01.alicdn.com/kf/UTB8emNIXf2JXKJkSanrq6y3lVXaE.jpg)' },
+    { name: 'Necklace',value: 'necklace',image: 'url(https://www.manoindigena.com/wp-content/uploads/2020/11/IMG_2364.jpg)' },
+    { name: 'Bracelet',value: 'bracelet',image: 'url(https://sc01.alicdn.com/kf/UTB8emNIXf2JXKJkSanrq6y3lVXaE.jpg)' },
   ];
   productInfo = {
     selectedCollections: [],
     selectedTags: [],
     choosenDetails: {
-      name:'',
+      name: '',
       description: '',
       colors: [],
       price: 0,
@@ -136,14 +137,14 @@ export class AddProductPage {
     }
   };
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService,private router: Router) {}
 
   toggleHover(event: boolean) {
     this.isHovering = event;
   }
 
   onDrop(files: FileList) {
-    for (let i = 0; i < files.length; i++) {
+    for(let i = 0; i < files.length; i++) {
       this.files.push(files.item(i));
     }
   }
@@ -162,7 +163,7 @@ export class AddProductPage {
   }
 
   updateDetails(details) {
-    console.log({details});
+    console.log({ details });
     this.productInfo.choosenDetails = details;
   }
 
@@ -178,7 +179,7 @@ export class AddProductPage {
         {
           price: `${ this.productInfo.choosenDetails.price }`,
           track_inventory: '1',
-          quantity: `${this.productInfo.choosenDetails.quantity}`,
+          quantity: `${ this.productInfo.choosenDetails.quantity }`,
           inventory_locations: [
             {
               location_id: '35862',
@@ -203,8 +204,12 @@ export class AddProductPage {
       ]
     };
 
-    this.productService.postProduct(data).subscribe((res) => console.log({res}));
-  }
+    this.productService.postProduct(data).subscribe((res) => {
+      console.log({ res });
+      this.router.navigate(['/tabs/profile']);
+    });
+}
+
 
   next() {
     this.addProductSlider.slideNext();
