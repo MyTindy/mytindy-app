@@ -1,0 +1,27 @@
+<ion-content>
+  <div class="header">
+    <div class="container">
+      <div class="outer">
+        <ion-avatar class="profile-pic">
+          <img [src]="photo" />
+        </ion-avatar>
+
+        <div class="inner">
+          <img src="/assets/images/tindy-logo.png" class="logo-icon" />
+        </div>
+      </div>
+    </div>
+    <h2 class="user">Mohammad</h2>
+    <p class="user">21 items</p>
+  </div>
+
+  <!-- <ion-slides [options]="slideOpts" class="ion-margin-top">
+    <ion-slide *ngFor="let cat of categories">
+      <ion-card>
+        <img [src]="cat.img" />
+      </ion-card>
+    </ion-slide>
+  </ion-slides> -->
+  <app-search></app-search>
+  <app-card></app-card>
+</ion-content>

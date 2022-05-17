@@ -1,0 +1,43 @@
+<form [formGroup]="collectionsForm" (ngSubmit)="onSubmit()">
+  <ion-row class="interest-options">
+    <ion-col
+      size="6"
+      formArrayName="collections"
+      *ngFor="let collect of getCollections(); let i = index"
+    >
+      <app-custom-checkbox class="custom-checkbox">
+        <div class="checkbox-content" [style.--img-src]="list[i].image">
+          <ion-label class="checkbox-title">{{ list[i].name }}</ion-label>
+          <ion-checkbox
+            class="checkbox-item"
+            [formControlName]="i"
+          ></ion-checkbox>
+        </div>
+      </app-custom-checkbox>
+    </ion-col>
+  </ion-row>
+
+  <div class="error-message-container" *ngIf="!collectionsForm.valid">
+    <div class="error-message">
+      <ion-icon name="information-circle-outline"></ion-icon>
+      <span>{{ submitError }}</span>
+    </div>
+  </div>
+  <ion-button
+    class="submit-btn"
+    expand="block"
+    type="submit"
+    fill="solid"
+    [disabled]="!collectionsForm.valid"
+    >SUBMIT</ion-button
+  >
+  <div
+    class="success-message-container"
+    *ngIf="collectionsForm.valid && submitSuccess"
+  >
+    <div class="success-message">
+      <ion-icon name="checkmark-circle-outline"></ion-icon>
+      <span>{{ submitSuccess }}</span>
+    </div>
+  </div>
+</form>

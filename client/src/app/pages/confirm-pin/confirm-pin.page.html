@@ -1,0 +1,31 @@
+<ion-content class="form row ion-text-center">
+  <div class="mandela-top-right"><img src="/assets/images/simbol1.png" /></div>
+  <ion-row class="form">
+    <div class="tindy-logo">
+      <img src="/assets/images/tindy-logo.png" />
+      <ion-text class="ion-padding">
+        <h5 class="ion-no-margin ion-margin-vertical">
+          Confirm your number with the code we sent to your phone number
+        </h5>
+      </ion-text>
+      <form (ngSubmit)="verifyCode()">
+        <ng-otp-input
+          (onInputChange)="onOtpChange($event)"
+          [config]="optConfig"
+        ></ng-otp-input>
+
+        <ion-button type="submit">confirm</ion-button>
+      </form>
+
+      <ion-text class="ion-padding">
+        <h5 class="ion-no-margin ion-margin-vertical">
+          Havent received it? <br />
+          Resend it again.
+        </h5>
+      </ion-text>
+    </div>
+  </ion-row>
+  <div class="mandela-bottom-left">
+    <img src="/assets/images/simbol2.png" />
+  </div>
+</ion-content>

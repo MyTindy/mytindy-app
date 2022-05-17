@@ -1,0 +1,78 @@
+.custom-checkbox {
+  .checkbox-content {
+    background: var(--img-src), rgba(0, 0, 0, 0.4);
+    background-size: cover;
+    background-blend-mode: overlay;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: space-between;
+    aspect-ratio: 1 / 1;
+
+    .checkbox-title {
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 24px;
+      color: var(--ion-color-light);
+      text-align: center;
+      word-break: break-word;
+      overflow: visible;
+      position: absolute;
+      width: 70%;
+      left: 15%;
+      // vertically centered
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .checkbox-item {
+      --border-radius: 0px;
+      --border-width: 10vw;
+      --border-color: transparent;
+      --border-color-checked: transparent;
+      --background: transparent;
+      --background-checked: rgba(var(--ion-color-secondary-rgb), 0.4);
+      --checkmark-width: 2px;
+
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  &.checkbox-checked {
+    .checkbox-title {
+      display: none;
+    }
+  }
+}
+
+.collection-options {
+  margin-bottom: 40px;
+}
+
+.error-message-container {
+  .error-message {
+    margin: 8px 0px;
+    display: flex;
+    align-items: center;
+    color: var(--ion-color-danger);
+    font-size: 18px;
+
+    ion-icon {
+      padding-inline-end: 4px;
+    }
+  }
+}
+
+.success-message-container {
+  .success-message {
+    margin: 8px 0px;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+
+    ion-icon {
+      padding-inline-end: 4px;
+    }
+  }
+}
