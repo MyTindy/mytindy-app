@@ -33,6 +33,8 @@ export class UploaderComponent implements OnInit {
     this.task = this.storage.upload(path, this.file);
     this.percentage = this.task.percentageChanges();
 
+
+
     this.snapshot = this.task.snapshotChanges().pipe(
       tap(console.log),
       finalize(async () => {
