@@ -17,6 +17,7 @@ export class AddProductPage {
 
   isHovering: boolean;
   files: File[] = [];
+  imagesURL = [];
   collections = [
     {
       name: 'Dress',
@@ -127,9 +128,11 @@ export class AddProductPage {
     selectedCollections: [],
     selectedTags: [],
     choosenDetails: {
+      name:'',
+      description: '',
       colors: [],
       price: 0,
-      description: ''
+      quantity: 0,
     }
   };
 
@@ -145,10 +148,9 @@ export class AddProductPage {
     }
   }
 
-  getProducts() {
-    this.productService.getProduct().subscribe((data) => {
-      console.log(data);
-    });
+  addImagesURL(url) {
+    this.imagesURL.push(url);
+    console.log(this.imagesURL);
   }
 
   updateCollections(collection) {
@@ -165,21 +167,18 @@ export class AddProductPage {
   }
 
   onSubmit() {
-    console.log(this.productInfo.selectedCollections);
-    console.log(this.productInfo.selectedTags);
-    console.log(this.productInfo.choosenDetails);
     const data = {
       seller_id: '1490609',
       type: '1',
-      product_name: 'Test Product',
+      product_name: this.productInfo.choosenDetails.name,
       product_type: this.productInfo.selectedCollections[0],
       product_tag: this.productInfo.selectedTags[0],
       product_description: this.productInfo.choosenDetails.description,
       variants: [
         {
-          price: `${this.productInfo.choosenDetails.price}`,
+          price: `${ this.productInfo.choosenDetails.price }`,
           track_inventory: '1',
-          quantity: '10',
+          quantity: `${this.productInfo.choosenDetails.quantity}`,
           inventory_locations: [
             {
               location_id: '35862',
@@ -193,44 +192,18 @@ export class AddProductPage {
           name: 'Title',
           values: 'New'
         }
+      ],
+      images: [
+        {
+          image_url: this.imagesURL[0],
+          image_alt: 'test-image',
+          position: '0',
+          image_attachment: 'string'
+        },
       ]
     };
 
     this.productService.postProduct(data).subscribe((res) => console.log({res}));
-  }
-
-  //Move to Next slide
-  slideNext(object, slideView) {
-    slideView.slideNext(500).then(() => {
-      this.checkIfNavDisabled(object, slideView);
-    });
-  }
-
-  //Move to previous slide
-  slidePrev(object, slideView) {
-    slideView.slidePrev(500).then(() => {
-      this.checkIfNavDisabled(object, slideView);
-    });
-  }
-
-  slideDidChange(object, slideView) {
-    this.checkIfNavDisabled(object, slideView);
-  }
-
-  checkIfNavDisabled(object, slideView) {
-    this.checkisBeginning(object, slideView);
-    this.checkisEnd(object, slideView);
-  }
-
-  checkisBeginning(object, slideView) {
-    slideView.isBeginning().then((istrue) => {
-      object.isBeginningSlide = istrue;
-    });
-  }
-  checkisEnd(object, slideView) {
-    slideView.isEnd().then((istrue) => {
-      object.isEndSlide = istrue;
-    });
   }
 
   next() {

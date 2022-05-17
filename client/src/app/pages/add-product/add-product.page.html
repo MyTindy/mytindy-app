@@ -15,48 +15,79 @@
 
 <ion-content>
   <form (ngSubmit)="onSubmit()">
-
     <ion-slides pager="true" #addProductSlider virtual="true">
       <ion-slide>
-      <h2>Choose your product images</h2>
-      <div class="dropzone" appDropzone (hovered)="toggleHover($event)" (dropped)="onDrop($event)"
-        [class.hovering]="isHovering">
-        <h3>Product images</h3>
-        <p>Drag and Drop a File</p>
-        <div class="file">
-          <label class="file-label">
-            <input class="file-input" type="file" (change)="onDrop($any($event).target.files)" />
-            
-            <span class="file-cta">
-              <span class="file-icon">
-                <i class="fa fa-upload"></i>
+        <h2>Choose your product images</h2>
+        <div class="dropzone" appDropzone (hovered)="toggleHover($event)" (dropped)="onDrop($event)"
+          [class.hovering]="isHovering">
+          <h3>Product images</h3>
+          <p>Drag and Drop a File</p>
+          <div class="file">
+            <label class="file-label">
+              <input class="file-input" type="file" (change)="onDrop($any($event).target.files)" />
+
+              <span class="file-cta">
+                <span class="file-icon">
+                  <i class="fa fa-upload"></i>
+                </span>
               </span>
-            </span>
-          </label>
+            </label>
+          </div>
         </div>
-      </div>
-      <hr />
-      <h3>Uploads</h3>
-      
-      <div *ngFor="let file of files">
-        <app-uploader [file]="file"></app-uploader>
-      </div>
-    </ion-slide>
-    <ion-slide>
-      <h2>Choose your product type</h2>
-      <app-collections [list]="collections" (itemsChange)="updateCollections($event)"></app-collections>
-    </ion-slide>
-    <ion-slide>
-      <h2>Choose your product tags</h2>
-      <app-collections [list]="tags" (itemsChange)="updateTags($event)"></app-collections>
-    </ion-slide>
-    <ion-slide>
-      <app-product-details (detailsChange)="updateDetails($event)" ></app-product-details>
-    </ion-slide>
-    <ion-slide>
-      <p>{{productInfo|json}}</p>
-      <ion-button type="submit">Confirm</ion-button>
-    </ion-slide>
-  </ion-slides>
-</form>
+        <hr />
+        <h3>Uploads</h3>
+
+        <div *ngFor="let file of files">
+          <app-uploader [file]="file" (imageURL)="addImagesURL($event)"></app-uploader>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <h2>Choose your product type</h2>
+        <app-collections [list]="collections" (itemsChange)="updateCollections($event)"></app-collections>
+      </ion-slide>
+      <ion-slide>
+        <h2>Choose your product tags</h2>
+        <app-collections [list]="tags" (itemsChange)="updateTags($event)"></app-collections>
+      </ion-slide>
+      <ion-slide>
+        <app-product-details (detailsChange)="updateDetails($event)"></app-product-details>
+      </ion-slide>
+      <ion-slide>
+        <ion-list>
+          <ion-item>
+            <h5>Name</h5>
+            <ion-label slot="end">{{productInfo.choosenDetails.name}}</ion-label>
+          </ion-item>
+
+          <ion-item>
+            <h5>Product type</h5>
+            <ion-chip slot="end" color="primary">
+              <ion-label>{{productInfo.selectedCollections[0]}}</ion-label>
+              <ion-icon name="close"></ion-icon>
+            </ion-chip>
+          </ion-item>
+
+          <ion-item>
+            <h5>Product tags</h5>
+            <ion-chip *ngFor="let tag of productInfo.selectedTags" slot="end" color="primary">
+              <ion-label>{{tag}}</ion-label>
+              <ion-icon name="close"></ion-icon>
+            </ion-chip>
+          </ion-item>
+
+          <ion-item>
+            <h5>Price</h5>
+            <ion-badge slot="end">{{productInfo.choosenDetails.price}}</ion-badge>
+          </ion-item>
+
+          <ion-item>
+            <h5>Quantity</h5>
+            <ion-badge slot="end">{{productInfo.choosenDetails.quantity}}</ion-badge>
+          </ion-item>
+        </ion-list>
+
+        <ion-button type="submit" routerLink="/tabs/profile">Confirm</ion-button>
+      </ion-slide>
+    </ion-slides>
+  </form>
 </ion-content>
