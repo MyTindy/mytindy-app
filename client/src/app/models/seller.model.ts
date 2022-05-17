@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 export interface SellerInput {
   sp_store_name: string;
   seller_name: string;
