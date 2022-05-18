@@ -11,6 +11,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
+import { SpeechRecognition } from '@awesome-cordova-plugins/speech-recognition/ngx';
 import { IonicStorageModule } from '@ionic/storage-angular';
 
 import { AppComponent } from './app.component';
@@ -34,6 +35,7 @@ import { TokenInterceptor } from './shared/interceptors/token.interceptor';
   ],
   providers: [
     Geolocation,
+    SpeechRecognition,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     {
       provide: HTTP_INTERCEPTORS,
