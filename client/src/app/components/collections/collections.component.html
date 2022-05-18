@@ -1,4 +1,4 @@
-<form [formGroup]="collectionsForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="collectionsForm" (ngSubmit)="onSubmit()" [style.backgound-color]="bgColor">
   <ion-row class="interest-options">
     <ion-col
       size="6"
@@ -40,4 +40,7 @@
       <span>{{ submitSuccess }}</span>
     </div>
   </div>
+
+  <ion-button (click)="getSpeechResults()">Say color</ion-button>
+
 </form>

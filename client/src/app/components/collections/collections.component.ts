@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { SpeechToTextService } from 'src/app/services/speech-recognition.service';
+
 import { COLLECTIONS } from 'src/app/shared/constants/collection.constant';
 import { CheckboxCheckedValidator } from 'src/app/validators/checkboxChecked.validator';
 
@@ -12,13 +14,15 @@ export class CollectionsComponent implements OnInit {
   @Input() list: any = [];
   @Output() itemsChange: EventEmitter<string[]> = new EventEmitter<string[]>();
 
+  bgColor: string;
   collectionsForm: FormGroup;
   submitError = 'Please select at least 1 option.';
   submitSuccess: string;
 
-  constructor(public formBuilder: FormBuilder) {}
+  constructor(public formBuilder: FormBuilder, private speechToTextService: SpeechToTextService) {}
 
   ngOnInit(): void {
+    this.speechToTextService.checkPermission();
     this.collectionsForm = this.formBuilder.group({
       collections: new FormArray(
         this.list?.map((x) => new FormControl(x.selected)),
@@ -45,5 +49,9 @@ export class CollectionsComponent implements OnInit {
     this.submitSuccess = 'Submitted values: ' + selectedItems;
     console.log(selectedItems);
     this.itemsChange.emit(selectedItems);
+  }
+
+  getSpeechResults() {
+    this.bgColor=this.speechToTextService.color;
   }
 }
