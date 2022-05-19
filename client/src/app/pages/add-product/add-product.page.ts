@@ -24,63 +24,62 @@ export class AddProductPage {
       name: 'Dress',
       value: 'dress',
       image:
-        'url(https://www.sultandress.com/wp-content/uploads/2019/03/Muslim-Evening-kaftan-dress-online-shop-3.jpg)',
+        'url(https://api.iconify.design/emojione-v1/dress.svg)',
     },
-    {
-      name: 'Pants',
-      value: 'pants',
-      image:
-        'url(https://www.realmenrealstyle.com/wp-content/uploads/2021/11/cargo-pants-for-men.jpg)',
-    },
-
     {
       name: 'Hat',
       value: 'hat',
       image:
-        'url(http://blog.delusionmfg.com/wp-content/uploads/2020/02/trendy-mens-hat-cowboy-1024x683.jpeg)',
+        'url(https://api.iconify.design/emojione-v1/womans-hat.svg)',
       selected: false,
     },
     {
       name: 'Shoes',
       value: 'shoes',
       image:
-        'url(https://static.onecms.io/wp-content/uploads/sites/24/2021/03/24/cariuma-ibi-tout.jpg)',
+        'url(https://api.iconify.design/emojione/running-shoe.svg)',
     },
     {
       name: 'Candle',
       value: 'candle',
       image:
-        'url(https://nationaltoday.com/wp-content/uploads/2020/08/world-candle-month-640x514.jpg)',
+        'url(https://api.iconify.design/emojione-v1/candle.svg)',
     },
     {
       name: 'Jewelry',
       value: 'jewelry',
       image:
-        'url(https://donjjewellery.com/wp-content/uploads/2022/02/1-CUSTOM-FINE-JEWELRY-.jpg)',
+        'url(https://api.iconify.design/maki/jewelry-store.svg?color=%23ff190c)',
     },
     {
       name: 'Home Decor',
       value: 'home decor',
       image:
-        'url(https://images.livemint.com/img/2021/08/31/689x388/spacejoy-IH7wPsjwomc-unsplash_1630396553869_1630396604652.jpg)',
+        'url(https://api.iconify.design/flat-color-icons/home.svg)',
     },
     {
       name: 'Jewelry Box',
       value: 'jewelry box',
       image:
-        'url(https://m.media-amazon.com/images/I/713Hk0Ay9mS._AC_SL1500_.jpg)',
+        'url(https://api.iconify.design/emojione-v1/card-file-box.svg)',
     },
     {
       name: 'Bags',
       value: 'bags',
       image:
-        'url(http://cdn.shopify.com/s/files/1/0286/9438/0653/collections/bags_1200x630.jpg?v=1649843787)',
+        'url(https://api.iconify.design/twemoji/handbag.svg)',
     },
     {
       name: 'Bookmark',
       value: 'bookmarks',
       image:
-        'url(https://cdn.shopify.com/s/files/1/0110/8633/2000/products/image_f40b62c2-5ffb-429c-98f7-699d65a28ab3.jpg?v=1630280781)',
+        'url(https://api.iconify.design/emojione/closed-book.svg)',
+    },
+    {
+      name: 'Pants',
+      value: 'pants',
+      image:
+        'url(https://api.iconify.design/icon-park/clothes-pants.svg?color=%23ff190c)',
     },
   ];
 
@@ -89,26 +88,26 @@ export class AddProductPage {
       name: 'Women',
       value: 'women',
       image:
-        'url(https://i.pinimg.com/474x/83/15/21/83152181a99c5de6fc34a187fb2f0b97.jpg)',
+        'url(https://api.iconify.design/emojione/woman-medium-light-skin-tone.svg)',
     },
     {
       name: 'Men',
       value: 'men',
       image:
-        'url(https://i5.walmartimages.com/asr/cfb84877-da21-4a3d-95a1-b89018589b28_1.392ba840a13d8ed1c9660abdf7dc49d8.jpeg)',
+        'url(https://api.iconify.design/emojione/man-light-skin-tone.svg)',
     },
     {
       name: 'Kid',
       value: 'kid',
       image:
-        'url(https://cdn.shopify.com/s/files/1/1812/4023/articles/Kids_Fashion_Trends_for_2020_1000x.jpg?v=1582588710)',
+        'url(https://api.iconify.design/noto/child-light-skin-tone.svg)',
     },
     {
       name: 'Baby',
       value: 'baby',
       selected: false,
       image:
-        'url(https://cdn.cnn.com/cnnnext/dam/assets/220405172009-hm-baby-clothes-compost-03-super-tease.jpg)',
+        'url(https://api.iconify.design/emojione/baby-medium-light-skin-tone.svg)',
     },
     {
       name: 'Wool',
@@ -120,9 +119,9 @@ export class AddProductPage {
       name: 'SkinCare',
       value: 'skincare',
       image:
-        'url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuDqmm8TKmVsJGBPVXvwxZj1hwgVCFYi5z7g&usqp=CAU)',
+        'url(https://api.iconify.design/emojione/person-getting-massage-light-skin-tone.svg)',
     },
-    { name: 'Necklace',value: 'necklace',image: 'url(https://www.manoindigena.com/wp-content/uploads/2020/11/IMG_2364.jpg)' },
+    { name: 'Necklace',value: 'necklace',image: 'url(https://api.iconify.design/icon-park/diamond-necklace.svg)' },
     { name: 'Bracelet',value: 'bracelet',image: 'url(https://sc01.alicdn.com/kf/UTB8emNIXf2JXKJkSanrq6y3lVXaE.jpg)' },
   ];
   productInfo = {
