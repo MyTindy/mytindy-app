@@ -10,9 +10,12 @@
         <div  class="checkbox-content" [style.--img-src]="list[i].image" >
           <ion-label class="checkbox-title">{{ list[i].name }}</ion-label>
           <ion-checkbox
-            class="checkbox-item"
-            [formControlName]="i"
+          class="checkbox-item"
+          [formControlName]="i"
           ></ion-checkbox>
+          <button class="inner">
+            <ion-icon name="volume-medium-outline" size="large"></ion-icon>
+          </button>
         </div>
       </app-custom-checkbox>
     </ion-col>
