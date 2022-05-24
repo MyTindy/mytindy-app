@@ -1,0 +1,42 @@
+<div class="container">
+  <form [formGroup]="detailsForm" (ngSubmit)="submitForm()">
+    <div class="input-wrapper" >
+      <h4>Product Name</h4>
+      <input formControlName="name" placeholder="name"  />
+    </div>
+    <h4>Product Description</h4>
+    <textarea spellcheck="true" wrap="soft" placeholder="Write a Description here..." type="text" id="description"
+      required formControlName="description"></textarea>
+
+    <div class=" color-section">
+      <h4>What Colors Availabe?</h4>
+      <div class="custom-checkboxes-example" formArrayName="colors">
+        <ion-row>
+          <ion-col size="2" *ngFor="let color of colorOptions; let i = index">
+            <app-custom-checkbox class="custom-checkbox">
+              <div class="checkbox-content" [style.background-color]="color">
+                <ion-checkbox class="checkbox-item" value="color" [formControlName]="i"></ion-checkbox>
+              </div>
+            </app-custom-checkbox>
+          </ion-col>
+        </ion-row>
+      </div>
+    </div>
+
+    <div class="input-wrapper">
+      <h4>Price</h4>
+      <input type="number"  placeholder="$" required formControlName="price" />
+    </div>
+
+    <div class="input-wrapper">
+      <h4>Quantity</h4>
+      <input type="number" required formControlName="quantity" />
+    </div>
+
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" expand="block" [disabled]="!detailsForm.valid">Submit</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</div>

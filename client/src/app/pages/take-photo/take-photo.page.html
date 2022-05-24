@@ -1,0 +1,67 @@
+<ion-content>
+  <div class="mandela-top-right">
+    <img src="/assets/images/simbol1.png" />
+  </div>
+  <div class="wrapper ion-padding">
+    <div class="logo">
+      <img src="/assets/images/tindy-logo.png" />
+    </div>
+
+    <div>
+      <ion-text color="tertiary">
+        <h3>Choose a profile picture</h3>
+      </ion-text>
+    </div>
+
+    <ion-grid class="photo">
+      <ion-col size="6" *ngIf="photoService.photos[0] as photo">
+        <div
+          class="checkbox-content"
+          [style.--img-src]="'url('+photo.webviewPath+')'"
+        >
+          <ion-icon
+            slot="start"
+            name="close"
+            class="checkbox-item"
+            (click)="showActionSheet(photo, 0)"
+          ></ion-icon>
+        </div>
+      </ion-col>
+
+      <ion-col
+        size="6"
+        *ngIf="!photoService.photos[0]"
+        (click)="photoService.addNewToGallery()"
+      >
+        <ion-img src="/assets/images/take-photo.png"> </ion-img>
+      </ion-col>
+    </ion-grid>
+
+    <ion-button
+      *ngIf="!photoService.photos[0]; else upload"
+      horizontal="center"
+      [disabled]="!photoService.photos"
+      (click)="photoService.addNewToGallery()"
+      ><ion-icon name="camera" slot="end"> </ion-icon> Take a picture
+    </ion-button>
+
+    <ng-template #upload>
+      <ion-button
+        horizontal="center"
+        [disabled]="!photoService.photos"
+        routerLink="/tabs/profile"
+        (click)="uploadImage(photoService.photos[0])"
+        ><ion-icon name="camera" slot="end"> </ion-icon> Upload
+      </ion-button>
+    </ng-template>
+
+    <ion-item>
+      <ion-label routerLink="/tabs/profile" (click)="skipForNow()"
+        >Skip for now</ion-label
+      >
+    </ion-item>
+  </div>
+  <div class="mandela-bottom-left">
+    <img src="/assets/images/simbol2.png" />
+  </div>
+</ion-content>

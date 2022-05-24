@@ -17,9 +17,9 @@ jobs:
       - checkout
       - restore_cache:
           key: AngularCircleCI-{{ .Branch }}-{{ checksum "package.json" }}
-      - run: npm install 
+      - run: cd client && npm run project-setup 
       - save_cache:
           key: AngularCircleCI-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
             - "./node_modules"
-      - run: npm run test
+      - run: cd client && npm run test
