@@ -1,13 +1,17 @@
 .custom-checkbox {
   .checkbox-content {
-    background: var(--img-src), rgba(0, 0, 0, 0.4);
-    background-size: cover;
+    background: var(--img-src), rgba(0, 0, 0, 0.2);
+    background-size:cover;
     background-blend-mode: overlay;
+    border:3px solid red;
+    border-radius: 10px;
     display: flex;
     height: 100%;
     width: 100%;
     justify-content: space-between;
     aspect-ratio: 1 / 1;
+
+
 
     .checkbox-title {
       font-weight: 800;
@@ -42,6 +46,14 @@
   &.checkbox-checked {
     .checkbox-title {
       display: none;
+    }
+  }
+  .inner{
+    background-color: orangered;
+    border-radius: 100%;
+    height: 45px;
+    ion-icon{
+      color:white;
     }
   }
 }

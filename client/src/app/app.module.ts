@@ -18,6 +18,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { environment } from '../environments/environment';
 import { TokenInterceptor } from './shared/interceptors/token.interceptor';
+import { TextToSpeech } from '@ionic-native/text-to-speech/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -36,6 +37,7 @@ import { TokenInterceptor } from './shared/interceptors/token.interceptor';
   providers: [
     Geolocation,
     SpeechRecognition,
+    TextToSpeech,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     {
       provide: HTTP_INTERCEPTORS,

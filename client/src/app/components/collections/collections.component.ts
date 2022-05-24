@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { SpeechToTextService } from 'src/app/services/speech-recognition.service';
 
+import { TextToSpeechService } from 'src/app/services/text-to-speech.service';
 import { COLLECTIONS } from 'src/app/shared/constants/collection.constant';
 import { CheckboxCheckedValidator } from 'src/app/validators/checkboxChecked.validator';
 
@@ -19,7 +20,10 @@ export class CollectionsComponent implements OnInit {
   submitError = 'Please select at least 1 option.';
   submitSuccess: string;
 
-  constructor(public formBuilder: FormBuilder, private speechToTextService: SpeechToTextService) {}
+  constructor(
+    public formBuilder: FormBuilder,
+    private textToSpeechService: TextToSpeechService,
+    private speechToTextService: SpeechToTextService ) {}
 
   ngOnInit(): void {
     this.speechToTextService.checkPermission();
@@ -51,7 +55,12 @@ export class CollectionsComponent implements OnInit {
     this.itemsChange.emit(selectedItems);
   }
 
+<<<<<<< HEAD
   getSpeechResults() {
     this.bgColor=this.speechToTextService.color;
+=======
+  startReading(text) {
+    this.textToSpeechService.convertTextToSpeech(text);
+>>>>>>> dev
   }
 }
