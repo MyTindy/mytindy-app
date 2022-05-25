@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Edit Information
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()"> Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen class="ion-padding">
+    <div class="container">
+      <div class="outer">
+
+        <img [src]="photo" alt="">
+        <div class="inner">
+          <ion-icon name="camera" class="camera-icon"></ion-icon>
+        </div>
+      </div>
+    </div>
+
+    <div class="input-container">
+      <ion-item>
+        <ion-label position="stacked" color="danger">Product Name</ion-label>
+        <ion-input>candel</ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked" color="danger">Price</ion-label>
+        <ion-input>$100</ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked" color="danger">type</ion-label>
+        <ion-input>Home decore</ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked" color="danger">Tags</ion-label>
+        <ion-input>women-man-home</ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked" color="danger">Colors</ion-label>
+        <ion-input>red - blue</ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked" color="danger">Weight</ion-label>
+        <ion-input type="number">104</ion-input>
+      </ion-item>
+      <ion-item class="last-input" lines="none">
+        <ion-label position="stacked" color="danger">Details</ion-label>
+        <ion-input type="email">candel for home</ion-input>
+      </ion-item>
+    </div>
+
+    <div class="button-continer">
+      <button class="savebtn">Save</button>
+    </div>
+</ion-content>
