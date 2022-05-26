@@ -13,6 +13,7 @@ import { UploaderComponent } from './uploader/uploader.component';
 import { CollectionsComponent } from './collections/collections.component';
 import { CustomCheckboxComponent } from './custom-checkbox/custom-checkbox.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { EditModalComponent } from './edit-modal/edit-modal.component';
 
 const components = [
   SocialLoginComponent,
@@ -24,6 +25,7 @@ const components = [
   CollectionsComponent,
   CustomCheckboxComponent,
   ProductDetailsComponent,
+  EditModalComponent,
 ];
 const modules = [
   CommonModule,
