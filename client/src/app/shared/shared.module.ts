@@ -5,6 +5,7 @@ import { GoogleLoginDirective } from './directives/google-login.directive';
 import { FacebookLoginDirective } from './directives/facebook-login.directive';
 import { FormatFileSizePipe } from './pipes/format-file-size.pipe';
 import { DropzoneDirective } from './directives/dropzone.directive';
+import { DeparturePipe } from './pipes/split-collections-values.pipe';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { DropzoneDirective } from './directives/dropzone.directive';
     FacebookLoginDirective,
     DropzoneDirective,
     FormatFileSizePipe,
+    DeparturePipe
   ],
   imports: [CommonModule],
   exports: [
@@ -19,6 +21,7 @@ import { DropzoneDirective } from './directives/dropzone.directive';
     FacebookLoginDirective,
     DropzoneDirective,
     FormatFileSizePipe,
+    DeparturePipe
   ],
 })
 export class SharedModule {}
