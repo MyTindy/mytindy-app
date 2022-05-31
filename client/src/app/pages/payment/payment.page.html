@@ -9,4 +9,9 @@
 
 <ion-content>
 
+  <ion-item>
+    <ion-select [(ngModel)]="selectedValue" (ionChange)="onChange($event)" interface="action-sheet">
+      <ion-select-option *ngFor="let item of data" [value]="item.id">{{item.name}}</ion-select-option>
+    </ion-select>
+  </ion-item>
 </ion-content>
