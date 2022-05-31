@@ -6,7 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./payment.page.scss'],
 })
 export class PaymentPage implements OnInit {
-  selectedValue=1;
+  selectedValue = 1;
+  public chosenDeparture: any;
+  dept = ''; dest = '';
+
+  cities = ['Warsaw','Paris','New York'];
+  opts = [
+    { key: 'Warsaw', value: ['paris,new york'] },
+    { key: 'Paris', value: ['warsaw,new york'] },
+    { key: 'New York', value: ['warsaw,paris,'] }
+  ];
+
   data = [
     {
       id: 1,

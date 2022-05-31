@@ -14,4 +14,22 @@
       <ion-select-option *ngFor="let item of data" [value]="item.id">{{item.name}}</ion-select-option>
     </ion-select>
   </ion-item>
+
+  <!-- <h4>Airport of Departure</h4> -->
+	<ion-select name="" id="" [(ngModel)]="dept" (change)="dest=''">
+      <ion-select-option value="">Choose Departure</ion-select-option>
+      <ion-select-option [value]="city.key" *ngFor="let city of opts">
+        {{city.key}}
+      </ion-select-option>
+  </ion-select>
+
+	<!-- chosen destination -->
+	<!-- <h4>Destination (must be different than departure location)</h4> -->
+	<ion-select name="" id=""[(ngModel)]="dest">
+      <ion-select-option value="" >Choose Destination</ion-select-option>
+      <ion-select-option [value]="city.key" *ngFor="let city of opts">
+        {{ city.key }}
+      </ion-select-option>
+    </ion-select>
+	<br>
 </ion-content>
