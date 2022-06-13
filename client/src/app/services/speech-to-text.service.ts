@@ -5,9 +5,9 @@ declare let webkitSpeechRecognition: any;
 @Injectable({
   providedIn: 'root',
 })
-export class SpeechRecognitionService {
+export class SpeechToTextService {
   recognition = new webkitSpeechRecognition();
-  isStoppedSpeechRecognition = false;
+  isListening = false;
   public text = '';
   tempWords;
 
@@ -29,11 +29,11 @@ export class SpeechRecognitionService {
   }
 
   start() {
-    this.isStoppedSpeechRecognition = false;
+    this.isListening = true;
     this.recognition.start();
     console.log('Listening in progress');
-    this.recognition.addEventListener('end', (condition) => {
-      if (this.isStoppedSpeechRecognition) {
+    this.recognition.addEventListener('end', () => {
+      if (!this.isListening) {
         this.recognition.stop();
         console.log('Listening has stopped');
       } else {
@@ -44,7 +44,7 @@ export class SpeechRecognitionService {
   }
 
   stop() {
-    this.isStoppedSpeechRecognition = true;
+    this.isListening = false;
     this.wordConcat();
     this.recognition.stop();
     console.log('End Speech Recognition');
