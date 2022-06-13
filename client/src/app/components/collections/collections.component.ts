@@ -23,7 +23,8 @@ export class CollectionsComponent implements OnInit {
   constructor(
     public formBuilder: FormBuilder,
     private textToSpeechService: TextToSpeechService,
-    private speechToTextService: SpeechToTextService ) {}
+    private speechToTextService: SpeechToTextService
+  ) {}
 
   ngOnInit(): void {
     this.speechToTextService.checkPermission();
@@ -55,12 +56,11 @@ export class CollectionsComponent implements OnInit {
     this.itemsChange.emit(selectedItems);
   }
 
-<<<<<<< HEAD
   getSpeechResults() {
-    this.bgColor=this.speechToTextService.color;
-=======
-  startReading(text) {
-    this.textToSpeechService.convertTextToSpeech(text);
->>>>>>> dev
+    this.bgColor = this.speechToTextService.color;
+  }
+
+  startReading(text: string) {
+    this.textToSpeechService.speak(text, 'en-US');
   }
 }
