@@ -19,6 +19,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { environment } from '../environments/environment';
 import { TokenInterceptor } from './shared/interceptors/token.interceptor';
 import { TextToSpeech } from '@ionic-native/text-to-speech/ngx';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,6 +28,7 @@ import { TextToSpeech } from '@ionic-native/text-to-speech/ngx';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
+    ReactiveFormsModule,
     IonicStorageModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     provideAuth(() => getAuth()),

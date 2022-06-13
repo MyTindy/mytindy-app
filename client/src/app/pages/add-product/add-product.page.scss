@@ -1,3 +1,24 @@
+ion-toolbar {
+  --background: #de0643;
+  color: white;
+  background-image: linear-gradient(to bottom right, #f65206, #F20B4E);
+}
+
+.back-btn {
+  color: white;
+  padding-left: 15px;
+
+}
+
+.rest-btn {
+  color: white;
+  padding-right: 30px;
+}
+
+.back-arrow {
+  font-size: 25px;
+  padding-right: 9px;
+}
 .content {
   display: flex;
   padding: 10vh 10vw;
