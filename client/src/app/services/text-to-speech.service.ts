@@ -1,16 +1,26 @@
 import { Injectable } from '@angular/core';
-import { TextToSpeech } from '@ionic-native/text-to-speech/ngx';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TextToSpeechService {
-  constructor(private textToSpeech: TextToSpeech) {}
+  speechSynthesizer!: SpeechSynthesisUtterance;
 
-  convertTextToSpeech(text) {
-    this.textToSpeech
-      .speak(text)
-      .then(() => console.log('Done'))
-      .catch((reason: any) => console.log(reason));
+  constructor() {
+    this.initSynthesis();
+  }
+
+  initSynthesis(): void {
+    this.speechSynthesizer = new SpeechSynthesisUtterance();
+    this.speechSynthesizer.voice = window.speechSynthesis.getVoices()[2];
+    this.speechSynthesizer.volume = 1;
+    this.speechSynthesizer.rate = 1;
+    this.speechSynthesizer.pitch = 0.2;
+  }
+
+  speak(word: string, language: string): void {
+    this.speechSynthesizer.lang = language;
+    this.speechSynthesizer.text = word;
+    return speechSynthesis.speak(this.speechSynthesizer);
   }
 }

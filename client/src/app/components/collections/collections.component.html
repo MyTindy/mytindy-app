@@ -1,4 +1,8 @@
-<form [formGroup]="collectionsForm" (ngSubmit)="onSubmit()">
+<form
+  [formGroup]="collectionsForm"
+  (ngSubmit)="onSubmit()"
+  [style.backgound-color]="bgColor"
+>
   <ion-row class="interest-options">
     <ion-col
       size="6"
@@ -6,20 +10,20 @@
       *ngFor="let collect of getCollections(); let i = index"
     >
       <app-custom-checkbox class="custom-checkbox">
-        <!-- (click)=" startReading('text')" -->
-        <div  class="checkbox-content" [style.--img-src]="list[i].image" >
+        <div class="checkbox-content" [style.--img-src]="list[i].image">
           <ion-label class="checkbox-title">{{ list[i].name }}</ion-label>
           <ion-checkbox
-          class="checkbox-item"
-          [formControlName]="i"
+            class="checkbox-item"
+            [formControlName]="i"
           ></ion-checkbox>
-          <button class="inner">
+          <button class="inner" (click)="startReading(list[i].name)">
             <ion-icon name="volume-medium-outline" size="large"></ion-icon>
           </button>
         </div>
       </app-custom-checkbox>
     </ion-col>
   </ion-row>
+  <app-speech-recognizer></app-speech-recognizer>
 
   <div class="error-message-container" *ngIf="!collectionsForm.valid">
     <div class="error-message">

@@ -11,6 +11,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
+import { SpeechRecognition } from '@awesome-cordova-plugins/speech-recognition/ngx';
 import { IonicStorageModule } from '@ionic/storage-angular';
 
 import { AppComponent } from './app.component';
@@ -37,6 +38,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   providers: [
     Geolocation,
+    SpeechRecognition,
     TextToSpeech,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     {
