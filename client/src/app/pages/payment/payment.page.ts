@@ -1,40 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.page.html',
   styleUrls: ['./payment.page.scss'],
 })
-export class PaymentPage implements OnInit {
+export class PaymentPage {
   selectedValue = 1;
   public chosenDeparture: any;
-  dept = ''; dest = '';
+  dept = '';
+  dest = '';
 
-  cities = ['Warsaw','Paris','New York'];
+  cities = ['Warsaw', 'Paris', 'New York'];
   opts = [
     { key: 'Warsaw', value: ['paris,new york'] },
     { key: 'Paris', value: ['warsaw,new york'] },
-    { key: 'New York', value: ['warsaw,paris,'] }
+    { key: 'New York', value: ['warsaw,paris,'] },
   ];
 
   data = [
     {
       id: 1,
-      name: 'name1'
+      name: 'name1',
     },
     {
       id: 2,
-      name: 'name2'
+      name: 'name2',
     },
   ];
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   onChange(event) {
     console.log(event.target.value);
   }
-
 }

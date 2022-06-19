@@ -1,17 +1,23 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Add a new product</ion-title>
-    <ion-buttons slot="start" fill="outline">
-      <ion-button (click)="prev()">
-        <ion-icon slot="start" name="arrow-back"></ion-icon> Prev
-      </ion-button>
-    </ion-buttons>
-    <ion-buttons slot="end" fill="solid">
-      <ion-button (click)="next()">Next<ion-icon slot="end" name="arrow-forward"></ion-icon>
-      </ion-button>
+  <ion-toolbar class="new-background-color">
+    <ion-buttons slot="start" class="back-btn" routerLink="/home">
+      <ion-icon class="back-arrow" name="arrow-back-outline"></ion-icon>
+      <h3>Back Home</h3>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
+<ion-toolbar>
+  <ion-title>Add a new product</ion-title>
+  <ion-buttons slot="start" fill="outline">
+    <ion-button (click)="prev()">
+      <ion-icon slot="start" name="arrow-back"></ion-icon> Prev
+    </ion-button>
+  </ion-buttons>
+  <ion-buttons slot="end" fill="solid">
+    <ion-button (click)="next()">Next<ion-icon slot="end" name="arrow-forward"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
 
 <ion-content>
   <form (ngSubmit)="onSubmit()">

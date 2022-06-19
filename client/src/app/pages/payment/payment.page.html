@@ -1,35 +1,43 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>payment</ion-title>
-    <ion-buttons slot="start">
-      <ion-menu-button menu="main-menu"></ion-menu-button>
+  <ion-toolbar class="new-background-color">
+    <ion-buttons slot="start" class="back-btn" routerLink="/home">
+      <ion-icon class="back-arrow" name="arrow-back-outline"></ion-icon>
+      <h3>Back home</h3>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
   <ion-item>
-    <ion-select [(ngModel)]="selectedValue" (ionChange)="onChange($event)" interface="action-sheet">
-      <ion-select-option *ngFor="let item of data" [value]="item.id">{{item.name}}</ion-select-option>
+    <ion-select
+      [(ngModel)]="selectedValue"
+      (ionChange)="onChange($event)"
+      interface="action-sheet"
+    >
+      <ion-select-option *ngFor="let item of data" [value]="item.id"
+        >{{item.name}}</ion-select-option
+      >
     </ion-select>
   </ion-item>
 
   <!-- <h4>Airport of Departure</h4> -->
-	<ion-select name="" id="" [(ngModel)]="dept" (change)="dest=''">
-      <ion-select-option value="">Choose Departure</ion-select-option>
-      <ion-select-option [value]="city.key" *ngFor="let city of opts">
-        {{city.key}}
-      </ion-select-option>
+  <ion-select name="" id="" [(ngModel)]="dept" (change)="dest=''">
+    <ion-select-option value="">Choose Departure</ion-select-option>
+    <ion-select-option [value]="city.key" *ngFor="let city of opts">
+      {{city.key}}
+    </ion-select-option>
   </ion-select>
 
-	<!-- chosen destination -->
-	<!-- <h4>Destination (must be different than departure location)</h4> -->
-	<ion-select name="" id=""[(ngModel)]="dest">
-      <ion-select-option value="" >Choose Destination</ion-select-option>
-      <ion-select-option [value]="city.key" *ngFor="let city of opts | departure : dept">
-        {{ city.key }}
-      </ion-select-option>
-    </ion-select>
-	<br>
+  <!-- chosen destination -->
+  <!-- <h4>Destination (must be different than departure location)</h4> -->
+  <ion-select name="" id="" [(ngModel)]="dest">
+    <ion-select-option value="">Choose Destination</ion-select-option>
+    <ion-select-option
+      [value]="city.key"
+      *ngFor="let city of opts | departure : dept"
+    >
+      {{ city.key }}
+    </ion-select-option>
+  </ion-select>
+  <br />
 </ion-content>

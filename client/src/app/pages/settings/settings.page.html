@@ -1,63 +1,64 @@
 <ion-header>
   <ion-toolbar class="new-background-color">
-    <ion-buttons slot="start" class="back-btn" routerLink="/tabs/profile">
-    <ion-icon class="back-arrow" name="arrow-back-outline"></ion-icon>
-    <h3>Back</h3>
+    <ion-buttons slot="start" class="back-btn" routerLink="/home">
+      <ion-icon class="back-arrow" name="arrow-back-outline"></ion-icon>
+      <h3>Back Home</h3>
     </ion-buttons>
     <ion-buttons slot="end" class="rest-btn">
-    <h3>Reset</h3>
+      <h3>Reset</h3>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
 <ion-content [fullscreen]="true" class="ion-padding">
-  <div class="container">
-    <div class="outer">
-      <ion-avatar class="profile-pic">
-        <img [src]="photo" />
-      </ion-avatar>
+  <form #form="ngForm" (submit)="saveProfile(form)">
+    <div class="container">
+      <div class="outer">
+        <ion-avatar class="profile-pic">
+          <img [src]="photo" />
+        </ion-avatar>
 
-      <div class="inner" (click)="openOptionSelection()">
-        <ion-icon name="camera" class="camera-icon"></ion-icon>
+        <div class="inner" (click)="openOptionSelection()">
+          <ion-icon name="camera" class="camera-icon"></ion-icon>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="input-container">
-    <ion-item>
-      <ion-label position="stacked" color="danger">User Name</ion-label>
-      <ion-input>Mohammed98</ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="stacked" color="danger">Name</ion-label>
-      <ion-input>Mohammed</ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="stacked" color="danger">Last Name</ion-label>
-      <ion-input>Tamimi</ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="stacked" color="danger">Phone Number</ion-label>
-      <ion-input type="number">0597895456</ion-input>
-    </ion-item>
-    <ion-item class="last-input">
-      <ion-label position="stacked" color="danger">Email Address</ion-label>
-      <ion-input type="email">Mohammad@gmail.com</ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label
-        >Send me Email or SMS when <br />
-        a product is been soald</ion-label
-      >
-      <ion-toggle color="danger"></ion-toggle>
-    </ion-item>
-    <ion-item lines="none">
-      <ion-label>Add passcode</ion-label>
-      <ion-toggle color="danger"></ion-toggle>
-    </ion-item>
-  </div>
+    <div class="input-container">
+      <ion-item>
+        <ion-label position="stacked" color="danger">User Name</ion-label>
+        <ion-input name="username" [ngModel]="data.username" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked" color="danger">Name</ion-label>
+        <ion-input name="name" [ngModel]="data.name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked" color="danger">Last Name</ion-label>
+        <ion-input name="lastName" [ngModel]="data.lastName"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked" color="danger">Phone Number</ion-label>
+        <ion-input type="number" name="phoneNumber" [ngModel]="data.phoneNumber"></ion-input>
+      </ion-item>
+      <ion-item class="last-input">
+        <ion-label position="stacked" color="danger">Email Address</ion-label>
+        <ion-input type="email" name="emailAddress" [ngModel]="data.emailAddress"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label
+          >Send me Email or SMS when <br />
+          a product is been soald</ion-label
+        >
+        <ion-toggle color="danger" name="sms" [ngModel]="data.sms"></ion-toggle>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>Add passcode</ion-label>
+        <ion-toggle color="danger"  name="addPasscode" [ngModel]="data.addPasscode"></ion-toggle>
+      </ion-item>
+    </div>
 
-  <div class="button-continer">
-    <button class="savebtn">Save</button>
-  </div>
+    <div class="button-continer">
+      <button class="savebtn">Save</button>
+    </div>
+  </form>
 </ion-content>
