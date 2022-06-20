@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from '../../guards/auth.guard';
 
-
 import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
@@ -16,7 +15,9 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../add-product/add-product.module').then((m) => m.AddProductPageModule),
+              import('../add-product/add-product.module').then(
+                (m) => m.AddProductPageModule
+              ),
           },
         ],
       },
@@ -26,7 +27,9 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../profile/profile.module').then((m) => m.ProfilePageModule),
+              import('../profile/profile.module').then(
+                (m) => m.ProfilePageModule
+              ),
             canActivate: [AuthGuard],
           },
         ],
@@ -69,17 +72,29 @@ const routes: Routes = [
         ],
       },
       {
-        path:'',
-        redirectTo:'/tabs/home',
-        pathMatch:'full'
-      }
+        path: '',
+        redirectTo: '/home',
+        pathMatch: 'full',
+      },
+      {
+        path: 'home',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../home/home-routing.module').then(
+                (m) => m.HomePageRoutingModule
+              ),
+          },
+        ],
+      },
     ],
   },
   {
-    path:'',
-    redirectTo:'/tabs/home',
-    pathMatch:'full'
-  }
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({
