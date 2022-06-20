@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { Component,OnInit,ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonSlides } from '@ionic/angular';
 import { FormGroup } from '@angular/forms';
 import { ProductService } from 'src/app/services/product.service';
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-product.page.scss'],
 })
 export class AddProductPage {
-  @ViewChild('addProductSlider',{ static: false }) addProductSlider;
+  @ViewChild('addProductSlider', { static: false }) addProductSlider;
   public slideOneForm: FormGroup;
   public slideTwoForm: FormGroup;
   public submitAttempt = false;
@@ -23,27 +23,23 @@ export class AddProductPage {
     {
       name: 'Dress',
       value: 'dress',
-      image:
-        'url(https://api.iconify.design/emojione-v1/dress.svg)',
+      image: 'url(https://api.iconify.design/emojione-v1/dress.svg)',
     },
     {
       name: 'Hat',
       value: 'hat',
-      image:
-        'url(https://api.iconify.design/emojione-v1/womans-hat.svg)',
+      image: 'url(https://api.iconify.design/emojione-v1/womans-hat.svg)',
       selected: false,
     },
     {
       name: 'Shoes',
       value: 'shoes',
-      image:
-        'url(https://api.iconify.design/emojione/running-shoe.svg)',
+      image: 'url(https://api.iconify.design/emojione/running-shoe.svg)',
     },
     {
       name: 'Candle',
       value: 'candle',
-      image:
-        'url(https://api.iconify.design/emojione-v1/candle.svg)',
+      image: 'url(https://api.iconify.design/emojione-v1/candle.svg)',
     },
     {
       name: 'Jewelry',
@@ -54,26 +50,22 @@ export class AddProductPage {
     {
       name: 'Home Decor',
       value: 'home decor',
-      image:
-        'url(https://api.iconify.design/flat-color-icons/home.svg)',
+      image: 'url(https://api.iconify.design/flat-color-icons/home.svg)',
     },
     {
       name: 'Jewelry Box',
       value: 'jewelry box',
-      image:
-        'url(https://api.iconify.design/emojione-v1/card-file-box.svg)',
+      image: 'url(https://api.iconify.design/emojione-v1/card-file-box.svg)',
     },
     {
       name: 'Bags',
       value: 'bags',
-      image:
-        'url(https://api.iconify.design/twemoji/handbag.svg)',
+      image: 'url(https://api.iconify.design/twemoji/handbag.svg)',
     },
     {
       name: 'Bookmark',
       value: 'bookmarks',
-      image:
-        'url(https://api.iconify.design/emojione/closed-book.svg)',
+      image: 'url(https://api.iconify.design/emojione/closed-book.svg)',
     },
     {
       name: 'Pants',
@@ -93,14 +85,12 @@ export class AddProductPage {
     {
       name: 'Men',
       value: 'men',
-      image:
-        'url(https://api.iconify.design/emojione/man-light-skin-tone.svg)',
+      image: 'url(https://api.iconify.design/emojione/man-light-skin-tone.svg)',
     },
     {
       name: 'Kid',
       value: 'kid',
-      image:
-        'url(https://api.iconify.design/noto/child-light-skin-tone.svg)',
+      image: 'url(https://api.iconify.design/noto/child-light-skin-tone.svg)',
     },
     {
       name: 'Baby',
@@ -121,8 +111,17 @@ export class AddProductPage {
       image:
         'url(https://api.iconify.design/emojione/person-getting-massage-light-skin-tone.svg)',
     },
-    { name: 'Necklace',value: 'necklace',image: 'url(https://api.iconify.design/icon-park/diamond-necklace.svg)' },
-    { name: 'Bracelet',value: 'bracelet',image: 'url(https://sc01.alicdn.com/kf/UTB8emNIXf2JXKJkSanrq6y3lVXaE.jpg)' },
+    {
+      name: 'Necklace',
+      value: 'necklace',
+      image: 'url(https://api.iconify.design/icon-park/diamond-necklace.svg)',
+    },
+    {
+      name: 'Bracelet',
+      value: 'bracelet',
+      image:
+        'url(https://sc01.alicdn.com/kf/UTB8emNIXf2JXKJkSanrq6y3lVXaE.jpg)',
+    },
   ];
   productInfo = {
     selectedCollections: [],
@@ -133,17 +132,17 @@ export class AddProductPage {
       colors: [],
       price: 0,
       quantity: 0,
-    }
+    },
   };
 
-  constructor(private productService: ProductService,private router: Router) {}
+  constructor(private productService: ProductService, private router: Router) {}
 
   toggleHover(event: boolean) {
     this.isHovering = event;
   }
 
   onDrop(files: FileList) {
-    for(let i = 0; i < files.length; i++) {
+    for (let i = 0; i < files.length; i++) {
       this.files.push(files.item(i));
     }
   }
@@ -176,39 +175,38 @@ export class AddProductPage {
       product_description: this.productInfo.choosenDetails.description,
       variants: [
         {
-          price: `${ this.productInfo.choosenDetails.price }`,
+          price: `${this.productInfo.choosenDetails.price}`,
           track_inventory: '1',
-          quantity: `${ this.productInfo.choosenDetails.quantity }`,
+          quantity: `${this.productInfo.choosenDetails.quantity}`,
           inventory_locations: [
             {
               location_id: '35862',
-              variant_quantity: '10'
-            }
-          ]
-        }
+              variant_quantity: '10',
+            },
+          ],
+        },
       ],
       options: [
         {
           name: 'Title',
-          values: 'New'
-        }
+          values: 'New',
+        },
       ],
       images: [
         {
           image_url: this.imagesURL[0],
           image_alt: 'test-image',
           position: '0',
-          image_attachment: 'string'
+          image_attachment: 'string',
         },
-      ]
+      ],
     };
 
     this.productService.postProduct(data).subscribe((res) => {
       console.log({ res });
-      this.router.navigate(['/tabs/profile']);
+      this.router.navigate(['/profile']);
     });
-}
-
+  }
 
   next() {
     this.addProductSlider.slideNext();

@@ -28,7 +28,7 @@ export class SettingsPage implements OnInit {
     // for check if user is Auth
     this.auth.onAuthStateChanged(async (user: any) => {
       if (user) {
-        let { uid } = user;
+        const { uid } = user;
         console.log(uid);
         this.uid = uid;
         this.getInfouser();

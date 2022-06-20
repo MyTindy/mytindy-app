@@ -8,12 +8,6 @@ import { of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { UsersService } from './user.service';
 
-export interface imgFile {
-  name: string;
-  filepath: string;
-  size: number;
-}
-
 @Injectable({
   providedIn: 'root',
 })
@@ -36,7 +30,9 @@ export class UploadService {
       .snapshotChanges()
       .pipe(
         switchMap((snapshot) => {
-          if ('success' !== snapshot.state) return of();
+          if ('success' !== snapshot.state) {
+            return of();
+          }
           return imageRef.getDownloadURL();
         })
       )
