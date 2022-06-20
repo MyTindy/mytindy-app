@@ -29,7 +29,7 @@ export class GoogleLoginDirective {
               this.usersService.addUser(userRes.user, locationRes)
             );
         }
-        this.router.navigate(['/take-photo']);
+        this.router.navigate(['/profile']);
       });
   }
 }
