@@ -7,7 +7,7 @@ import { SocialLoginComponent } from './social-login/social-login.component';
 import { PhoneComponent } from './phone/phone.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
-import { PasscodeComponent } from './passcode/passcode.component';
+import { PasscodeComponent } from './passcode-panel/passcode.component';
 import { PasscodeHelper } from '../utils/passcode.auth';
 import { UploaderComponent } from './uploader/uploader.component';
 import { CollectionsComponent } from './collections/collections.component';
@@ -15,6 +15,7 @@ import { CustomCheckboxComponent } from './custom-checkbox/custom-checkbox.compo
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { SpeechRecognizerComponent } from './speech-recognizer/speech-recognizer.component';
 import { EditModalComponent } from './edit-modal/edit-modal.component';
+import { PasscodeSetupComponent } from './passcode-setup/passcode-setup.component';
 
 const components = [
   SocialLoginComponent,
@@ -28,6 +29,7 @@ const components = [
   ProductDetailsComponent,
   SpeechRecognizerComponent,
   EditModalComponent,
+  PasscodeSetupComponent,
 ];
 const modules = [
   CommonModule,

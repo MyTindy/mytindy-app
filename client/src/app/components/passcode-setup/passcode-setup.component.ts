@@ -1,22 +1,17 @@
-import { Component } from '@angular/core';
-import {
-  AlertController,
-  ModalController,
-  Platform,
-  ToastController,
-} from '@ionic/angular';
-import { PasscodeComponent } from 'src/app/components/passcode/passcode.component';
+import { Component, OnInit } from '@angular/core';
+import { AlertController, ModalController, Platform, ToastController } from '@ionic/angular';
+
 import { StorageService } from 'src/app/services/storage.service';
 import { UsersService } from 'src/app/services/user.service';
 import { PasscodeHelper } from 'src/app/utils/passcode.auth';
+import { PasscodeComponent } from '../passcode-panel/passcode.component';
 
 @Component({
-  selector: 'app-lock',
-  templateUrl: './lock.page.html',
-  styleUrls: ['./lock.page.scss'],
-  providers: [StorageService],
+  selector: 'app-passcode-setup',
+  templateUrl: './passcode-setup.component.html',
+  styleUrls: ['./passcode-setup.component.scss'],
 })
-export class LockPage {
+export class PasscodeSetupComponent {
   passcode: string;
 
   constructor(
@@ -38,9 +33,12 @@ export class LockPage {
 
   ionViewWillEnter() {
     this.storageService.init();
+    console.log('initing ');
   }
 
   openLocksScreen() {
+    console.log(this.storageService.get('passcode'));
+
     this.storageService.get('passcode').then(async (code) => {
       const modal = await this.modalController.create({
         component: PasscodeComponent,
@@ -48,7 +46,7 @@ export class LockPage {
           passcode: code,
           passcodeLabel: 'UnLock App',
           onWrong: async (attempts) => {
-            let toast = await this.toastCtrl.create({
+            const toast = await this.toastCtrl.create({
               message: `${attempts} wrong possible attempts`,
               duration: 2000,
               color: 'danger',
@@ -60,7 +58,7 @@ export class LockPage {
 
       modal.onDidDismiss().then(async () => {
         (async () => {
-          let toast = await this.toastCtrl.create({
+          const toast = await this.toastCtrl.create({
             message: 'App unlocked',
             duration: 1500,
             color: 'success',
@@ -75,7 +73,7 @@ export class LockPage {
   }
 
   async setupCode() {
-    let inputAlert = await this.alertCtrl.create({
+    const inputAlert = await this.alertCtrl.create({
       header: 'Secure your app',
       message: 'Please set your passcode for your App',
       inputs: [{ name: 'code' }],
