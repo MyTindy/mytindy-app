@@ -11,13 +11,26 @@ export class ToastService {
   async authError() {
     this.toastCtrl
       .create({
-        message: 'you must be logged in to view this page',
-        duration: 3000,
+        message: 'Oops, you must be logged in to view this page!',
+        duration: 5000,
         position: 'bottom',
         cssClass: 'toast-custom-class',
       })
       .then((toastData) => {
         this.router.navigate(['/login']);
+        toastData.present();
+      });
+  }
+
+  async closedPopup() {
+    this.toastCtrl
+      .create({
+        message: 'Why would you close that popup, WHY? Please try again',
+        duration: 5000,
+        position: 'top',
+        cssClass: 'toast-custom-class',
+      })
+      .then((toastData) => {
         toastData.present();
       });
   }
