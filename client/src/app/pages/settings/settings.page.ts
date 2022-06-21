@@ -29,7 +29,6 @@ export class SettingsPage implements OnInit {
     this.auth.onAuthStateChanged(async (user: any) => {
       if (user) {
         const { uid } = user;
-        console.log(uid);
         this.uid = uid;
         this.getInfouser();
       } else {
@@ -43,7 +42,6 @@ export class SettingsPage implements OnInit {
   ngOnInit() {}
 
   async getInfouser() {
-    console.log('get doc');
     this.store
       .collection('users')
       .doc(this.uid)
@@ -55,13 +53,10 @@ export class SettingsPage implements OnInit {
   }
 
   saveProfile(form: any) {
-    console.log(form.value);
-
     this.store
       .collection('users')
       .doc(this.uid)
       .update(form.value)
-      // .set(form.value)
       .then(() => {
         console.log('saved data');
       });
@@ -69,5 +64,10 @@ export class SettingsPage implements OnInit {
 
   openOptionSelection() {
     console.log('hello world');
+  }
+
+  logForm(form) {
+    // eslint-disable-next-line no-console
+    console.info(form.value);
   }
 }
