@@ -1,0 +1,22 @@
+version: "3.3"
+
+services:
+  express:
+   build: server
+   container_name: mytindy_backend
+   restart: always
+   ports:
+    - "3000:3000"
+   environment:
+    - PORT=3000
+    - TOKEN=<ADD_YOUR_ACCESS_TOKEN>
+    - BASE_URL=https://mvmapi.webkul.com
+  
+  angular:
+    build: client
+    container_name: mytindy_frontend
+    ports:
+      - "8100:8100"
+    
+      
+
