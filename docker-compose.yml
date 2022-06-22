@@ -9,7 +9,7 @@ services:
     - "3000:3000"
    environment:
     - PORT=3000
-    - TOKEN=Nzc3MDM3NWNjYWRhM2NlNmMzNjRkNjVhMzQ3N2RhOGE2N2I4MGIyNzIxM2UzNjIzMTVjZWVjZTIwMzY3YjM5Mw
+    - TOKEN=<ADD_YOUR_ACCESS_TOKEN>
     - BASE_URL=https://mvmapi.webkul.com
   
   angular:
