@@ -8,13 +8,14 @@ import { PasscodeHelper } from 'src/app/utils/passcode.auth';
   styleUrls: ['./passcode.component.scss'],
 })
 export class PasscodeComponent {
-  _showLockScreen: boolean = true;
-  ACDelbuttons: boolean = true;
+  _showLockScreen = true;
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  ACDelbuttons = true;
   passcodeWrong: boolean;
-  passcodeAttempts: number = 0;
-  enteredPasscode: string = '';
+  passcodeAttempts = 0;
+  enteredPasscode = '';
   passcode: string;
-  passcodeLabel: string = 'Enter Passcode';
+  passcodeLabel = 'Enter Passcode';
   onWrong: any = null;
   selected: any;
 
@@ -33,7 +34,7 @@ export class PasscodeComponent {
   }
 
   async onDidDismiss() {
-    let toast = await this.toastCtrl.create({
+    const toast = await this.toastCtrl.create({
       message: 'App unlocked',
       duration: 4000,
       cssClass: 'toast-custom-class',
@@ -56,13 +57,15 @@ export class PasscodeComponent {
       if (res) {
         this.enteredPasscode = '';
         this.passcodeAttempts = 0;
+        // eslint-disable-next-line no-underscore-dangle
         this._showLockScreen = false;
         this.modalController.dismiss();
       } else {
         console.log('entered', this.enteredPasscode);
         this.passcodeWrong = true;
         this.passcodeAttempts++;
-        this.onWrong && this.onWrong(this.passcodeAttempts);
+        // this.onWrong && this.onWrong(this.passcodeAttempts);
+        this.onWrong(this.passcodeAttempts);
         setTimeout(() => {
           this.enteredPasscode = '';
           this.passcodeWrong = false;
@@ -70,4 +73,6 @@ export class PasscodeComponent {
       }
     }
   }
+
+  closeModel() {}
 }

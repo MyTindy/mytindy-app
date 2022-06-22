@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import firebase from 'firebase/compat/app';
 import { LocationService } from 'src/app/services/location.service';
+import { ToastService } from 'src/app/services/toast.service';
 import { UsersService } from 'src/app/services/user.service';
 
 @Directive({
@@ -14,7 +15,8 @@ export class GoogleLoginDirective {
     private auth: AngularFireAuth,
     private router: Router,
     private locationService: LocationService,
-    private usersService: UsersService
+    private usersService: UsersService,
+    private toastService: ToastService
   ) {}
 
   @HostListener('click')
@@ -29,7 +31,12 @@ export class GoogleLoginDirective {
               this.usersService.addUser(userRes.user, locationRes)
             );
         }
-        this.router.navigate(['/take-photo']);
-      });
+        this.router.navigate(['/profile']);
+      })
+      .catch((err) =>
+        err.code === 'auth/popup-closed-by-user'
+          ? this.toastService.closedPopup()
+          : console.log(err)
+      );
   }
 }

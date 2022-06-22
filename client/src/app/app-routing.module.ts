@@ -32,13 +32,9 @@ const routes: Routes = [
       import('./pages/landing/landing.module').then((m) => m.LandingPageModule),
   },
   {
-    path: 'lock',
+    path: '',
     loadChildren: () =>
-      import('./pages/lock/lock.module').then((m) => m.LockPageModule),
-  },
-  {
-    path: 'tabs',
-    loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule)
+      import('./pages/tabs/tabs.module').then((m) => m.TabsPageModule),
   },
 ];
 
