@@ -9,19 +9,14 @@ services:
     - "3000:3000"
    environment:
     - PORT=3000
-    - TOKEN=<ADD_YOUR_ACCESS_TOKEN>
+    - TOKEN=Nzc3MDM3NWNjYWRhM2NlNmMzNjRkNjVhMzQ3N2RhOGE2N2I4MGIyNzIxM2UzNjIzMTVjZWVjZTIwMzY3YjM5Mw
     - BASE_URL=https://mvmapi.webkul.com
   
   angular:
     build: client
     container_name: mytindy_frontend
-    restart: always
     ports:
       - "8100:8100"
-    volumes:
-      - ./client:/app
-    environment:
-      - NODE_ENV=dev
     
       
 

@@ -1,8 +1,10 @@
 FROM node:alpine
-WORKDIR /usr/src/app
+WORKDIR /app
+
+RUN  npm uninstall -g ionic
+RUN npm install -g @angular/cli @ionic/cli
 COPY package*.json ./
-RUN npm install ionic @ionic/cli cordova --location=global
 RUN npm install
 COPY . .
-EXPOSE 8100
+
 CMD [ "ionic", "serve" ]
