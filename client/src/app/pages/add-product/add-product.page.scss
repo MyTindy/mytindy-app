@@ -1,13 +1,15 @@
 ion-toolbar {
-  --background: #de0643;
+  --background: linear-gradient(to bottom right, #f65206, #f20b4e);
   color: white;
-  background-image: linear-gradient(to bottom right, #f65206, #F20B4E);
+  ion-buttons {
+    ion-button {
+      --color: white;
+    }
+  }
 }
-
 .back-btn {
   color: white;
   padding-left: 15px;
-
 }
 
 .rest-btn {
@@ -71,7 +73,6 @@ img {
   height: 100vh;
   width: 100%;
 }
-
 
 .swiper-slide {
   display: block;
