@@ -8,7 +8,7 @@
   <div class="full-screen">
     <div class="buttons">
       <ion-buttons>
-        <ion-button routerLink="/profile">
+        <ion-button (click)="redirectTo('/profile')">
           <ion-icon name="person"></ion-icon>
         </ion-button>
       </ion-buttons>
@@ -16,16 +16,17 @@
     </div>
     <div class="buttons">
       <ion-buttons>
-        <ion-button routerLink="/add-product">
+        <ion-button (click)="redirectTo('/add-product')">
           <ion-icon name="add-circle-outline"></ion-icon>
         </ion-button>
       </ion-buttons>
       <p>Add Prduct</p>
     </div>
-
+  </div>
+  <div class="full-screen">
     <div class="buttons">
       <ion-buttons>
-        <ion-button routerLink="/payment">
+        <ion-button (click)="redirectTo('/payment')">
           <ion-icon name="wallet"></ion-icon>
         </ion-button>
       </ion-buttons>
@@ -33,7 +34,7 @@
     </div>
     <div class="buttons">
       <ion-buttons>
-        <ion-button routerLink="/settings">
+        <ion-button (click)="redirectTo('/settings')">
           <ion-icon name="settings"></ion-icon>
         </ion-button>
       </ion-buttons>

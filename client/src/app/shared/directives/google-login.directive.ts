@@ -31,7 +31,7 @@ export class GoogleLoginDirective {
               this.usersService.addUser(userRes.user, locationRes)
             );
         }
-        this.router.navigate(['/profile']);
+        this.router.navigate(['/home']);
       })
       .catch((err) =>
         err.code === 'auth/popup-closed-by-user'
