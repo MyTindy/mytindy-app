@@ -173,3 +173,54 @@ export const TAGS = [
   'Accessories',
   'jumpsuit',
 ];
+
+export const TAGS_LIST = [
+  {
+    name: 'Women',
+    value: 'women',
+    image:
+      'url(https://i.pinimg.com/474x/83/15/21/83152181a99c5de6fc34a187fb2f0b97.jpg)',
+  },
+  {
+    name: 'Men',
+    value: 'men',
+    image:
+      'url(https://i5.walmartimages.com/asr/cfb84877-da21-4a3d-95a1-b89018589b28_1.392ba840a13d8ed1c9660abdf7dc49d8.jpeg)',
+  },
+  {
+    name: 'Kid',
+    value: 'kid',
+    image:
+      'url(https://cdn.shopify.com/s/files/1/1812/4023/articles/Kids_Fashion_Trends_for_2020_1000x.jpg?v=1582588710)',
+  },
+  {
+    name: 'Baby',
+    value: 'baby',
+    selected: false,
+    image:
+      'url(https://cdn.cnn.com/cnnnext/dam/assets/220405172009-hm-baby-clothes-compost-03-super-tease.jpg)',
+  },
+  {
+    name: 'Wool',
+    value: 'wool',
+    image:
+      'url(https://cf.ltkcdn.net/fashion-history/images/orig/210917-3504x2336-Wool-in-natural-colors.jpg)',
+  },
+  {
+    name: 'SkinCare',
+    value: 'skincare',
+    image:
+      'url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuDqmm8TKmVsJGBPVXvwxZj1hwgVCFYi5z7g&usqp=CAU)',
+  },
+  {
+    name: 'Necklace',
+    value: 'necklace',
+    image:
+      'url(https://www.manoindigena.com/wp-content/uploads/2020/11/IMG_2364.jpg)',
+  },
+  {
+    name: 'Bracelet',
+    value: 'bracelet',
+    image: 'url(https://sc01.alicdn.com/kf/UTB8emNIXf2JXKJkSanrq6y3lVXaE.jpg)',
+  },
+];
