@@ -1,26 +1,26 @@
-ion-card{
-  height: 290px;
-
-  img{
-    height:50% ;
-    width:100%;
+ion-card {
+  width: 83%;
+  ion-card-header {
+    padding-top: 2%;
+  }
+  img {
+    height: 14vh;
+    width: 100%;
     object-fit: cover;
   }
 }
-.edit-delete-container{
-  color:blue;
-display: flex;
-justify-content: space-around;
-align-items: center;
-margin-top:20px;
-
+.edit-delete-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 20px 0 0;
 }
-ion-icon{
-  color:#de0643;
+ion-icon {
+  color: #de0643;
+  padding-left: 0;
 }
-.not-found{
+.not-found {
   width: 100%;
-  color:#de0643;
+  color: #de0643;
   display: flex;
   justify-content: center;
   align-items: center;
