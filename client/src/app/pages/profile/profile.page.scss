@@ -19,9 +19,9 @@ ion-toolbar {
 .header {
   --background: #de0643;
   background-image: linear-gradient(to bottom right, #f65206, #de0643);
-  height: 340px;
+  height: 33vh;
   padding-top: 1px;
-  margin-bottom: 30px;
+  margin-bottom: 0em;
 
   .user {
     color: white;
@@ -35,7 +35,7 @@ ion-content {
 }
 
 .welcome-photo {
-  margin-top: 5rem;
+  margin-top: 2rem;
 }
 
 ion-card {
@@ -73,7 +73,7 @@ ion-card {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
+  margin-top: 1rem;
 }
 
 .outer {
