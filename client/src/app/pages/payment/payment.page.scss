@@ -1,12 +1,10 @@
 ion-toolbar {
-  --background: #de0643;
-  background-image: linear-gradient(to bottom right, #f65206, #F20B4E);
+  --background: linear-gradient(to bottom right, #f65206, #f20b4e);
 }
 
 .back-btn {
   color: white;
   padding-left: 15px;
-
 }
 
 .rest-btn {
@@ -20,5 +18,4 @@ ion-toolbar {
 }
 ion-content {
   --background: url(../../../assets/images/bg2.png) no-repeat center/cover fixed;
-
 }

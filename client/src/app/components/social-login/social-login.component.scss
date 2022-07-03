@@ -1,23 +1,22 @@
-ion-grid{
+ion-grid {
   display: flex;
   width: 250px;
-  margin-top:25px;
+  margin-top: 25px;
   justify-content: space-around;
   align-items: center;
-  left:-10px
+  left: -10px;
 }
-ion-avatar{
-
-  background-color: red;
+ion-avatar {
+  background-color: transparent;
 }
-button{
-  background-color: white;
+button {
+  background-color: transparent;
 }
-.col{
+.col {
   border-top: 0.2px solid rgb(75, 74, 74);
   width: 100px;
 }
-.divider{
+.divider {
   display: flex;
   align-items: center;
   justify-content: space-around;

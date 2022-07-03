@@ -30,6 +30,7 @@ export class SpeechToTextService {
 
   start() {
     this.isListening = true;
+    this.text = '';
     this.recognition.start();
     console.log('Listening in progress');
     this.recognition.addEventListener('end', () => {

@@ -74,3 +74,68 @@ export const COLLECTIONS = [
   'Accent Furnitures',
   'Clay',
 ];
+
+export const COLLECTIONS_LIST = [
+  {
+    name: 'Dress',
+    value: 'dress',
+    image:
+      'url(https://www.sultandress.com/wp-content/uploads/2019/03/Muslim-Evening-kaftan-dress-online-shop-3.jpg)',
+  },
+  {
+    name: 'Pants',
+    value: 'pants',
+    image:
+      'url(https://www.realmenrealstyle.com/wp-content/uploads/2021/11/cargo-pants-for-men.jpg)',
+  },
+
+  {
+    name: 'Hat',
+    value: 'hat',
+    image:
+      'url(http://blog.delusionmfg.com/wp-content/uploads/2020/02/trendy-mens-hat-cowboy-1024x683.jpeg)',
+    selected: false,
+  },
+  {
+    name: 'Shoes',
+    value: 'shoes',
+    image:
+      'url(https://static.onecms.io/wp-content/uploads/sites/24/2021/03/24/cariuma-ibi-tout.jpg)',
+  },
+  {
+    name: 'Candle',
+    value: 'candle',
+    image:
+      'url(https://nationaltoday.com/wp-content/uploads/2020/08/world-candle-month-640x514.jpg)',
+  },
+  {
+    name: 'Jewelry',
+    value: 'jewelry',
+    image:
+      'url(https://donjjewellery.com/wp-content/uploads/2022/02/1-CUSTOM-FINE-JEWELRY-.jpg)',
+  },
+  {
+    name: 'Home Decor',
+    value: 'home decor',
+    image:
+      'url(https://images.livemint.com/img/2021/08/31/689x388/spacejoy-IH7wPsjwomc-unsplash_1630396553869_1630396604652.jpg)',
+  },
+  {
+    name: 'Jewelry Box',
+    value: 'jewelry box',
+    image:
+      'url(https://m.media-amazon.com/images/I/713Hk0Ay9mS._AC_SL1500_.jpg)',
+  },
+  {
+    name: 'Bags',
+    value: 'bags',
+    image:
+      'url(http://cdn.shopify.com/s/files/1/0286/9438/0653/collections/bags_1200x630.jpg?v=1649843787)',
+  },
+  {
+    name: 'Bookmark',
+    value: 'bookmarks',
+    image:
+      'url(https://cdn.shopify.com/s/files/1/0110/8633/2000/products/image_f40b62c2-5ffb-429c-98f7-699d65a28ab3.jpg?v=1630280781)',
+  },
+];

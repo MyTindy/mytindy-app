@@ -1,12 +1,10 @@
 ion-toolbar {
-  --background: #de0643;
-  background-image: linear-gradient(to bottom right, #f65206, #F20B4E);
+  --background: linear-gradient(to bottom right, #f65206, #f20b4e);
 }
 
 .back-btn {
   color: white;
   padding-left: 15px;
-
 }
 
 .rest-btn {
@@ -21,7 +19,6 @@ ion-toolbar {
 
 ion-content {
   --background: url(../../../assets/images/bg2.png) no-repeat center/cover fixed;
-
 }
 
 .container {
@@ -38,7 +35,6 @@ ion-content {
   align-items: center;
   border-radius: 100%;
   border: 6px solid white;
-
 }
 
 .inner {
@@ -56,17 +52,14 @@ ion-content {
   border-radius: 100%;
 }
 
-img{
-
+img {
   object-fit: cover;
-
 }
 .camera-icon {
   width: 40px;
   height: 40px;
   color: #de0643;
 }
-
 
 ion-avatar {
   width: 150px;
@@ -76,12 +69,10 @@ ion-avatar {
 
 ion-input {
   --color: black;
-
 }
 
 ion-label {
   --color: #de0643;
-
 }
 
 .input-container {

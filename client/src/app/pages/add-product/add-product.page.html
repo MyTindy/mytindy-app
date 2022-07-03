@@ -1,36 +1,40 @@
 <ion-header>
-  <ion-toolbar class="new-background-color">
-    <ion-buttons slot="start" class="back-btn" routerLink="/home">
-      <ion-icon class="back-arrow" name="arrow-back-outline"></ion-icon>
-      <h3>Back Home</h3>
+  <ion-toolbar>
+    <ion-title>Add a new product</ion-title>
+    <ion-buttons slot="start" fill="outline">
+      <ion-button (click)="prev()">
+        <ion-icon slot="start" name="arrow-back"></ion-icon> Prev
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end" fill="solid">
+      <ion-button (click)="next()"
+        >Next<ion-icon slot="end" name="arrow-forward"></ion-icon>
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-<ion-toolbar>
-  <ion-title>Add a new product</ion-title>
-  <ion-buttons slot="start" fill="outline">
-    <ion-button (click)="prev()">
-      <ion-icon slot="start" name="arrow-back"></ion-icon> Prev
-    </ion-button>
-  </ion-buttons>
-  <ion-buttons slot="end" fill="solid">
-    <ion-button (click)="next()">Next<ion-icon slot="end" name="arrow-forward"></ion-icon>
-    </ion-button>
-  </ion-buttons>
-</ion-toolbar>
 
 <ion-content>
   <form (ngSubmit)="onSubmit()">
     <ion-slides pager="true" #addProductSlider virtual="true">
       <ion-slide>
         <h2>Choose your product images</h2>
-        <div class="dropzone" appDropzone (hovered)="toggleHover($event)" (dropped)="onDrop($event)"
-          [class.hovering]="isHovering">
+        <div
+          class="dropzone"
+          appDropzone
+          (hovered)="toggleHover($event)"
+          (dropped)="onDrop($event)"
+          [class.hovering]="isHovering"
+        >
           <h3>Product images</h3>
           <p>Drag and Drop a File</p>
           <div class="file">
             <label class="file-label">
-              <input class="file-input" type="file" (change)="onDrop($any($event).target.files)" />
+              <input
+                class="file-input"
+                type="file"
+                (change)="onDrop($any($event).target.files)"
+              />
 
               <span class="file-cta">
                 <span class="file-icon">
@@ -44,25 +48,38 @@
         <h3>Uploads</h3>
 
         <div *ngFor="let file of files">
-          <app-uploader [file]="file" (imageURL)="addImagesURL($event)"></app-uploader>
+          <app-uploader
+            [file]="file"
+            (imageURL)="addImagesURL($event)"
+          ></app-uploader>
         </div>
       </ion-slide>
       <ion-slide>
         <h2>Choose your product type</h2>
-        <app-collections [list]="collections" (itemsChange)="updateCollections($event)"></app-collections>
+        <app-collections
+          [list]="collections"
+          (itemsChange)="updateCollections($event)"
+        ></app-collections>
       </ion-slide>
       <ion-slide>
         <h2>Choose your product tags</h2>
-        <app-collections [list]="tags" (itemsChange)="updateTags($event)"></app-collections>
+        <app-collections
+          [list]="tags"
+          (itemsChange)="updateTags($event)"
+        ></app-collections>
       </ion-slide>
       <ion-slide>
-        <app-product-details (detailsChange)="updateDetails($event)"></app-product-details>
+        <app-product-details
+          (detailsChange)="updateDetails($event)"
+        ></app-product-details>
       </ion-slide>
       <ion-slide>
         <ion-list>
           <ion-item>
             <h5>Name</h5>
-            <ion-label slot="end">{{productInfo.choosenDetails.name}}</ion-label>
+            <ion-label slot="end"
+              >{{productInfo.choosenDetails.name}}</ion-label
+            >
           </ion-item>
 
           <ion-item>
@@ -75,7 +92,11 @@
 
           <ion-item>
             <h5>Product tags</h5>
-            <ion-chip *ngFor="let tag of productInfo.selectedTags" slot="end" color="primary">
+            <ion-chip
+              *ngFor="let tag of productInfo.selectedTags"
+              slot="end"
+              color="primary"
+            >
               <ion-label>{{tag}}</ion-label>
               <ion-icon name="close"></ion-icon>
             </ion-chip>
@@ -83,12 +104,16 @@
 
           <ion-item>
             <h5>Price</h5>
-            <ion-badge slot="end">{{productInfo.choosenDetails.price}}</ion-badge>
+            <ion-badge slot="end"
+              >{{productInfo.choosenDetails.price}}</ion-badge
+            >
           </ion-item>
 
           <ion-item>
             <h5>Quantity</h5>
-            <ion-badge slot="end">{{productInfo.choosenDetails.quantity}}</ion-badge>
+            <ion-badge slot="end"
+              >{{productInfo.choosenDetails.quantity}}</ion-badge
+            >
           </ion-item>
         </ion-list>
 
