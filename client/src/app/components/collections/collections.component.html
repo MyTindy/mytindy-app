@@ -16,10 +16,13 @@
             class="checkbox-item"
             [formControlName]="i"
           ></ion-checkbox>
-          <button class="inner" (click)="startReading(list[i].name)">
-            <ion-icon name="volume-medium-outline" size="large"></ion-icon>
-          </button>
         </div>
+        <button
+          class="voice-reader-button"
+          (click)="startReading(list[i].name)"
+        >
+          <ion-icon name="volume-medium-outline" size="large"></ion-icon>
+        </button>
       </app-custom-checkbox>
     </ion-col>
   </ion-row>
