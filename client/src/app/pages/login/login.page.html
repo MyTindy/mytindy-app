@@ -30,7 +30,7 @@
       </ion-item>
 
       <div class="validation-errors">
-        <ng-container *ngFor="let validation of validation_messages.fullName">
+        <ng-container *ngFor="let validation of validationMessages.fullName">
           <div
             class="error-message"
             *ngIf="isSubmitted &&loginForm.get('fullName').hasError(validation.type) && (loginForm.get('fullName').dirty || loginForm.get('fullName').touched)"

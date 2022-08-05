@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import firebase from 'firebase/compat/app';
 
 import { AuthService } from 'src/app/services/auth.service';
+import { VALIDATION_MESSAGES } from 'src/app/shared/constants/validation-messages.constants';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,7 @@ export class LoginPage implements OnInit {
   phoneNumber: string;
   formType: 'login' | 'Register' | 'reset' = 'Register';
   isSubmitted = false;
+  public validationMessages = VALIDATION_MESSAGES;
 
   recaptchaVerifier: firebase.auth.RecaptchaVerifier;
   confirmationResult: any;
@@ -32,6 +34,11 @@ export class LoginPage implements OnInit {
   get isSignup(): boolean {
     return this.formType === 'Register';
   }
+
+  get errorControl() {
+    return this.loginForm.controls;
+  }
+
   changeFormType(value: 'login' | 'Register' | 'reset' = 'Register') {
     this.formType = value;
   }
@@ -48,10 +55,6 @@ export class LoginPage implements OnInit {
         ],
       ],
     });
-  }
-
-  get errorControl() {
-    return this.loginForm.controls;
   }
 
   async ionViewDidEnter() {
@@ -112,22 +115,4 @@ export class LoginPage implements OnInit {
         });
     }
   }
-
-  validation_messages = {
-    fullName: [
-      { type: 'required', message: '- Full Name is required.' },
-      {
-        type: 'minlength',
-        message: '- Name must be at least 5 characters long.',
-      },
-      {
-        type: 'maxlength',
-        message: '- Name cannot be more than 25 characters long.',
-      },
-      {
-        type: 'pattern',
-        message: '- Your fullname must contain letters and spaces only.',
-      },
-    ],
-  };
 }
