@@ -14,11 +14,17 @@ export class AuthService {
 
   constructor(private fireAuth: AngularFireAuth) {}
 
+  get getFullName() {
+    return this.fullName;
+  }
+
   public async signInWithPhoneNumber(recaptchaVerifier, phoneNumber) {
     return await this.fireAuth
       .signInWithPhoneNumber(phoneNumber, recaptchaVerifier)
       .then((confirmationResult) => {
         this.confirmationResult = confirmationResult;
+        console.log(this.confirmationResult);
+
         localStorage.setItem(
           'verificationId',
           JSON.stringify(confirmationResult.verificationId)
@@ -45,10 +51,6 @@ export class AuthService {
           reject(error.message);
         });
     });
-  }
-
-  get getFullName() {
-    return this.fullName;
   }
 
   async storeUsernameAndPhone(fullName) {

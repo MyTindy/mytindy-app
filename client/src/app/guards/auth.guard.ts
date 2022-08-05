@@ -3,7 +3,6 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import {
   ActivatedRouteSnapshot,
   CanActivate,
-  Router,
   RouterStateSnapshot,
 } from '@angular/router';
 import { ToastService } from '../services/toast.service';
@@ -24,7 +23,9 @@ export class AuthGuard implements CanActivate {
     const user = await this.authService.currentUser;
     const isLoggedIn = !!user; //convert it into boolean
 
-    if (!isLoggedIn) this.toastService.authError();
+    if (!isLoggedIn) {
+      this.toastService.authError();
+    }
     return isLoggedIn;
   }
 }
