@@ -11,7 +11,8 @@
 ## Project Scope  :dart: 
  
 Create an app to empower sellers with lower levels of literacy to list their products autonomously so they can sell through our platform. This app will be connected to our marketplace and will sync their products on our platform.
-
+## Demo 
+[Click to watch](https://www.loom.com/share/dd4e7108e9c944f99d5032d9e23f2d99)
 ## User stories: :book: 
 Relates to: [#8](https://github.com/MyTindy/mytindy-app/issues/8)
 
