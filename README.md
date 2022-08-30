@@ -17,10 +17,11 @@ Create an app to empower sellers with lower levels of literacy to list their pro
 Relates to: [#8](https://github.com/MyTindy/mytindy-app/issues/8)
 
 ## User Journey :world_map: 
-
 ![Untitled presentation](https://user-images.githubusercontent.com/62670964/167632323-0ee0227f-72b2-46e3-9f79-550c3b711f2f.jpg)
-
-
+<div align="center">
+<img src="https://user-images.githubusercontent.com/56412800/187397601-51a85a90-0905-4ca3-9d68-d40bb9c73f07.png" height=500 width=700 />
+<img src="https://user-images.githubusercontent.com/56412800/187397717-9c790a4d-3417-43c3-8166-57f8f4071f3f.png" height=500 width=700 />
+</div>
 HOPE YOU HAD A NICE JOURNEY :hearts: 
 
 ## Prototype :art: 
