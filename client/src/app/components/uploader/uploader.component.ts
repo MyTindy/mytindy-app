@@ -5,7 +5,6 @@ import {
 } from '@angular/fire/compat/storage';
 import { Observable } from 'rxjs';
 import { finalize, tap } from 'rxjs/operators';
-import { UsersService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-uploader',
@@ -33,8 +32,6 @@ export class UploaderComponent implements OnInit {
     this.task = this.storage.upload(path, this.file);
     this.percentage = this.task.percentageChanges();
 
-
-
     this.snapshot = this.task.snapshotChanges().pipe(
       tap(console.log),
       finalize(async () => {
@@ -46,6 +43,7 @@ export class UploaderComponent implements OnInit {
               console.log('"""File not found"""');
             }
           });
+
         this.imageURL.emit(this.downloadURL);
       })
     );

@@ -18,6 +18,10 @@ export class AuthService {
     return this.fullName;
   }
 
+  get getPhone() {
+    return this.phoneNumber;
+  }
+
   public async signInWithPhoneNumber(recaptchaVerifier, phoneNumber) {
     return await this.fireAuth
       .signInWithPhoneNumber(phoneNumber, recaptchaVerifier)

@@ -33,7 +33,7 @@ export class PhotoService {
           directory: Directory.Data,
         });
 
-        photo.webviewPath = `data:image/jpeg;base64,${readFile.data}`;
+        return (photo.webviewPath = `data:image/jpeg;base64,${readFile.data}`);
       }
     }
   }

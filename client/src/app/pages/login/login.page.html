@@ -16,9 +16,7 @@
 
     <div *ngIf="isLogin" class="statues">
       <h1>Log in</h1>
-      <ion-button
-        (click)="changeFormType('Register')"
-        [routerLink]="['/register']"
+      <ion-button (click)="changeFormType('Register')" [routerLink]="['/login']"
         >not registered yet?</ion-button
       >
     </div>

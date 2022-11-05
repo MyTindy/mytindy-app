@@ -107,6 +107,7 @@ export class LoginPage implements OnInit {
       await this.authService.storeUsernameAndPhone(
         this.loginForm.value.fullName
       );
+      localStorage.setItem('fullName', this.loginForm.value.fullName);
 
       await this.authService
         .signInWithPhoneNumber(this.recaptchaVerifier, this.phoneNumber)

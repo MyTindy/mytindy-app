@@ -1,7 +1,7 @@
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-/* eslint-disable @typescript-eslint/no-inferrable-types */
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-settings',
@@ -12,19 +12,16 @@ export class SettingsPage implements OnInit {
   photo =
     'https://image.shutterstock.com/image-photo/pottery-artisan-making-fireclay-jugs-260nw-599795654.jpg';
 
-  data: any = {
-    username: '',
-    name: '',
-    lastName: '',
-    phoneNumber: '',
-    emailAddress: '',
-    sms: false,
-    addPasscode: false,
-  };
+  userInfoForm: any;
+  isToggleBtnChecked = false;
 
-  uid: string = '';
+  uid = '';
 
-  constructor(private auth: AngularFireAuth, private store: AngularFirestore) {
+  constructor(
+    private auth: AngularFireAuth,
+    private store: AngularFirestore,
+    private formBuilder: FormBuilder
+  ) {
     // for check if user is Auth
     this.auth.onAuthStateChanged(async (user: any) => {
       if (user) {
@@ -35,11 +32,19 @@ export class SettingsPage implements OnInit {
         console.log(' no auth');
       }
     });
-
-    // for logout user
-    // this.auth.signOut();
   }
-  ngOnInit() {}
+  ngOnInit() {
+    this.isToggleBtnChecked = false;
+    this.userInfoForm = this.formBuilder.group({
+      username: [''],
+      name: [''],
+      lastName: [''],
+      phoneNumber: [''],
+      emailAddress: [''],
+      sms: false,
+      addPasscode: false,
+    });
+  }
 
   async getInfouser() {
     this.store
@@ -48,7 +53,7 @@ export class SettingsPage implements OnInit {
       .get()
       .subscribe((res) => {
         console.log(res.data());
-        this.data = res.data();
+        this.userInfoForm = res.data();
       });
   }
 
@@ -61,13 +66,7 @@ export class SettingsPage implements OnInit {
         console.log('saved data');
       });
   }
-
   openOptionSelection() {
-    console.log('hello world');
-  }
-
-  logForm(form) {
-    // eslint-disable-next-line no-console
-    console.info(form.value);
+    console.log('openOptionSelection');
   }
 }

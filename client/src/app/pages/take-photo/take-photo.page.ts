@@ -34,7 +34,7 @@ export class TakePhotoPage implements OnInit {
   async uploadImage(image: any) {
     const response = await fetch(image.webviewPath!);
     const blob = await response.blob();
-
+    localStorage.setItem('uploadedImage', image.webviewPath);
     this.uploadService.uploadImage(blob);
   }
 
@@ -54,9 +54,6 @@ export class TakePhotoPage implements OnInit {
           text: 'Cancel',
           icon: 'close',
           role: 'cancel',
-          handler: () => {
-            // action sheet is automatically closed here
-          },
         },
       ],
     });

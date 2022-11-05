@@ -14,6 +14,10 @@ export class UsersService {
     private afAuth: AngularFireAuth
   ) {}
 
+  get user() {
+    return this.userInfo;
+  }
+
   async addUser(userData, location) {
     try {
       const {
@@ -28,6 +32,7 @@ export class UsersService {
         .add({ uid, name, phone, email, location, photoURL, passcode: null });
       this.userID = userId;
       localStorage.setItem('userId', this.userID);
+      localStorage.setItem('name', name);
       return userId;
     } catch (error) {
       console.error('User has not been created', error);

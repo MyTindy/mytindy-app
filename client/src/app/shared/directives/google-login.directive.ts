@@ -32,7 +32,7 @@ export class GoogleLoginDirective {
             );
           return this.router.navigate(['/take-photo']);
         }
-        this.router.navigate(['/home']);
+        this.router.navigate(['/take-photo']);
       })
       .catch(async (err) =>
         err.code === 'auth/popup-closed-by-user'
