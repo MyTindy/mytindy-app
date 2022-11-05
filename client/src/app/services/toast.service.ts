@@ -34,4 +34,17 @@ export class ToastService {
         toastData.present();
       });
   }
+
+  async logout() {
+    this.toastCtrl
+      .create({
+        message: 'You have been logged out, GOODBYE!',
+        duration: 5000,
+        position: 'top',
+        color: 'success',
+      })
+      .then((toastData) => {
+        toastData.present();
+      });
+  }
 }
