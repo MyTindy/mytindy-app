@@ -20,7 +20,7 @@ export class AddProductPage {
 
   isHovering: boolean;
   files: File[] = [];
-  imagesURL = [];
+  imagesURL: string[] = [];
   collections = COLLECTIONS_LIST;
   tags = TAGS_LIST;
   productInfo = {

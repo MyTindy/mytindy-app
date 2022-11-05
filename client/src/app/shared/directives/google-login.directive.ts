@@ -30,12 +30,13 @@ export class GoogleLoginDirective {
             .then((locationRes) =>
               this.usersService.addUser(userRes.user, locationRes)
             );
+          return this.router.navigate(['/take-photo']);
         }
-        this.router.navigate(['/home']);
+        this.router.navigate(['/take-photo']);
       })
-      .catch((err) =>
+      .catch(async (err) =>
         err.code === 'auth/popup-closed-by-user'
-          ? this.toastService.closedPopup()
+          ? await this.toastService.closedPopup()
           : console.log(err)
       );
   }

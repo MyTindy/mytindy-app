@@ -4,6 +4,14 @@
       <ion-icon class="back-arrow" name="arrow-back-outline"></ion-icon>
       <h3>Back Home</h3>
     </ion-buttons>
+    <ion-button
+      slot="end"
+      color="ion-color-tertiary"
+      (click)="logout()"
+      routerLink="/login"
+    >
+      <ion-icon name="log-out" md="md-log-out"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 <ion-content>
@@ -11,7 +19,7 @@
     <div class="container">
       <div class="outer">
         <ion-avatar class="profile-pic">
-          <img [src]="photo" />
+          <img [src]="userInfo.photo" />
         </ion-avatar>
 
         <div class="inner">
@@ -19,16 +27,8 @@
         </div>
       </div>
     </div>
-    <h2 class="user">Mohammad</h2>
-    <p class="user">21 items</p>
+    <h2 class="user">{{userInfo.username}}</h2>
   </div>
 
-  <!-- <ion-slides [options]="slideOpts" class="ion-margin-top">
-    <ion-slide *ngFor="let cat of categories">
-      <ion-card>
-        <img [src]="cat.img" />
-      </ion-card>
-    </ion-slide>
-  </ion-slides> -->
   <app-search></app-search>
 </ion-content>

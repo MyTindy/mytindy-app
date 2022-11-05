@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { UsersService } from 'src/app/services/user.service';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { ToastService } from 'src/app/services/toast.service';
+import { PhotoService } from 'src/app/services/photo.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,27 +11,48 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
-  photo = 'https://image.shutterstock.com/image-photo/pottery-artisan-making-fireclay-jugs-260nw-599795654.jpg';
-  slideOpts = {
-    freeMode: true,
-    centeredSlides: true,
-    slidesPerView: 1.5,
-    slidesOffsetBefore: 11,
-    spaceBetween: 10,
-    loop: true,
-    speed: 200,
-    autoplay: true,
-  };
+  userInfo = null;
+  localPhoto = null;
+  userData = {};
 
   categories = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private userService: UsersService,
+    public afAuth: AngularFireAuth,
+    private toastService: ToastService,
+    public photoService: PhotoService
+  ) {}
 
-  ngOnInit() {
-    this.http
-      .get('https://devdactic.fra1.digitaloceanspaces.com/foodui/home.json  ')
-      .subscribe((res: any) => {
-        this.categories = res.categories;
-      });
+  async ngOnInit() {
+    this.userData = this.userService.user;
+
+    this.localPhoto = await (
+      await this.photoService.loadSavedPhotos()
+    )?.valueOf();
+
+    this.afAuth.currentUser.then((res) => {
+      if (res.providerData[0]?.photoURL) {
+        this.userInfo = {
+          uid: res.uid,
+          username: res.displayName,
+          photo: res.providerData[0].photoURL,
+        };
+      } else {
+        this.userInfo = {
+          uid: res.uid,
+          username: res.displayName ?? localStorage.getItem('fullName'),
+          photo: this.localPhoto ?? localStorage.getItem('uploadedImage'),
+        };
+      }
+    });
+
+    return this.userInfo;
+  }
+
+  logout() {
+    this.afAuth.signOut().then(() => {
+      this.toastService.logout();
+    });
   }
 }

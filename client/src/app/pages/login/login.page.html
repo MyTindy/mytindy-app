@@ -16,9 +16,7 @@
 
     <div *ngIf="isLogin" class="statues">
       <h1>Log in</h1>
-      <ion-button
-        (click)="changeFormType('Register')"
-        [routerLink]="['/register']"
+      <ion-button (click)="changeFormType('Register')" [routerLink]="['/login']"
         >not registered yet?</ion-button
       >
     </div>
@@ -30,7 +28,7 @@
       </ion-item>
 
       <div class="validation-errors">
-        <ng-container *ngFor="let validation of validation_messages.fullName">
+        <ng-container *ngFor="let validation of validationMessages.fullName">
           <div
             class="error-message"
             *ngIf="isSubmitted &&loginForm.get('fullName').hasError(validation.type) && (loginForm.get('fullName').dirty || loginForm.get('fullName').touched)"

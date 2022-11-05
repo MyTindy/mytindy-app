@@ -1,0 +1,9 @@
+<ion-item>
+  <ion-slides [options]="slideOpts" class="ion-margin-top">
+    <ion-slide *ngFor="let image of imagesURL">
+      <ion-card>
+        <img [src]="image" />
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+</ion-item>

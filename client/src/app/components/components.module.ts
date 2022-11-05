@@ -16,6 +16,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { SpeechRecognizerComponent } from './speech-recognizer/speech-recognizer.component';
 import { EditModalComponent } from './edit-modal/edit-modal.component';
 import { PasscodeSetupComponent } from './passcode-setup/passcode-setup.component';
+import { ProductSliderComponent } from './product-slider/product-slider.component';
 
 const components = [
   SocialLoginComponent,
@@ -30,6 +31,7 @@ const components = [
   SpeechRecognizerComponent,
   EditModalComponent,
   PasscodeSetupComponent,
+  ProductSliderComponent,
 ];
 const modules = [
   CommonModule,

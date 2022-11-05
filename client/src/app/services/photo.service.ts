@@ -33,7 +33,7 @@ export class PhotoService {
           directory: Directory.Data,
         });
 
-        photo.webviewPath = `data:image/jpeg;base64,${readFile.data}`;
+        return (photo.webviewPath = `data:image/jpeg;base64,${readFile.data}`);
       }
     }
   }
@@ -68,6 +68,20 @@ export class PhotoService {
       directory: Directory.Data,
     });
   }
+  async readAsBase64(photo: Photo) {
+    if (this.platform.is('hybrid')) {
+      const file = await Filesystem.readFile({
+        path: photo.path,
+      });
+      return file.data;
+    } else {
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      const response = await fetch(photo.webPath!);
+      const blob = await response.blob();
+
+      return (await this.convertBlobToBase64(blob)) as string;
+    }
+  }
 
   private async savePhotos(photo: Photo) {
     const base64Data = await this.readAsBase64(photo); // to be saved in Base64
@@ -89,21 +103,6 @@ export class PhotoService {
         filepath: fileName,
         webviewPath: photo.webPath,
       };
-    }
-  }
-
-  async readAsBase64(photo: Photo) {
-    if (this.platform.is('hybrid')) {
-      const file = await Filesystem.readFile({
-        path: photo.path,
-      });
-      return file.data;
-    } else {
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      const response = await fetch(photo.webPath!);
-      const blob = await response.blob();
-
-      return (await this.convertBlobToBase64(blob)) as string;
     }
   }
 

@@ -1,0 +1,28 @@
+ion-card {
+  width: 70vw;
+  height: 20vh;
+  box-shadow: burlywood;
+  border-radius: 10px;
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    transform: scale(0.8, 0.8) rotate(2deg);
+    transition: 600ms all ease-in-out;
+  }
+}
+
+.swiper-slide-active {
+  transform: scale(1, 1) rotate(0deg);
+
+  ion-card {
+    img {
+      transform: scale(1, 1);
+    }
+  }
+}
+
+.swiper-slide {
+  transition: 400ms all ease-in-out;
+}

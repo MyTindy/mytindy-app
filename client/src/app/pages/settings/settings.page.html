@@ -10,72 +10,60 @@
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true" class="ion-padding">
-  <form #form="ngForm" (submit)="saveProfile(form)">
-    <div class="container">
-      <div class="outer">
-        <ion-avatar class="profile-pic">
-          <img [src]="photo" />
-        </ion-avatar>
+  <div class="container">
+    <div class="outer">
+      <ion-avatar class="profile-pic">
+        <img [src]="photo" />
+      </ion-avatar>
 
-        <div class="inner" (click)="openOptionSelection()">
-          <ion-icon name="camera" class="camera-icon"></ion-icon>
-        </div>
+      <div class="inner" (click)="openOptionSelection()">
+        <ion-icon name="camera" class="camera-icon"></ion-icon>
       </div>
     </div>
+  </div>
 
-    <form class="input-container" (ngSubmit)="logForm(form)">
-      <ion-item>
-        <ion-label position="stacked" color="danger">User Name</ion-label>
-        <ion-input name="username" [(ngModel)]="data.username"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="stacked" color="danger">Name</ion-label>
-        <ion-input name="name" [(ngModel)]="data.name"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="stacked" color="danger">Last Name</ion-label>
-        <ion-input name="lastName" [(ngModel)]="data.lastName"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="stacked" color="danger">Phone Number</ion-label>
-        <ion-input
-          type="number"
-          name="phoneNumber"
-          [(ngModel)]="data.phoneNumber"
-        ></ion-input>
-      </ion-item>
-      <ion-item class="last-input">
-        <ion-label position="stacked" color="danger">Email Address</ion-label>
-        <ion-input
-          type="email"
-          name="emailAddress"
-          [(ngModel)]="data.emailAddress"
-        ></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label
-          >Send me Email or SMS when <br />
-          a product is been soald</ion-label
-        >
-        <ion-toggle
-          color="danger"
-          name="sms"
-          [(ngModel)]="data.sms"
-        ></ion-toggle>
-      </ion-item>
-      <ion-item lines="none">
-        <ion-label>Add passcode</ion-label>
-        <ion-toggle
-          color="danger"
-          name="addPasscode"
-          [(ngModel)]="data.addPasscode"
-        ></ion-toggle>
-      </ion-item>
-      <app-passcode-setup [hidden]="!data.addPasscode!"></app-passcode-setup>
-    </form>
-
-    <div class="button-continer">
-      <button class="savebtn">Save</button>
-    </div>
+  <form class="input-container">
+    <ion-item>
+      <ion-label position="stacked" color="danger">User Name</ion-label>
+      <ion-input name="username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked" color="danger">Name</ion-label>
+      <ion-input name="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked" color="danger">Last Name</ion-label>
+      <ion-input name="lastName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked" color="danger">Phone Number</ion-label>
+      <ion-input type="number" name="phoneNumber"></ion-input>
+    </ion-item>
+    <ion-item class="last-input">
+      <ion-label position="stacked" color="danger">Email Address</ion-label>
+      <ion-input type="email" name="emailAddress"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label
+        >Send me Email or SMS when <br />
+        a product is been soald</ion-label
+      >
+      <ion-toggle color="danger" name="sms"></ion-toggle>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>Add passcode</ion-label>
+      <ion-toggle
+        color="danger"
+        name="isToggledBtnChecked"
+        [(ngModel)]="isToggleBtnChecked"
+        [checked]="isToggleBtnChecked"
+        (ionChange)="onToggleBtnChange($event)"
+      ></ion-toggle>
+    </ion-item>
+    <app-passcode-setup [hidden]="!isToggleBtnChecked"></app-passcode-setup>
   </form>
+
+  <div class="button-continer">
+    <button class="savebtn">Save</button>
+  </div>
 </ion-content>
