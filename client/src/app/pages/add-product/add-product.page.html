@@ -16,7 +16,12 @@
 
 <ion-content>
   <form (ngSubmit)="onSubmit()">
-    <ion-slides pager="true" #addProductSlider virtual="true">
+    <ion-slides
+      pager="true"
+      #addProductSlider
+      virtual="true"
+      class="parent-slider"
+    >
       <ion-slide>
         <h2>Choose your product images</h2>
         <div
@@ -55,14 +60,14 @@
         </div>
       </ion-slide>
       <ion-slide>
-        <h2>Choose your product type</h2>
+        <h2>Choose your product Category</h2>
         <app-collections
           [list]="collections"
           (itemsChange)="updateCollections($event)"
         ></app-collections>
       </ion-slide>
       <ion-slide>
-        <h2>Choose your product tags</h2>
+        <h2>Choose Your Product Tags</h2>
         <app-collections
           [list]="tags"
           (itemsChange)="updateTags($event)"
@@ -75,6 +80,7 @@
       </ion-slide>
       <ion-slide>
         <ion-list>
+          <app-product-slider [imagesURL]="imagesURL"></app-product-slider>
           <ion-item>
             <h5>Name</h5>
             <ion-label slot="end"
@@ -116,7 +122,6 @@
             >
           </ion-item>
         </ion-list>
-
         <ion-button type="submit">Confirm</ion-button>
       </ion-slide>
     </ion-slides>
